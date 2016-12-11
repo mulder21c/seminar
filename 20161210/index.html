@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<link rel="stylesheet" href="./framework/reveal.js-master/css/reveal.css">
+	<link rel="stylesheet" href="./fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="./framework/prismjs/prism.css">
+	<link rel="stylesheet" href="./framework/reveal.js-master/css/print/pdf.css" media="print">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>ARIA 실전 노트</title>
+	<script src="./framework/reveal.js-master/lib/js/head.min.js"></script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-55718543-5', 'auto');
+		ga('send', 'pageview');
+</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="cover">
+				<h1>
+					WAI-ARIA 
+				</h1>
+				<p>WAI-ARIA 실전 Note</p>
+			</section>
+			<section class="profile">
+				<div>
+					<img src="./images/967001_446441215449774_360669820_o.jpg" alt="프로필 사진" class="photo" />
+					<p class="name">
+						<b>지성봉</b>
+					</p>
+					<p class="company">
+						콘텐츠연합플랫폼(주) 퍼블리셔
+					</p>
+					<p class="external-activity">
+						&lsquo;<small>예제로 살펴보는</small> WAI-ARIA&rsquo; 집필진
+					</p>
+				</div>
+			</section>
+			<section class="overview">
+				<section>
+					<h2>들어가기에 앞서...</h2>
+				</section>
+				<section>
+					<h3>HTML의 목적</h3>
+					<p class="fragment">
+						<span class="light">HTML was primarily designed as a language for </span>
+						<b>semantically describing
+						scientific documents.</b>
+					</p>
+				</section>
+				<section>
+					<h3>What is Semantic</h3>
+					<p class="fragment">
+						<span class="light">Elements, attributes, and attribute values in HTML are defined to have </span><b>certain meanings</b><span class="light"> (semantics).</span>
+					</p>
+				</section>
+				<section>
+					<h3>Accessibillity - Semantic</h3>
+					<p>
+						<span class="light">Semantic information carried by HTML elements and attributes is</span> 
+						<b>integral to making content
+						on the web accessible</b>
+					</p>
+				</section>
+				<section>
+					<h3>This is the base, starting here.</h3>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Why WAI-ARIA?</h2>
+				</section>
+				<section>
+					<img src="./images/kwcag-cover.jpg" alt="한국형 웹 콘텐츠 접근성 지침 2.1" class="stretch">
+				</section>
+				<section>
+					<iframe width="640" height="360" data-autoplay src="https://www.youtube.com/embed/yxO-0H3ON94?rel=0&amp;showinfo=0" frameborder="0" class="stretch"></iframe>
+				</section>
+				<section>
+					<b>Listen Carefully</b>
+				</section>
+			</section>
+			<section>
+				<section class="what-is-aria">
+					<div>
+						<span class="fragment" data-fragment-index="0"></span><b> w</b><span>eb</span><b> a</b><span>ccessibility</span><b> i</b><span>nitiative</span><b style="text-align:center"> &dash; </b><span class="fragment" data-fragment-index="0" data-custom-display="display" style="display:block"> 
+						</span><span> web</span><b class="fragment" data-fragment-index="0" data-custom-display="display" style="display:inline-block;white-space:pre;"> </b><b>a</b><span>ccessibility</span><b> r</b><span>ich</span><b> i</b><span>internet</span><b> a</b><span>pplication</span> 
+					</div>
+				</section>
+				<section>
+					<b>Listen Carefully again</b>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 style="font-size:1.75em">How to apply WAI-ARIA?</h2>
+				</section>
+			</section>
+			<section class="use-rules">
+				<section>
+					<h3>WAI-ARIA rules</h3>
+				</section>
+				<section>
+					<h4 class="rules-heading">native HTML 요소/속성 사용</h4>
+					<p class="fragment rules-body">
+						의미를 가진 native HTML element/attribute가 있다면,
+						ARIA role, state, property를 추가하는 대신 
+						native를 사용
+					</p>
+				</section>
+				<section>
+					<pre class=""><code class="language-markup">&lt;!-- If not possible to use the correct element, use this --&gt;
+&lt;span role="button"&gt;버튼&lt;/span&gt;
+
+&lt;!-- If possible to use the correct element, use this --&gt;
+&lt;button type="button"&gt;버튼&lt;/button&gt; </code></pre>
+				</section>
+				<section>
+					<h4 class="rules-heading">native semantic을 변경 금지</h4>
+					<p class="fragment rules-body">
+						<strong>정말로</strong> 그래야 하는 것이 아닌 이상,
+						native semantic을 변경하지 말아야 함.
+					</p>
+				</section>
+				<section>
+					<pre><code class="language-markup">&lt;!-- Do not do this --&gt;
+&lt;h1 role=button&gt;heading button&lt;/h1&gt;
+
+&lt;!-- Do this --&gt;
+&lt;h1&gt;&lt;button type="button"&gt;heading button&lt;/button&gt;&lt;/h1&gt;<span class="fragment" data-custom-display="none">
+
+&lt;!-- If not possible to use the button element --&gt;
+&lt;h1&gt;&lt;span role=button&gt;heading button&lt;/span&gt;&lt;/h1&gt;</span>
+</code></pre>
+				</section>
+				<section>
+					<h4 class="rules-heading">키보드 사용 가능</h4>
+					<p class="fragment rules-body">
+						click, tap, drag, drop, slide, scroll 등의 
+						user interaction은 키보드로도 
+						동등한 동작이 가능해야 함.
+					</p>
+				</section>
+				<section>
+					<pre><code class="language-markup">&lt;span role="button" aria-pressed="false"&gt;좋아요&lt;/span&gt;
+/*
+ * required keyboard interaction
+ *  - button must be focusable
+ *  - when on focus the button, presssing <kbd>Enter</kbd> or <kbd>Space</kbd> key
+ *    activates (or deactivates) the button
+ *  - when the button activated, sets 'aria-pressed' to 'true', 
+ *    otherwise 'false'.
+*/</code></pre>
+				</section>
+				<section>
+					<h4 class="rules-heading-wide">visible focusable 요소를 
+					의미를 없애거나 숨겨진 요소로 인식하지 않도록</h4>
+					<p class="fragment rules-body">
+						키보드 접근이 가능한 요소가 인식될 수 없다면 오류
+					</p>
+				</section>
+				<section>
+					<pre><code class="language-markup">&lt;!-- Do not do this --&gt;
+&lt;button type="button" role="presentation"&gt;좋아요&lt;/button&gt;
+&lt;button type="button" aira-hidden="true"&gt;좋아요&lt;/button&gt;</code></pre>
+				</section>
+			</section>
+			<section class="appropriate-aria-attributes">
+				<section>
+					<h3 class="heading">appropriate 
+					<b>role / property / state</b></h3>
+				</section>
+				<section>
+					<h4>Role</h4>
+					<dl class="attributes">
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 대화상자 UI를 만들고 있다면?</dt>
+						<dd class="fragment">use <b>dialog role</b></dd>
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 탭 UI를 만들고 있다면?</dt>
+						<dd class="fragment">use <b>tablist / tab / tabpanel role</b></dd>
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 경고 알람 UI를 만들고 있다면?</dt>
+						<dd class="fragment">use <b>alert role</b></dd>
+					</dl>
+				</section>
+				<section>
+					<h4>property</h4>
+					<dl class="attributes">
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 컴포넌트가 하위 메뉴를 가진다면?</dt>
+						<dd class="fragment">use <b>aria-haspopup="true"</b></dd>
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 실시간으로 변경되는 컴포넌트라면?</dt>
+						<dd class="fragment">use <b>aria-live="polite|assertive|lude"</b></dd>
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 개체에 label을 제공해야 한다면?</dt>
+						<dd class="fragment">use <b>aria-label | aria-labelledby</b></dd>
+					</dl>
+				</section>
+				<section>
+					<h4>state</h4>
+					<dl class="attributes">
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 컴포넌트가 숨김 상태라면?</dt>
+						<dd class="fragment">use <b>aria-hidden="true"</b></dd>
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 컴포넌트가 펼침 상태라면?</dt>
+						<dd class="fragment">use <b>aria-expanded="true"</b></dd>
+						<dt><i class="fa fa-question-circle-o" aria-hidden="true"></i> 컴포넌트가 눌림 상태라면?</dt>
+						<dd class="fragment">use <b>aria-pressed="true"</b></dd>
+					</dl>
+				</section>
+			</section>
+			<section class="keyboard-interaction">
+				<section>
+					<h3>keyboard interaction</h3>
+				</section>
+				<section>
+					<h4><b>Custom Components</b></h4>
+				</section>
+				<section>
+					<dl class="combobox-key-interaction">
+						<dt>
+							combobox - keyboard interaction
+						</dt>
+						<dd class="fragment" data-fragment-index="0">
+							상/하 방향키 : 목록 위/아래 포커스 이동
+						</dd>
+						<dd class="fragment" data-fragment-index="0">
+							Alt + 상/하 방향키 : 목록 열기/닫기
+						</dd>
+						<dd class="fragment" data-fragment-index="0">
+							ESC 키 : 드롭다운 목록 닫기
+						</dd>
+						<dd class="fragment" data-fragment-index="0">
+							Enter 키 : 현재 항목 선택
+						</dd>
+						<dd class="fragment" data-fragment-index="0">
+							Page Up/Down : 이전/다음 페이지
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<p class="w3c">대다수 UI의 keyboard interaction은 W3C 문서에 기술</p>
+					<a href="https://www.w3.org/TR/wai-aria-practices/#alert" target="_blank">WAI-ARIA Authoring Practices 1.1</a>
+				</section>
+			</section>
+			<section>
+				<section>
+					실제 적용해 보자
+				</section>
+			</section>
+			<section class="caution">
+				<p>
+					WAI-ARIA는 접근성을 <b>더 높이기 위한 수단</b>
+				</p>
+				<p class="fragment" style="margin-top:2em;">
+					어디까지나 기본은 <b>semantic markup</b>
+				</p>
+			</section>
+			<section>
+				<section>
+					<img src="./images/jjal.jpg" alt="" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/aria-cover.jpg" alt="" class="stretch" />
+				</section>
+				<section class="github">					
+					<a href="https://github.com/niawa/ARIA" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> WAI-ARIA 사례집 수록 코드 </a>
+				</section>
+				<section>
+					<a href="https://github.com/mulder21c/aria-examples" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> mulder21c's <span style="text-transform:uppercase;">aria-examples</span></a>
+				</section>
+			</section>			
+			<section>
+				<section>
+					<h2>reference URL</h2>
+				</section>
+				<section>
+					<dl class="reference">
+						<dt>ARIA 1.0 Rec (W3C)</dt> 
+						<dd><a href="https://www.w3.org/TR/wai-aria/" target="_blank">https://www.w3.org/TR/wai-aria/</a></dd>
+						<dt>Notes on Using ARIA in HTML WD (W3C)</dt> 
+						<dd><a href="https://www.w3.org/TR/aria-in-html/" target="_blank">https://www.w3.org/TR/aria-in-html/</a></dd>
+						<dt>WAI-ARIA Authoring Practices 1.1 WD (W3C)</dt>
+						<dd><a href="https://www.w3.org/TR/wai-aria-practices-1.1/" target="_blank">https://www.w3.org/TR/wai-aria-practices-1.1/</a></dd>
+						<dt>hacosa 세미나 - WAI-ARIA 발표 자료</dt>
+						<dd><a href="http://seminar1505.publisher.name" target="_blank">http://seminar1505.publisher.name</a></dd>
+					</dl>
+				</section>
+				<section class="contact">
+					<h2 class="heading">Contact</h2>
+					<dl>
+						<dt><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="hidden-accessible">E-Mail</span></dt>
+						<dd><a href="mailto:publisher@publisher.name" target="_blank">publisher@publisher.name</a></dd>
+						<dt><i class="fa fa-github" aria-hidden="true"></i><span class="hidden-accessible">github</span></dt>
+						<dd><a href="https://github.com/mulder21c/aria-examples" target="_blank">github.com/mulder21c/aria-examples</a></dd>
+					</dl>
+				</section>
+			</section>
+		</div>
+	</div>
+	<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+	<script src="./framework/reveal.js-master/js/reveal.js"></script>
+	<script src="./framework/prismjs/prism.js"></script>
+	<script>
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', 
+			dependencies: [
+				// Zoom in and out with Alt+click
+				{ src: './framework/reveal.js-master/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+
+				// Speaker notes
+				{ src: './framework/reveal.js-master/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+			]
+		});
+
+		Reveal.addEventListener('fragmentshown', function(event){
+			event = event || window.event;
+			for(var i = -1, item = null; item = event.fragments[++i];){
+				if(item.getAttribute('data-custom-display') === 'none'){
+					item.setAttribute('data-custom-display', 'display');
+				}else if(item.getAttribute('data-custom-display') === 'display'){
+					item.setAttribute('data-custom-display', 'none');
+				}
+			}
+		} );
+		Reveal.addEventListener('fragmenthidden', function(event){
+			event = event || window.event;
+			for(var i = -1, item = null; item = event.fragments[++i];){
+				if(item.getAttribute('data-custom-display') === 'display'){
+					item.setAttribute('data-custom-display', 'none');
+				}else if(item.getAttribute('data-custom-display') === 'none'){
+					item.setAttribute('data-custom-display', 'display');
+				}
+			}
+		});
+	</script>
+</body>
+</html>
