@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="./framework/reveal/3.4.1/css/reveal.css">
+	<link rel="stylesheet" href="./fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="./framework/prismjs/prism.css">
+	<link rel="stylesheet" href="./framework/reveal/3.4.1/css/print/pdf.css" media="print">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>Web Accessiblity</title>
+	<script src="./framework/reveal/3.4.1/lib/js/head.min.js"></script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="cover">
+				<h1 class="heading-primary">
+					Web Accessibility <wbr>101
+				</h1>
+			</section>
+			<section>
+				<section class="profile">
+					<img src="./images/967001_446441215449774_360669820_o.jpg" alt="프로필 사진" class="photo">
+					<p class="name">
+						<b>멀더끙</b>
+					</p>
+					<p class="company">
+						現 콘텐츠연합플랫폼(주) 퍼블리셔
+					</p>
+					<p class="external-activity">
+						現 &lsquo;정보접근성 포럼&rsquo; 표준분과 회원
+					</p>
+					<p class="external-activity">
+						&lsquo;<small>예제로 살펴보는</small> WAI-ARIA&rsquo; 집필진
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<p class="heading-primary pre-formatted">What is, 
+						Why, 
+						How?
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="heading-secondary pre-formatted">Result of Survey
+					</h2>
+					<p class="heading-tertiary">
+						총 응답자 : 164명
+					</p>
+				</section>
+				<section>
+					<figure>
+						<p class="pre-formatted">웹 페이지 제작 시, 
+							기본적으로 웹 접근성을 준수하도록 제작 하고 계신가요?</p>
+						<img src="./images/chart1.png" alt="예 63.4%, 아니오 36.6%" class="survey-chart" />
+					</figure>
+				</section>
+				<section>
+					<figure>
+						<p class="pre-formatted">웹 접근성 준수가 잘 되었는지 평가를 진행하시나요?</p>
+						<img src="./images/chart2.png" alt="예 42.3%, 아니오 57.7%" class="survey-chart" />
+					</figure>
+				</section>
+				<section>
+					<figure>
+						<p class="pre-formatted">각 유형별 장애를 가진 이들 모두가 
+						내가 만든 사이트를 충분히 이용할 수 있을 것이라 기대하십니까? </p>
+						<img src="./images/chart4.png" alt="예 24%, 아니오 76%" class="survey-chart" />
+					</figure>
+				</section>
+				<section>
+					<p class="heading-tertiary">여기서 잠깐!</p>
+					<p class="pre-formatted">W3C Validator로 검증을 해보거나, 
+						스스로 코드 리뷰를 거치지 않은 HTML문서는 
+						웹표준을 준수했다고 신뢰할 수 있는가?
+					</p>
+					<p class="pre-formatted fragment"><b>접근성 평가를 하지 않은 웹 페이지는
+						웹 접근성을 충분히 제공한다고 신뢰할 수 있는가?</b>
+					</p>
+				</section>
+				<section>
+					<p class="heading-tertiary pre-formatted">실질적으로 접근성을 
+					충분히 제공하고 있다고 추정 가능</p>
+					<p class="heading-primary">8.48%</p>
+				</section>
+				<section>
+					<figure>
+						<p class="pre-formatted">웹 접근성을 기본 제공으로 두지 않는
+							이유는 무엇인가요?</p>
+						<img src="./images/chart3.png" alt="시간도 오래걸리고 어려워서 55.0%, 웹접근성을 어떻게 준수하는지 몰라서 33.3%, 귀찮아서 5%" class="survey-chart" />
+					</figure>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="heading-primary pre-formatted">What  is 
+						Web Accessibility
+					</h2>
+				</section>
+				<section>
+					<strong class="heading-secondary pre-formatted">What do you say to 
+						the	web accessibility?
+					</strong>
+				</section>
+				<section>
+					<p class="">
+						많은 부분 간과 하는 것.
+					</p>
+					<p class="heading-secondary pre-formatted ">Web <em class="typo-highlight fragment highlight-blue">Content</em>
+						Accessibility Guidelines
+					</p>
+				</section>
+				<section>
+					<p class="heading-tertiary">
+						<span>Web Content</span> <span class="fragment fade-in-width" style="max-height:1.5em">+ Access </span> <span class="fragment fade-in-width" style="max-height:1.5em">+ Ability</span>
+					</p>
+					<p class="fragment">
+						웹 <span class="fragment highlight-blue grow">콘텐츠</span>에 <span class="fragment highlight-blue grow">접근</span>할 수 있는 <span class="fragment highlight-blue grow">능력</span>
+					</p>
+				</section>
+			</section>
+			<section data-transition="zoom">
+				<section>
+					<blockquote>
+						Web accessibility means that people with disabilities can <span class="fragment highlight-blue grow grow-serialized">perceive</span>, <span class="fragment highlight-blue grow grow-serialized">understand</span>, <span class="fragment highlight-blue grow grow-serialized">navigate</span>, and <span class="fragment highlight-blue grow grow-serialized">interact</span> with the Web, and that they can contribute to the Web. <cite><a href="https://www.w3.org/WAI/intro/accessibility">W3C - Introduction to Web Accessibility</a></cite>
+					</blockquote>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="heading-primary">But what?... Why?</h2>
+				</section>
+				<section>
+					<p class="pre-formatted">우리 사이트는 
+					장애인이 이용 안하는데요?</p>
+					<p class="heading-tertiary fragment">안하는게 아니라 못하는 것</p>
+				</section>
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/kvIpVSA81Bw" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/g8Wf5AwgQkk" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+				<section>
+					<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffootballis%2Fvideos%2F1390897084291867%2F&width=1024&show_text=false&appId=226865897367817&height=613" width="1024" height="613" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" class="stretch"></iframe>
+				</section>
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/UlwsuUFd8WQ" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/u0GXPEgze8M" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+				<section>
+					<p class="heading-tertiary">접근성을 제공하지 않음</p>
+					<p class="heading-tertiary fragment" data-fragment-index="0">
+						<span class="fragment highlight-blue" data-fragment-index="0" style="display:block;">
+							누군가는 
+							<span class="fragment" data-fragment-index="0" style="width:50%;">
+								<span class="fragment fade-out fade-out-width" data-fragment-index="1" style="max-height:1.5em">사용하지 못하는</span>
+								<span class="fragment fade-in-width" data-fragment-index="1" style="max-height:1.5em">소외 당하는</span>
+							</span> 
+							결과
+						</span>
+					</p>
+				</section>
+				<section>
+					<p class="heading-tertiary">웹 접근성으로 얻을 수 있는 benefit</p>
+					<ul>
+						<li>매출 증대의 기회</li>
+						<li class="fragment">웹 접근성을 준수하다보니 SEO가 자연스럽게</li>
+						<li class="fragment">기업의 사회적 책임(CSR)입증으로 대민 관계 기여</li>
+						<li class="fragment">교육 기관의 경우 장애인들의 학습 기회 증대에 기여</li>
+						<li class="fragment">차별금지법을 적용하지 않아 생기는 소송의 위험과 부정적 이미지에 대한 위험 예방</li>
+					</ul>
+				</section>
+				<section>
+					<p >
+						2017년 <a href="http://www.msip.go.kr/cms/www/news/news/report/__icsFiles/afieldfile/2017/01/20/170120%20%EC%84%9D%EA%B0%84%20(%EB%B3%B4%EB%8F%84)%20%EC%9E%A5%EC%95%A0%EC%9D%B8%20%EA%B3%A0%EB%A0%B9%EC%B8%B5%EC%9D%98%20%EC%A0%95%EB%B3%B4%EC%A0%91%EA%B7%BC%20%EC%9E%A5%EB%B2%BD%EC%A0%9C%EA%B1%B0.pdf" target="blank">「취약계층 정보접근성 제고를 위한 정책방안」</a>
+					</p>
+					<ul>
+						<li>웹사이트의 정보접근성 제고를 추진 계획</li>
+						<li>모바일 앱, 기술융합 가전제품 등에 대한 접근성 정책 추진 예정</li>
+						<li>정보접근성의 법적 토대 강화</li>
+						<li>정부, 기관 및 민간 연합 &lsquo;정보접근성 포럼&rsquo; 발족</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="heading-primary">then... how?</h2>
+				</section>
+				<section>
+					<ul>
+						<li class="heading-secondary">conform the specification</li>
+						<li class="heading-secondary fragment">KWCAG 2.1</li>
+					</ul>
+				</section>
+				<section>
+					<p class="heading-secondary">
+						<span class="fragment" data-fragment-index="0"> <span class="fragment highlight-blue" data-fragment-index="0">perceive ,</span> </span>
+						<span class="fragment" data-fragment-index="1"> <span class="fragment highlight-blue" data-fragment-index="1">understand ,</span> </span>
+						<span class="fragment" data-fragment-index="2"> <span class="fragment highlight-blue" data-fragment-index="2">navigate ,</span> </span>
+						<span class="fragment" data-fragment-index="3"> <span class="fragment highlight-blue" data-fragment-index="3">interact</span> </span>
+					</p>
+				</section>
+				<section>
+					<p class="heading-secondary">Not Technology</p>
+					<p class="heading-primary fragment" data-fragment-index="1"><span class="fragment highlight-blue" data-fragment-index="1">Need to Understand</span></p>
+				</section>
+			</section>
+			<section data-transition="zoom">
+				<section>
+					<h2 class="heading-primary">perceive</h2>
+				</section>
+				<section>
+					<p class="heading-secondary">인식 <span class="fragment"><span aria-hidden="true">=></span> 감각에 의해</span></p>
+					<p class="fragment">
+						특정 감각에 의존되지 않아야 함
+					</p>
+					<p class="fragment">
+						<span aria-hidden="true">=></span> 
+						이미지 콘텐트에는 대체 텍스트가 제공되어야 한다.
+					</p>
+					<p class="fragment pre-formatted"><span aria-hidden="true">=></span> 그 의미나 용도를 동등하게 인식할 수 있도록
+					적절한 대체 텍스트를 제공해야 한다. 
+					</p>
+				</section>
+				<section>
+					<figure>
+						<a href="https://www.eprivacy.go.kr/mainList.do" target="_blank"><img src="./images/e-privacy.png" alt="e-프라이버시 사이트"></a>
+					</figure>
+				</section>
+				<section>
+					<h2 class="heading-primary">understand</h2>
+				</section>
+				<section>
+					<p class="heading-secondary pre-formatted">이해될 수 있어야</p>
+					<p class="fragment">
+						<span aria-hidden="true">=></span> 
+						콘텐츠 논리성
+					</p>
+					<p class="fragment">
+						<span aria-hidden="true">=></span> 
+						 콘텐츠는 논리적인 순서로 제공 해야 한다.
+					</p>
+				</section>
+				<section>
+					<img src="./images/join-form.png" alt="회원가입 양식 스크린샷 - 입력상자 이후에 입력 값에 대한 요구사항이 있는 경우" class="stretch"/>
+				</section>
+				<section>
+					<pre><code class="language-markup">&lt;ul&gt;
+	&lt;li&gt;
+		&lt;label class="a11y-hidden" for="passwordCheck"&gt;비밀번호 확인&lt;/label&gt;
+		&lt;input type="password" maxlength="20" name="passwordCheck" 
+			   id="passwordCheck" placeholder="비밀번호 확인"&gt;
+		&lt;span class="form-guide" id="pwdToolTip"&gt;
+			비밀번호는 영문 대소문자, 숫자, 특수문자(.!@#$%)를 혼합하여 
+			8~20자로 입력해주세요
+		&lt;/span&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+				</section>
+				<section>
+					<h2 class="heading-primary">navigate</h2>
+				</section>
+				<section>
+					<p class="heading-secondary pre-formatted">탐색이 용이해야</p>
+					<p class="fragment">
+						<span aria-hidden="true">=></span> 
+						쉬운 내비게이션
+					</p>
+					<p class="fragment">
+						<span aria-hidden="true">=></span> 
+						콘텐츠의 반복되는 영역은 건너뛸 수 있어야 한다.
+					</p>
+				</section>
+				<section>
+					Example
+				</section>
+				<section>
+					<h2 class="heading-secondary">interact</h2>
+				</section>
+				<section>
+					<p class="heading-secondary pre-formatted">사용할 수 있어야</p>
+					<p class="fragment">
+						<span aria-hidden="true">=></span> 
+						입력 장치의 접근성
+					</p>
+					<p class="fragment pre-formatted"><span aria-hidden="true">=></span> 키보드에 의한 초점은 논리적으로 이동해야 하며
+						시각적으로 구별할 수 있어야 한다.
+					</p>
+				</section>
+				<section>
+					Example
+				</section>
+				<section>
+					<img src="./images/ipnomics.png" alt="아이피노믹스 기사 - 기술 인증받은 정보접근성, 실상은 이용불가" class="stretch">
+				</section>
+			</section>			
+			<section data-transition="zoom">
+				<section>
+					<h2 class="heading-secondary">어떻게 검증해볼 수 있나?</h2>
+				</section>
+				<section>
+					<h3 class="heading-tertiary">자동화 도구</h3>
+					<ul>
+						<li><a href="https://chrome.google.com/webstore/detail/openwax/bfahpbmaknaeohgdklfbobogpdngngoe" target="_blank">openWAX</a></li>
+						<li><a href="http://chrispederick.com/work/web-developer/" target="_blank">Chrome Extention - WEB DEVELOPER</a></li>
+						<li><a href="https://chrome.google.com/webstore/detail/aria-validator/oigghlanfjgnkcndchmnlnmaojahnjoc" target="_blank">Chrome Extention - ARIA Validator</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3 class="heading-tertiary">자가 테스트</h3>
+					<ul>
+						<li><a href="https://www.nvaccess.org/" target="_blank">NVDA</a></li>
+						<li><a href="http://www.xvtech.com/xvtech/" target="_blank">Sense Reader</a></li>
+						<li><a href="https://www.freedomscientific.com/Downloads/JAWS" target="_blank">JAWS</a></li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<p class="heading-tertiary pre-formatted">한번에 다 할 수는 없다.
+					<span class="fragment">하지만 개선에 개선을 거듭하면
+					좋은 접근성이 갖춰지지 않을까?</span></p>
+				</section>
+			</section>
+		</div>
+	</div>
+	<script src="./framework/reveal/3.4.1/js/reveal.js" ></script>
+	<script src="./framework/prismjs/prism.js" ></script>
+	<script src="./js/script.js" ></script>
+</body>
+</html>
