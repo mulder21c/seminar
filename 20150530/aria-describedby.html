@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/aria-describedby.css" />
+	<title>ARIA-DESCRIBEDBY Example</title>
+</head>
+<body>
+	<h1>ARIA-DESCRIBEDBY Example</h1>
+
+	<h2>AS-IS</h2>
+	<table>
+		<colgroup>
+			<col style="width:20%"/>
+			<col />
+		</colgroup>
+		<tbody>
+			<th scope="row">
+				<label for="usrID">아이디</label>
+			</th>
+			<td>
+				<input type="text" name="usrID" id="usrID" />
+				<span class="guide">* 아이디는 6 ~ 15자 이내의 영문,숫자로 작성해주세요</span>
+			</td>
+		</tbody>
+	</table>
+
+	<h2>TO-Be</h2>
+	<table>
+		<colgroup>
+			<col style="width:20%"/>
+			<col />
+		</colgroup>
+		<tbody>
+			<th scope="row">
+				<label for="usrId">아이디</label>
+			</th>
+			<td>
+				<input type="text" name="usrId" id="usrId" aria-describedby="usrIdGuide" />
+				<span id="usrIdGuide" class="guide">* 아이디는 6 ~ 15자 이내의 영문,숫자로 작성해주세요</span>
+			</td>
+		</tbody>
+	</table>
+	
+</body>
+</html>

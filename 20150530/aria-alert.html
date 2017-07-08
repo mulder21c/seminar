@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/aria-alert.css" />
+	<title>ARIA-DESCRIBEDBY Example</title>
+</head>
+<body>
+	<h1>ARIA-DESCRIBEDBY Example</h1>
+	<table>
+		<colgroup>
+			<col style="width:25%"/>
+			<col />
+		</colgroup>
+		<tbody>
+			<tr>
+				<th scope="row">
+					<label for="usrPwd">비밀번호</label>
+				</th>
+				<td>
+					<span>
+						<input type="password" name="usrPwd" id="usrPwd" aria-describedby="tooltip" />
+						<span id="tooltip" class="guide">6~12자 이내로 영문, 숫자를 혼합하여 사용</span>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="usrPwd">비밀번호 확인</label>
+				</th>
+				<td>
+					<input type="password" name="usrPwdRe" id="usrPwdRe" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+		$('#usrPwd').on('change', function(){
+			var val = this.value.trim(),
+				regExp = new RegExp(/(?=.{0,9}[0-9])(?=.{0,9}[a-z])([0-9a-zA-Z]{6,12})/);
+			$('#pwdFeedback').remove();
+			if(val !== '' && !regExp.test(val)){
+				$('<span id="pwdFeedback" class="feedback" role="alert">유효하지 않은 비밀번호 입니다.</span>')
+					.insertAfter('#tooltip');
+				this.focus()
+			}
+		});
+	//]]>
+	</script>
+</body>
+</html>

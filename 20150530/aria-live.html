@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>ARIA-LIVE Example</title>
+	<link rel="stylesheet" type="text/css" href="/css/aria-live-example.css" />
+</head>
+<body>
+	<div id="popVod" class="program-slides program-lists" data-access="hitVod" data-slide-type="program" data-thumb-type="vod">
+		<div class="program-slides-wrapper">
+			<ul aria-live="polite" aria-relevant="all" aria-atomic="false">
+				<li class="program-list-item" data-list-index="0">
+					<a href="#">
+						<img src="http://img.pooq.co.kr/BMS/201503/20150315/pxyxsfgkgwewtdi_2.jpg" width="196" height="110" alt="">
+						<span class="program-info-box thumb-type-vod">
+							<span class="program-title"><span>해피 선데이</span><span class="ep-num"></span></span>
+							<span class="program-info">2015년 05월 24일  | KBS 2TV</span>
+						</span>
+					</a>
+				</li>
+				<li class="program-list-item" data-list-index="1">
+					<a href="#">
+						<img src="http://img.pooq.co.kr/BMS/201411/20141114/dpaijvpydfaqrbm_2.jpg" width="196" height="110" alt="">
+						<span class="program-info-box thumb-type-vod">
+							<span class="program-title"><span>무한도전</span><span class="ep-num">429회</span></span>
+							<span class="program-info">2015년 05월 23일  | MBC</span>
+						</span>
+					</a>
+				</li>
+				<li class="program-list-item" data-list-index="2">
+					<a href="#">
+						<img src="http://img.pooq.co.kr/BMS/201502/20150217/wvsgudszdtzmcjk_2.jpg" width="196" height="110" alt="">
+						<span class="program-info-box thumb-type-vod">
+							<span class="program-title"><span>아빠를 부탁해</span><span class="ep-num">10회</span></span>
+							<span class="program-info">2015년 05월 24일  | SBS</span>
+						</span>
+					</a>
+				</li>
+				<li class="program-list-item" data-list-index="3">
+					<a href="#">
+						<img src="http://img.pooq.co.kr/BMS/201407/20140703/wxfbzhcbjkdkbdr_2.jpg" width="196" height="110" alt="">
+						<span class="program-info-box thumb-type-vod">
+							<span class="program-title"><span>일요일이좋다-런닝맨</span><span class="ep-num">380회</span></span>
+							<span class="program-info">2015년 05월 24일  | SBS</span>
+						</span>
+					</a>
+				</li>
+				<li class="program-list-item" data-list-index="4">
+					<a href="#">
+						<img src="http://img.pooq.co.kr/BMS/201504/20150402/zwvhdsaapejyvou_2.jpg" width="196" height="110" alt="">
+						<span class="program-info-box thumb-type-vod">
+							<span class="program-title"><span>[일밤] 복면가왕 | 진짜 사나이</span><span class="ep-num">1315-1회</span></span>
+							<span class="program-info">2015년 05월 24일  | MBC</span>
+						</span>
+					</a>
+				</li>
+			</ul>
+			<button type="button" class="btn-prev-slides">이전 목록</button>
+			<button type="button" class="btn-next-slides">다음 목록</button>
+		</div>
+	</div>
+	<script src="/js/aria-live-example.js"></script>
+</body>
+</html>

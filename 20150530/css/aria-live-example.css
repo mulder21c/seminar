@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+/*------------------------------------*\
+	Reset CSS
+\*------------------------------------*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,main,menu,nav,section,summary,time,mark,audio,video{margin:0;border:0;padding:0;max-width:100%;background:transparent}
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}
+blockquote,q{quotes:none}
+pre{display:inline-block}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+ins{text-decoration:none}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{cursor:help}
+table{table-layout:fixed;border-collapse:collapse;border-spacing:0;empty-cells:show}
+input,select{margin:0;padding:0;vertical-align:middle}
+button{margin:0;border:0;padding:0;background:transparent;font:inherit;cursor:pointer}
+button::-moz-focus-inner{border:0;padding:0}
+a{color:inherit;text-decoration:none}
+body{max-width:1200px}
+/*------------------------------------*\
+	Common Program Lists
+\*------------------------------------*/
+.program-lists{position:relative;margin-top:28px;padding:2px 88px 0}
+.program-lists + .program-lists{margin-top:10px}
+.program-lists .program-lists-title{overflow:hidden;display:block;margin:30px 0 10px;height:21px;font-size:18px;line-height:21px;color:#4f4f4f;letter-spacing:-2px}
+.program-lists ul{margin:-10px auto 0;padding-bottom:2px;max-width:1030px;width:1030px;list-style-type:none}
+.program-lists ul:after{overflow:hidden;clear:both;display:table;height:0;content:''}
+.program-lists .program-list-item{position:relative;float:left;margin-top:10px;margin-right:8px}
+.program-lists .program-list-item span.ico-adult{display:inline-block;overflow:hidden;position:absolute;top:10px;right:9px;width:30px;height:30px;font-size:14px;font-weight:bold;color:#fff}
+.program-lists .program-list-item span.ico-adult:before{display:block;content:url(http://www-test.pooq.co.kr/images/common/ico_contents_adult.png)}
+.program-lists .program-list-item span.ico-free{display:inline-block;overflow:hidden;position:absolute;top:10px;right:9px;width:30px;height:30px;font-size:14px;font-weight:bold;color:#fff}
+.program-lists .program-list-item span.ico-free:before{display:block;content:url(http://www-test.pooq.co.kr/images/common/ico_contents_free.png)}
+.program-lists .program-list-item > a{display:block;border:1px solid #ccc;width:196px}
+.program-lists .program-list-item > a:hover,
+.program-lists .program-list-item > a:focus{outline:2px solid #a553ff;border-color:#862ccc}
+.program-lists .program-list-item > a > img{display:block}
+.program-lists .program-info-box{display:block;border-top:1px solid #ccc;padding-top:11px;padding-left:15px;height:38px;background-color:#fff}
+.program-lists .program-list-item > a:hover .program-info-box,
+.program-lists .program-list-item > a:focus .program-info-box{border-color:#862ccc}
+.program-lists .program-title,
+.program-lists .program-info{display:block;color:#4f4f4f}
+.program-lists .program-title{width:160px;margin-bottom:6px;font-size:12px;font-weight:bold;line-height:13px}
+.program-lists .program-title:after{overflow:hidden;clear:both;display:table;height:0;content:''}
+.program-lists .program-title > span{float:left}
+.program-lists .program-title > span:first-child{overflow:hidden;max-width:160px;white-space:nowrap;text-overflow:ellipsis}
+.program-lists .program-info-box.thumb-type-vod .program-title > span:first-child{max-width:110px}
+.program-lists .program-title .ep-num{overflow:hidden;width:50px;text-align:right;white-space:nowrap}
+.program-lists .program-info{font-size:11px;line-height:1}
+.program-lists .program-list-item > a:hover .program-title,
+.program-lists .program-list-item > a:focus .program-title,
+.program-lists .program-list-item > a:hover .program-info,
+.program-lists .program-list-item > a:focus .program-info{color:#862ccc;text-decoration:underline}
+.program-lists .movie-title{overflow:hidden;position:absolute;left:16px;bottom:26px;display:block;width:166px;font-weight:bold;white-space:nowrap;text-overflow:ellipsis}
+.program-lists .program-view-more{overflow:hidden;position:absolute;top:37px;right:100px;width:43px;height:12px}
+.program-lists .program-view-more:before{display:block;content:url(http://www-test.pooq.co.kr/images/common/btn_view_more_program.png)}
+.program-lists .btn-prev-slides,
+.program-lists .btn-next-slides{overflow:hidden;position:absolute;top:50%;margin-top:-40px;width:60px;height:80px}
+.program-lists .btn-prev-slides:before,
+.program-lists .btn-next-slides:before{display:block;content:url(http://www-test.pooq.co.kr/images/common/btn_program_slides_move.png)}
+.program-lists .btn-prev-slides:hover,
+.program-lists .btn-next-slides:hover,
+.program-lists .btn-prev-slides:focus,
+.program-lists .btn-next-slides:focus{zoom:1}
+.program-lists .btn-prev-slides:hover:before,
+.program-lists .btn-next-slides:hover:before,
+.program-lists .btn-prev-slides:focus:before,
+.program-lists .btn-next-slides:focus:before{margin-top:-80px}
+.program-lists .btn-prev-slides:active:before,
+.program-lists .btn-next-slides:active:before{margin-top:-160px}
+.program-lists .btn-prev-slides{left:0}
+.program-lists .btn-next-slides{right:0}
+.program-lists .btn-next-slides:before{margin-left:-60px}
+
+/*------------------------------------*\
+	Common Program Slider
+\*------------------------------------*/
+.program-lists .program-slides-wrapper{overflow:hidden;max-width:1030px;width:1030px;padding-top:12px;padding-left:2px}
+.program-lists .program-slides-wrapper ul,
+.program-lists .program-slides-wrapper ol{width:100%}
+.program-lists .program-slides-wrapper ul[data-item-count='10'],
+.program-lists .program-slides-wrapper ol[data-item-count='10']{height:344px}

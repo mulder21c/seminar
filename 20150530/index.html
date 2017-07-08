@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>WAI-ARIA</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<link rel="stylesheet" href="./framework/reveal.js-master/css/reveal.css">
+	<link rel="stylesheet" href="./fonts/font-awesome.min.css" />
+	<link rel="stylesheet" href="./css/common.css" />
+	<link rel="stylesheet" href="./framework/prismjs/prism.css" />
+	<script src="./framework/reveal.js-master/lib/js/head.min.js"></script>
+	<script>
+	//<![CDATA[
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? './framework/reveal.js-master/css/print/pdf.css' : './framework/reveal.js-master/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	//]]>
+	</script>
+	<!--[if lt IE 9]>
+		<script src="./framework/reveal.js-master/lib/js/html5shiv.js"></script>
+	<![endif]-->	
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-55718543-5', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>a11y</h1>
+				<h2> - WAI-ARIA</h2>
+			</section>
+			<section>
+				<section>
+					<h2>발표자 소개</h2>
+				</section>
+				<section>
+					<img src="./images/a2f4acee45d050d1dbf91c20b6b398a7.png" alt=""  />
+					<p>안녕하세요. 멀더끙입니다.</p>
+				</section>
+				<section>
+					<img src="http://www.pooq.co.kr/images/tmp/jv_pooq_logo.png" alt="" style="width:50%;" />
+					<p>(주)콘텐츠연합플랫폼 퍼블리셔</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>웹 접근성 아시죠?</h2>
+				</section>
+				<section>
+					<img src="./images/175@2x.png" alt="" class="stretch" />
+					<p>
+						훗.. 그 정도는 압니다
+					</p>
+				</section>
+				<section>
+					<h2>ARIA 적용해주세요~</h2>
+				</section>
+				<section>
+					<img src="./images/17862@2x.png" alt="" class="stretch" />
+					<p>
+						그건 또 뭔가요!!???
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<dl>
+						<dt>WAI-ARIA</dt>
+						<dd>
+							<b>W</b>eb <b>A</b>ccessibility <b>I</b>nitiative <br />
+							- <b>A</b>ccessible <b>R</b>ich <b>I</b>nternet <b>A</b>pplications
+						</dd>
+						<dd class="fragment" data-fragment-index="1">RIA를 위한 접근성 <strong class="fragment highlight-blue" data-fragment-index="1">권고안</strong></dd>
+					</dl>
+				</section>
+				<section>
+					<img src="./images/3@2x.png" alt="" class="stretch" />
+					<p>&quot;권고&quot;라굽쇼?</p>
+				</section>
+				<section>
+					<img src="./images/waiaria_w3c.png" alt="" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/waiaria-curr.png" alt="" class="stretch" />
+				</section>
+				<section>
+					<h2 class="a11y-hidden">WAI-ARIA 란?</h2>
+					<blockquote class="descriptWaiAria">defines a way to make Web content and Web applications more accessible to people with disabilities. <br />
+						 It especially helps with dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies <br />
+					<cite><a href="http://www.w3.org/WAI/intro/aria.php" target="_blank">W3C - WAI-ARIA Overview</a></cite></blockquote>
+				</section>
+			</section>
+			<section>
+				<h3 class="a11y-hidden">WAI-ARIA의 3 요소</h3>
+				<dl>
+					<dt><i class="fa fa-caret-right"></i> 역할 (Role)</dt>
+					<dd class="fragment">요소에 <em> &quot;역할(role)&quot; </em>을 부여</dd>
+					<dt><i class="fa fa-caret-right"></i> 속성 (properties)</dt>
+					<dd class="fragment">해당 요소가 가지고 있는 속성(Properties)을 정의</dd>
+					<dt><i class="fa fa-caret-right"></i> 상태 (state)</dt>
+					<dd class="fragment">해당 요소가 현재 어떤 상태인지를 정의</dd>
+				</dl>
+			</section>
+			<section>
+				<section>					
+					<h2>역할 (Role)</h2>
+				</section>
+				<section class="role-category-descript">
+					<h3>Categorization of Roles</h3>
+					<dl>
+						<dt><i class="fa fa-caret-right"></i> Abstract Roles</dt>
+						<dd class="fragment" data-fragment-index="1">Roles의 분류체계를 만들고 역할들을 정의하기 위한 Role</dd>
+						<dt><i class="fa fa-caret-right"></i> Widget Roles</dt>
+						<dd class="fragment" data-fragment-index="2">독립형 UI를 동작시키기 위한 목적의 Roles</dd>
+						<dt><i class="fa fa-caret-right"></i> Document Structure Roles</dt>
+						<dd class="fragment" data-fragment-index="3">문서구조를 설명하는 목적의 Roles</dd>
+						<dt class="fragment highlight-blue" data-fragment-index="5"><i class="fa fa-caret-right"></i> Landmark Roles</dt>
+						<dd class="fragment" data-fragment-index="4">각 영역을 명확하게 구분할 수 있도록 책갈피를 달아놓는 목적의 Roles.</dd>
+					</dl>
+				</section>
+				<section>
+					<table class="landmark-role-descript">
+						<caption><span class="a11y-hidden">Landmark Roles</span></caption>
+						<thead>
+							<tr>
+								<th scope="col">Role</th>
+								<th scope="col">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">application</th>
+								<td>웹 응용 프로그램 영역</td>
+							</tr>
+							<tr>
+								<th scope="row">banner</th>
+								<td>site-oriented 컨텐츠가 포함 된 영역 <br />
+								(site-oriented contents: 로고 또는 사이트 스폰서의 정체성 및 사이트 특정 검색 도구 같은 것)</td>
+							</tr>
+							<tr>
+								<th scope="row">complementary</th>
+								<td>문서의 독립적이고 부가적인 컨텐츠 영역 <br />
+								HTML5의 aside 요소에 대응</td>
+							</tr>
+							<tr>
+								<th scope="row">contentinfo</th>
+								<td>문서의 정보를 포함하는 큰 인지 영역 <br />
+								(예 : 저작권 및 개인 정보 보호 정책에 대한 링크 등을 포함하는 영역)</td>
+							</tr>
+							<tr>
+								<th scope="row">form</th>
+								<td>폼 전송 영역</td>
+							</tr>
+							<tr>
+								<th scope="row">main</th>
+								<td>문서의 메인 컨텐츠 (페이지 내 단 한 번만 선언)</td>
+							</tr>
+							<tr>
+								<th scope="row">navigation</th>
+								<td>내비게이션 영역</td>
+							</tr>
+							<tr>
+								<th scope="row">search</th>
+								<td>검색 영역</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<p>지금 바로 적용이 가능하다</p>
+				</section>
+				<section>
+					<img src="./images/mockup-pooq.png" alt="웹페이지 예제 목업" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/mockup-pooq-landmark.png" alt="웹페이지 예제 목업- landmark 추가" class="stretch" />
+				</section>
+				<section>
+					<h3>적용하면 좋은게 있나?</h3>
+					<p class="fragment pre-lined">
+						사용자가 랜드마크 탐색을 통해 
+						컨텐츠에 접근이 용이하다.</p>
+				</section>
+				<section class="web-aim-survey">
+					<figure>
+						<figcaption><a href="http://webaim.org/projects/screenreadersurvey5/#landmarks" target="_blank">Screen Reader User Survey - WebAIM<small>In October 2009</small></a></figcaption>
+						<img src="./images/webaim-chart.png" alt="" />
+						<table>
+							<caption>
+								<i class="fa fa-question-circle"></i> How often do you navigate by landmarks/regions in your screen reader?
+							</caption>
+							<thead>
+								<tr>
+									<th scope="col">Response</th>
+									<th scope="col">% of Respondents</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">Whenever they are present</th>
+									<td>25.5%</td>
+								</tr>
+								<tr>
+									<th scope="row">Often</th>
+									<td>18.3%</td>
+								</tr>
+								<tr>
+									<th scope="row">Sometimes</th>
+									<td>28.0%</td>
+								</tr>
+								<tr>
+									<th scope="row">Seldom</th>
+									<td>15.1%</td>
+								</tr>
+								<tr>
+									<th scope="row">Never</th>
+									<td>13.1%</td>
+								</tr>
+							</tbody>
+						</table>
+					</figure>
+				</section>
+				<section>
+					<pre style="max-height:550px" data-highlight="role"><code class="language-markup">&lt;div id="header" role="banner"&gt;
+	&lt;h1&gt;pooq&lt;/h1&gt;
+	&lt;div id="mainNav" role="navigation"&gt;
+		&lt;span&gt;메인 메뉴&lt;/span&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href="#"&gt;실시간TV&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;방송 VOD&lt;/a&gt;&lt;/li&gt;
+			.....
+	&lt;/div&gt;
+	&lt;form action="" role="search"&gt;
+		&lt;input type="text" name="keyword" id="keyword" /&gt;
+		&lt;button type="submit"&gt;검색&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+&lt;div id="contents" role="main"&gt;
+	&lt;h2&gt;방송 VOD 컨텐츠&lt;/h2&gt;
+	.....
+&lt;/div&gt;
+&lt;div id="recNotice" role="complementary"&gt;
+	&lt;h2&gt;공지사항&lt;/h2&gt;
+	&lt;a href="#"&gt;1월 27일 서비스 정기점검 공지&lt;/a&gt;
+&lt;/div&gt;
+&lt;div id="footer" role="contentinfo"&gt;
+	&lt;h2&gt;회사소개 및 이용 정보&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href="#"&gt;회사소개&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;이용약관&lt;/a&gt;&lt;/li&gt;
+		....
+&lt;/div&gt;</code></pre>
+					<a href="./landmark.html" target="_blank">Example Page</a>
+				</section>
+				<section>
+					<iframe width="1920" height="1080" src="https://www.youtube.com/embed/Pk1NmHjbowU?rel=0&amp;vq=hd1080&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+				<section>
+					<img src="./images/very-easy.png" alt="정말 쉽죠?" class="stretch"/>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>속성 (Properties) &amp; 상태 (State)</h2>
+				</section>
+				<section>
+					<p class="pre-lined properties-state-descript">
+						상태는 요소의 상태를 나타내므로 자주 바뀌는 반면,
+						속성은 상대적으로 바뀌는 경우가 드물다
+					</p>
+				</section>
+				<section class="prop-state-catetory-descript">
+					<h3>Taxonomy of States &amp; Properties</h3>
+					<dl>
+						<dt><i class="fa fa-caret-right"></i> Widget Attributes</dt>
+						<dd class="fragment" data-fragment-index="1">widget role 속성 값을 가진 요소의 특성을 기술하는 데 사용되는 속성</dd>
+						<dt class="fragment highlight-blue" data-fragment-index="5"><i class="fa fa-caret-right"></i> Live Region Attributes</dt>
+						<dd class="fragment" data-fragment-index="2">포커스의 이동없이 위젯이나 애플리케이션의 내용 변화나 진행 상태를 나타내기 위해 사용되는 속성</dd>
+						<dt><i class="fa fa-caret-right"></i> Drag-and-Drop Attributes</dt>
+						<dd class="fragment" data-fragment-index="3">드래그앤드롭 기능을 가지는 엘리먼트에 대한 속성</dd>
+						<dt><i class="fa fa-caret-right"></i> Relationship Attributes</dt>
+						<dd class="fragment" data-fragment-index="4">엘리먼트들의 관계가 문서 구조상 직접적으로 나타나 있지 않는 경우 이에 대한 정보를 설정하는 데 사용되는 속성</dd>
+					</dl>
+				</section>
+				<section class="prop-state-catetory-descript">
+					<h3>Live Region Attributes</h3>
+					<table class="landmark-role-descript">
+						<caption><span class="a11y-hidden">Live Region Attributes</span></caption>
+						<colgroup>
+							<col style="width:24%" />
+							<col style="width:50%" />
+							<col />
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">attribute</th>
+								<th scope="col">descript</th>
+								<th scope="col">values</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">aria-atomic</th>
+								<td>aria-live 속성이 사용된 엘리먼트의 하위 DOM이 갱신됐을 때 갱신된 부분만 알려줄 것인지, 전체를 알려줄 것인지 설정</td>
+								<td>
+									<dfn>true</dfn> :  전체 알림 <br />
+									<dfn>false (default)</dfn> : 갱신된 부분만 알림
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">aria-busy (state)</th>
+								<td>업데이트가 진행 중인지 여부를 표현</td>
+								<td>
+									<dfn>true</dfn> :  진행 중 <br />
+									<dfn>false (default)</dfn> : 진행 종료
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">aria-live</th>
+								<td>업데이트된 엘리먼트를 사용자에게 알려주는 방법을 설정</td>
+								<td>
+									<dfn>off (default)</dfn> : 알리지 않음 <br />
+									<dfn>polite</dfn> : 사용자의 인터랙션이 끊기거나 종료되었을 때 알림<br />
+									<dfn>assertive</dfn> : 업데이트 즉시 알림
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">aria-relevant</th>
+								<td>요소의 추가, 삭제 및 문자열의 추가가 발생하는 경우 각각에 대한 통보여부를 설정</td>
+								<td>
+									<dfn>additions</dfn> : 노드 추가 알림<br />
+									<dfn>removals</dfn> : 노드 삭제 알림<br />
+									<dfn>text</dfn> : 텍스트 추가 알림<br />
+									<dfn>all</dfn> : 노드 추가/삭제 텍스트 추가 알림<br />
+									default : additions text
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<pre data-highlight="aria-live|aria-relevant|aria-atomic"><code class="language-markup">&lt;ul aria-live="polite" aria-relevant="all" aria-atomic="false"&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+					<a href="./aria-live.html" target="_blank">Example Page</a>
+				</section>
+				<section>
+					<iframe width="1920" height="1080" src="https://www.youtube.com/embed/4c_QQjaPwAA?rel=0&amp;vq=hd1080&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="pre-lined">제법 유용한 
+					ARIA Examples</h2>
+				</section>
+				<section>
+					<h3>aria-describedby</h3>
+					<p class="fragment">
+						객체를 설명하는 요소의 ID를 설정
+					</p>
+				</section>
+				<section>
+					<h4>AS - IS</h4>
+					<pre><code class="language-markup">&lt;input type="text" name="usrID" id="usrID" /&gt;
+&lt;span class="guide"&gt;* 아이디는 6 ~ 15자 이내의 영문,숫자로 작성해주세요&lt;/span&gt;</code></pre>
+					<h4 style="margin-top:2em">TO - BE</h4>
+					<pre data-highlight="aria-describedby|id@1"><code class="language-markup">&lt;input type="text" name="usrId" id="usrId" aria-describedby="usrIdGuide" /&gt;
+&lt;span id="usrIdGuide" class="guide"&gt;* 아이디는 6 ~ 15자 이내의 영문,숫자로 작성해주세요&lt;/span&gt;</code></pre>
+					<a href="./aria-describedby.html" target="_blank">Example Page</a>
+				</section>
+				<section>
+					<iframe width="1920" height="1080" src="https://www.youtube.com/embed/f3NGiG5QYuM?rel=0&amp;vq=hd1080&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+				<section>
+					<h3>role="alert"</h3>
+					<p class="fragment pre-lined">
+						중요한 메시지나 
+						일시적으로 보여지는 정보를 제공	</p>
+				</section>
+				<section>
+					<pre data-line="3" data-highlight="role"><code class="language-markup">&lt;input type="password" name="usrPwd" id="usrPwd" aria-describedby="tooltip" /&gt;
+&lt;span id="tooltip" class="guide"&gt;6~12자 이내로 영문, 숫자를 혼합하여 사용&lt;/span&gt;
+&lt;span id="pwdFeedback" class="feedback" role="alert"&gt;유효하지 않은 비밀번호 입니다.&lt;/span&gt;</code></pre>
+					<pre><code class="language-javascript">$('#usrPwd').on('change', function(){
+		var val = this.value.trim(),
+			regExp = new RegExp(/(?=.{0,9}[0-9])(?=.{0,9}[a-z])([0-9a-zA-Z]{6,12})/);
+		$('#pwdFeedback').remove();
+		if(val !== '' && !regExp.test(val)){
+			$('&lt;span id="pwdFeedback" class="feedback" role="alert"&gt;유효하지 않은 비밀번호 입니다.&lt;/span&gt;')
+				.insertAfter('#tooltip');
+			this.focus()
+		}
+});</code></pre>
+					<a href="./aria-alert.html" target="_blank">Example Page</a>
+				</section>
+				<section>
+					<iframe width="1920" height="1080" src="https://www.youtube.com/embed/ub3TOGITM_0?rel=0&amp;vq=hd1080&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+				<section>
+					<h3>aria-expanded</h3>
+					<p class="fragment pre-lined">
+						펼치거나 닫을 수 있는 상태 표현
+					</p>
+				</section>
+				<section>
+					<pre data-highlight="aria-expanded" style="max-height:250px"><code class="language-markup">&lt;div class="terms"&gt;
+	&lt;h2 id="privTermLbl"&gt;개인정보 취급 방침&lt;/h2&gt;
+	&lt;button type="button" aria-expanded="false" aria-controls="privTerm" class="btn-toggle"&gt;펼쳐보기&lt;/button&gt;
+	&lt;blockquote id="privTerm"  aria-labelledby="privTermLbl" tabindex="0"&gt;
+		...
+	&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class="terms"&gt;
+	&lt;h2 id="serviceTermLbl"&gt;서비스 이용약관&lt;/h2&gt;
+	&lt;button type="button" aria-expanded="false" aria-controls="serviceTerm" class="btn-toggle"&gt;펼쳐보기&lt;/button&gt;
+	&lt;blockquote id="serviceTerm"  aria-labelledby="serviceTermLbl" tabindex="0"&gt;
+		...
+	&lt;/blockquote&gt;
+&lt;/div&gt;</code></pre>
+					<pre data-line="3,6"><code class="language-javascript">if($targetElem.is(':visible')){
+	$targetElem.slideUp(200);
+	$(this).text('펼쳐보기').attr('aria-expanded', 'false')
+}else{
+	$targetElem.slideDown(200);
+	$(this).text('접어두기').attr('aria-expanded', 'true')
+}</code></pre>
+					<a href="./aria-expanded.html" target="_blank">Example Page</a>
+				</section>
+				<section>
+					<iframe width="1920" height="1080" src="https://www.youtube.com/embed/7zkCZcjLFEM?rel=0&amp;vq=hd1080&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen class="stretch"></iframe>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>마치며...</h2>
+				</section>
+				<section>
+					<p class="pre-lined">WAI-ARIA는 아직 완전히 지원되지는 않는다.</p>
+					<p class="fragment pre-lined" data-fragment-index="1">그러나 잘 지원되는 것들도 있다.</p>
+					<p class="fragment pre-lined" data-fragment-index="2"><em class="fragment highlight-blue" data-fragment-index="2">써먹을 수 있는 건 써먹어보자.</em></p>
+				</section>
+				<section>
+					<p class="pre-lined">어렵다고 모른다고 버리지 말고</p>
+					<p class="fragment">간단한 것부터 차근차근</p>
+				</section>
+				<section>
+					<img src="./images/brown_and_cony (53).png" alt="" /> <br />
+					끝~~~
+				</section>
+			</section>
+		</div>
+	</div>
+	<script src="./framework/reveal.js-master/js/reveal.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="./framework/prismjs/prism.js"></script>
+	<script>
+	//<![CDATA[
+		(function(){
+			if(!window.Prism) {
+				return;
+			}
+			function $$(expr, con) {
+				return Array.prototype.slice.call((con || document).querySelectorAll(expr));
+			}
+			function hasClass(element, className) {
+			  className = " " + className + " ";
+			  return (" " + element.className + " ").replace(/[\n\t]/g, " ").indexOf(className) > -1
+			}
+			var CRLF = crlf = /\r?\n|\r/g;
+				
+			function highlightLines(pre, lines, classes) {
+				var ranges = lines.replace(/\s+/g, '').split(','),
+					offset = +pre.getAttribute('data-line-offset') || 0;
+				
+				var lineHeight = parseFloat(getComputedStyle(pre).fontSize) ;
+				for (var i=0, range; range = ranges[i++];) {
+					range = range.split('-');
+								
+					var start = +range[0],
+						end = +range[1] || start;
+					
+					var line = document.createElement('div');
+					
+					line.textContent = Array(end - start + 2).join(' \r\n');
+					line.className = (classes || '') + ' line-highlight';
+				//if the line-numbers plugin is enabled, then there is no reason for this plugin to display the line numbers
+				if(!hasClass(pre, 'line-numbers')) {
+				  line.setAttribute('data-start', start);
+				  if(end > start) {
+					line.setAttribute('data-end', end);
+				  }
+				}
+					line.style.top = (start - offset - 1) * lineHeight  * 1.5 + 'px';
+				//allow this to play nicely with the line-numbers plugin
+				if(hasClass(pre, 'line-numbers')) {
+				  //need to attack to pre as when line-numbers is enabled, the code tag is relatively which screws up the positioning
+				  pre.appendChild(line);
+				} else {
+				  (pre.querySelector('code') || pre).appendChild(line);
+				}
+				}
+			}
+			function applyHash() {
+				var hash = location.hash.slice(1);
+				
+				// Remove pre-existing temporary lines
+				$$('.temporary.line-highlight').forEach(function (line) {
+					line.parentNode.removeChild(line);
+				});
+				
+				var range = (hash.match(/\.([\d,-]+)$/) || [,''])[1];
+				
+				if (!range || document.getElementById(hash)) {
+					return;
+				}
+				
+				var id = hash.slice(0, hash.lastIndexOf('.')),
+					pre = document.getElementById(id);
+					
+				if (!pre) {
+					return;
+				}
+				
+				if (!pre.hasAttribute('data-line')) {
+					pre.setAttribute('data-line', '');
+				}
+				highlightLines(pre, range, 'temporary ');
+				document.querySelector('.temporary.line-highlight').scrollIntoView();
+			}
+			var fakeTimer = 0; // Hack to limit the number of times applyHash() runs
+			Prism.hooks.add('after-highlight', function(env) {
+				var pre = env.element.parentNode;
+				var lines = pre && pre.getAttribute('data-line');
+				
+				if (!pre || !lines || !/pre/i.test(pre.nodeName)) {
+					return;
+				}
+				
+				clearTimeout(fakeTimer);
+				
+				$$('.line-highlight', pre).forEach(function (line) {
+					line.parentNode.removeChild(line);
+				});
+				
+				highlightLines(pre, lines);
+				
+				fakeTimer = setTimeout(applyHash, 1);
+			});
+			addEventListener('hashchange', applyHash);
+		})();
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				//{ src: './framework/reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: './framework/reveal.js-master/plugin/zoom-js/zoom.js', async: true }
+			]
+		});
+
+		Reveal.addEventListener('slidechanged', function( event ) {
+			var currSlide = event.currentSlide;
+			var $highlightElems = $(currSlide).find('[data-highlight]');
+			for(var i = -1, codeBlock = null, highlight = null; codeBlock = $highlightElems[++i];){
+				highlight = codeBlock.getAttribute('data-highlight').split('|') || [];
+				if(highlight.length){
+					for(var i = -1, item = null; item = highlight[++i];){
+						attrName = item.split('@')[0];
+						idx = item.split('@')[1] || null;
+						if(idx === null){
+							$('code[class*="language-"]', codeBlock)
+								.find(' span[class*="attr-name"]:contains("' + attrName + '")').addClass('highlight')
+								.find(' + span[class*="attr-value"]').addClass('highlight');
+						}else{
+							$('code[class*="language-"]', codeBlock)
+								.find(' span[class*="attr-name"]:contains("' + attrName + '"):eq(' + idx + ')').addClass('highlight')
+								.find(' + span[class*="attr-value"]').addClass('highlight');
+						}
+					}
+				}
+				highlight = null;
+			}
+		} );
+	//]]>
+	</script>
+</body>
+</html>

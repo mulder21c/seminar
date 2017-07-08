@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/aria-expanded.css" />
+	<title>ARIA-EXPANDED Example</title>
+</head>
+<body>
+	<h1>ARIA-EXPANDED Example</h1>
+	<div class="terms">
+		<h2 id="privTermLbl">개인정보 취급 방침</h2>
+		<button type="button" aria-expanded="false" aria-controls="privTerm" class="btn-toggle">펼쳐보기</button>
+		<blockquote id="privTerm"  aria-labelledby="privTermLbl" tabindex="0">
+			<ol>
+				<li>개인정보수집 및 이용 목적</li>
+				<p>회원의 개인정보는 서비스 이용계약의 성립(본인 식별 및 본인 의사 확인 등), 블라블라블라....</p>
+			</ol>
+		</blockquote>
+	</div>
+	<div class="terms">
+		<h2 id="serviceTermLbl">서비스 이용약관</h2>
+		<button type="button" aria-expanded="false" aria-controls="serviceTerm" class="btn-toggle">펼쳐보기</button>
+		<blockquote id="serviceTerm"  aria-labelledby="serviceTermLbl" tabindex="0">
+			<ol>
+				<li>제 1 장 총칙</li>
+				<ol>
+					<li>
+						제 1조 (목적)
+						<p>본 약관은 콘텐츠연합플랫폼 주식회사(이하 회사라 합니다)가 제공하는 유무선 인터넷 관련 서비스를 이용함에 있어 회사와 이용자의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+					</li>
+				</ol>
+			</ol>
+		</blockquote>
+	</div>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+		$('.btn-toggle').on('click', function(){
+			var $targetElem = $('#' + this.getAttribute('aria-controls'));
+			if($targetElem.is(':visible')){
+				$targetElem.slideUp(200);
+				$(this).text('펼쳐보기').attr('aria-expanded', 'false')
+			}else{
+				$targetElem.slideDown(200);
+				$(this).text('접어두기').attr('aria-expanded', 'true')
+			}
+		});
+	</script>
+</body>
+</html>
