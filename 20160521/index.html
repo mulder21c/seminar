@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>How to Read W3C HTML5 Specification</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<link rel="stylesheet" href="./framework/reveal.js-master/css/reveal.css">
+	<link rel="stylesheet" href="./fonts/font-awesome.min.css" />
+	<link rel="stylesheet" href="./css/common.css" />
+	<link rel="stylesheet" href="./framework/prismjs/prism.css" />
+	<style type="text/css">
+		.reveal dt ~ dd {margin-bottom: 1em; }
+	</style>
+	<script src="./framework/reveal.js-master/lib/js/head.min.js"></script>
+	<script>
+	//<![CDATA[
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? './framework/reveal.js-master/css/print/pdf.css' : './framework/reveal.js-master/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	//]]>
+	</script>
+	<!--[if lt IE 9]>
+		<script src="./framework/reveal.js-master/lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-55718543-5', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>How to Read <span style="font-size:.55em;white-space:nowrap;">W3C HTML5 Specification</span></h1>
+			</section>
+			<section>
+				<section>
+					<h2>발표자 소개</h2>
+				</section>
+				<section>
+					<img src="./images/a2f4acee45d050d1dbf91c20b6b398a7.png" alt=""  />
+					<p>안녕하세요. 멀더끙입니다.</p>
+				</section>
+				<section>
+					<img src="http://www.pooq.co.kr/images/tmp/jv_pooq_logo.png" alt="" style="width:50%;" />
+					<p>現 콘텐츠연합플랫폼(주) 퍼블리셔</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>오늘의 주제</h2>
+					<p class="fragment">
+						<strong>HTML5 스펙 문서 읽기!</strong>
+					</p>
+				</section>
+				<section>
+					<h3>※ 주의!</h3>
+					<p class="pre-lined">본 내용은 어디까지나 <em style="font-style:normal;color:#1b91ff;">멀더끙 개인의 의견</em>으로,
+					W3C의 입장과는 다를 수 있습니다. <br />또한 마크업 개발자에게 필요한 일부만을 소개하므로,
+					명세의 모든 부분을 다루지 않습니다.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>명세를 왜 읽어야 하나?</h2>
+				</section>
+				<section>
+					<figure class="stretch">
+						<img src="./images/01RtS9s.jpg" alt="" />
+						<figcaption>
+							<q>Because it's there.</q>
+							<cite>George Mallory</cite>
+						</figcaption>
+					</figure>
+				</section>
+				<section>
+					<figure class="stretch">
+						<img src="./images/its_english.jpg" alt="" />
+						<figcaption class="a11y-hidden">
+							하지만 그건 영어란 말이다! (부들부들)
+						</figcaption>
+					</figure>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 style="font-size:1.5em;">조금이라도 쉽게 접근해보자!</h2>
+				</section>
+			</section>
+			<section>
+				<section class="how-to-read-step">
+					<h3>Step1. 전부 다 읽을 필요는 없다.</h3>
+				</section>
+				<section>
+					<h4>마크업에 필요한 참조는 Section 3 ~ 4 정도.</h4>
+					<h4>특정 element에 대한 참조는 Section 4에.</h4>
+				</section>
+				<section>
+					<img src="./images/w3c-html5-spec-index.jpg" alt="HTML5 명세 색인 스크린샷" class="stretch" />
+				</section>
+				<section>
+					<h4>"Add developer-view styles" 버튼</h4>
+					<p>
+						"Add developer-view styles" 버튼을 눌러보면 브라우저 개발자가 봐야 할 내용을 숨겨줌.
+					</p>
+				</section>
+				<section>
+					<img src="./images/add-developer-view.gif" alt="Add developer-view styles 버튼 클릭에 따른 화면 변화 그림" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section class="how-to-read-step">
+					<h3>Step2. 정의 &middot; 상세 설명 &middot;  예제</h3>
+				</section>
+				<section>
+					<img src="./images/s-element.gif" alt="요소 명세 스크린샷 - s 요소 전체" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/s-element-define.gif" alt="" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/s-element-descript.gif" alt="" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/s-element-example.gif" alt="" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section class="how-to-read-step">
+					<h3>Step3. 다음 용어들은 기억해둡시다.</h3>
+				</section>
+				<section>
+					<h4>요소 정의 부분</h4>
+					<ul style="font-size:.8em;">
+						<li>Categories</li>
+						<li>Contexts in which this element can be used</li>
+						<li>Content model</li>
+						<li>Content attributes</li>
+						<li>Tag omission in text/html</li>
+					</ul>
+				</section>
+				<section>
+					<dl style="font-size:.85em">
+						<dt>
+							Categories
+						</dt>
+						<dd class="fragment">
+							요소가 속하는 카테고리. 
+						</dd>
+						<dd class="fragment">
+							각 요소에 대한 Content Model을 정의할 때 사용.
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<dl style="font-size:.85em">
+						<dt>
+							Contexts in which this element can be used
+						</dt>
+						<dd class="fragment">
+							해당 요소가 사용될 수 있는 환경
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<dl style="font-size:.85em">
+						<dt>
+							Content model
+						</dt>
+						<dd class="fragment">
+							자손 요소로 포함되어야 하는 콘텐트에 대한 설명
+						</dd>
+						<dd class="fragment">
+							즉, 여기에 기재되지 않은 카테고리의 요소는 자손으로 올 수 없음을 의미
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<dl>
+						<dt>
+							Content attributes
+						</dt>
+						<dd class="fragment">
+							요소에 정의 될 수 있는 어트리뷰트 목록
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<dl>
+						<dt>
+							Tag omission in text/html
+						</dt>
+						<dd class="fragment">
+							text/html 문법 에서 시작/종료 태그의 생략 가능 여부에 대한 설명
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<h4>요소 설명 부분</h4>
+					<ul style="font-size:.8em;">
+						<li>represent</li>
+						<li>user agent</li>
+					</ul>
+				</section>
+				<section>
+					<dl>
+						<dt>
+							represent
+						</dt>
+						<dd class="fragment">
+							요소가 가지고 있는 고유한 의미. <br />
+							<i class="fragment">semantic</i>
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<dl>
+						<dt>user agent</dt>
+						<dd>(대부분) 웹 브라우저</dd>
+					</dl>
+				</section>
+				<!-- section>dl>dt+dd -->
+				<section>
+					<img src="./images/s-element-translated.gif" alt="s 요소 명세 스크린샷" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section class="how-to-read-step">
+					<h3>Step4. 명세의 표기법을 알아두자.</h3>
+				</section>
+				<section>
+					<img src="./images/spec-typo-convention.jpg" alt="W3C Section 1.7.2 표기법 캡쳐사진" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/li-descript.jpg" alt="정의, 예제, 노트 표기 예 - li 요소 명세" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/title-attribute.gif" alt="주의 표기 예 - title 속성 명세" class="stretch" />
+				</section>
+				<section>
+					<img src="./images/img-element.gif" alt="인터페이스 사용법 설명 예 - img 요소 명세" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section class="how-to-read-step">
+					<h3>Step5. 번역본에 의존하지 말자.</h3>
+				</section>
+				<section>
+					<h4>HTML5 명세 현재 버전의 번역본은 없다.</h4>
+				</section>
+				<section>
+					<img src="./images/w3c-translate.jpg" alt="" class="stretch" />
+					<p class="a11y-hidden">
+						KISA에서 번역한 문서나 클리어보스에서 번역한 문서 : D 문서에 대한 번역
+					</p>
+				</section>
+				<section>
+					<h4>번역은 번역자에 따라 정확하지 않을 수 있다.</h4>
+				</section>
+				<section>
+					<h4>영문의 뉘앙스를 그대로 담기 어렵다</h4>
+				</section>
+				<section>
+					<span>"~ 해야 한다"</span> <br />
+					<strong><strong>must</strong></strong> <span aria-label="means that is more strong than"><i class="fa fa-angle-double-right fragment" aria-hidden="true"></i></span> <strong>should</strong>
+				</section>
+				<section>
+					<span>"인용"</span> <br />
+					<strong>pull quote</strong> <span aria-label="is not equal to"><i class="fragment" arai-hieen="true">≠</i></span> <strong>quotation</strong> <span aria-label="is not equal to"><i class="fragment" aria-hidden="true">≠</i></span> <strong>citation</strong>
+				</section>
+				<section>
+					<h4>번역은 원문과 함께 보는 것이 좋다</h4>
+				</section>
+			</section>
+			<section>
+				<section class="how-to-read-step">
+					<h3>Step6. 예제 코드를 구분하여 볼 것.</h3>
+				</section>
+				<section>
+					<img src="./images/ins-element-descript.gif" alt="잘못된 예에 대한 예제 코드" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section class="how-to-read-step">
+					<h3>Step7. 구글 번역을 활용하자.</h3>
+				</section>
+				<section>
+					<p>
+						번역 할 때에는 <strong class="pre-lined">
+						영어 -&gt; 일본어 -&gt; 한글 순
+						</strong>으로 번역하면 좀 더 정확한 번역이 나온다 
+					</p>
+				</section>
+				<section>
+					<img src="./images/google-translator.gif" alt="nav 요소에 대한 명세를 구글 번역기로 돌려본 결과 캡쳐 사진" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>
+						The important thing is to read one!
+					</h3>
+				</section>
+			</section>
+			<section>
+				<div style="-webkit-transform:scale(1.25, 1.25);-moz-transform:scale(1.25, 1.25);-ms-transform:scale(1.25, 1.25);-o-transform:scale(1.25, 1.25);transform:scale(1.25, 1.25);">
+					<img src="./images/175@2x.png" alt="훗! (의미심장한 웃음 이모티콘)" />
+					<div class="fragment">
+						<img src="./images/not-ended.png" alt="끝난 줄 알았지?" style="-webkit-transform:rotate(-15deg) translate(50px, -20px);-moz-transform:rotate(-15deg) translate(50px, -20px);-ms-transform:rotate(-15deg) translate(50px, -20px);-o-transform:rotate(-15deg) translate(50px, -20px);transform:rotate(-15deg) translate(50px, -20px)" />
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>알아두어야 할 사실</h2>
+			</section>
+			<section>
+				<section>
+					<h3>HTML5 컨텐츠 모델</h3>
+				</section>
+				<section>
+					<div style="position:relative;">
+						<p>
+							인라인 요소는 블럭 레벨 요소를 포함할 수 없다?
+						</p>
+						<p class="fragment">
+							a 요소는 인라인 요소이지만 블럭 레벨 요소를 포함할 수 있다?
+						</p>
+						<i class="fa fa-close fragment its-wrong" aria-label="It's wrong"></i>
+					</div>
+				</section>
+				<section>
+					<dl>
+						<dt>
+							HTML4.01 컨텐츠 모델
+						</dt>
+						<dd>
+							block-level emelent,<br />
+							inline(character-level) element
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<dl>
+						<dt>HTML5 컨텐츠 모델</dt>
+						<dd>
+							<p class="content-model">
+								metadata, 
+								flow, 
+								sectioning, 
+								heading,
+								phrasing,
+								embedded,
+								interactive,
+								palpable
+							</p>
+							<p>script-supporting element,</p>
+							<p>transparent content model</p>
+						</dd>
+					</dl>
+				</section>
+				<section>
+					<div style="font-size:.8em;" aria-hidden="true">
+						<p>
+							인라인 요소는 블럭 레벨 요소를 포함할 수 없다?
+						</p>
+						<p>
+							a 요소는 인라인 요소이지만 블럭 레벨 요소를 포함할 수 있다?
+						</p>
+					</div>
+					<i class="fa fa-angle-double-down"></i>
+					<div>
+						<p>
+							phrasing 컨텐츠는 flow 컨텐츠를 포함할 수 없다. <br />
+							content model에 해당하는 것만 포함할 수 있다.
+						</p>
+						<p>
+							a 요소는 투명 컨텐츠 모델이기 때문에 flow 컨텐츠를 포함할 수 있다.
+						</p>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>시맨틱</h3>
+				</section>
+				<section>
+					<div style="position:relative;">
+						<p>
+							HTML5의 시맨틱 요소는 header, footer, section 등 뿐이다?
+						</p>
+						<p class="fragment">
+							i, b, u 등은 의미를 가지지 않는다?
+						</p>
+					</div>
+					<span aria-label="It's wrong"><i class="fa fa-close fragment its-wrong" aria-hidden="true"></i></span>
+				</section>
+				<section>
+					<p>
+						HTML5 명세 내 아무런 의미를 가지지 않는 요소는 div, span 요소 뿐!
+					</p>
+					<p>
+						그 외 요소들은 용도와 의미가 어느 정도 정해져있다. 
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>마치며...</h2>
+				</section>
+			</section>
+		</div>
+	</div>
+	
+	<script src="./framework/reveal.js-master/js/reveal.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script>
+	//<![CDATA[
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				//{ src: '//resource.publisher.name/framework/reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: './framework/reveal.js-master/plugin/zoom-js/zoom.js', async: true }
+			]
+		});
+	//]]>
+	</script>
+</body>
+</html>
