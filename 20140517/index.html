@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="./css/reveal.min.css" />
+	<link rel="stylesheet" href="./css/shCore.css" />
+	<link rel="stylesheet" href="./css/shThemeRDark.css" />
+	<link rel="stylesheet" href="./hacosa/common.css?v1.1" />
+	<title>웹 퍼블리셔를 돌아보다</title>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-55718543-5', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- COVER -->
+			<section class="cover">
+				<h1>
+					<i class="fa fa-quote-left"></i><i>Web Publisher</i> <i class="fa fa-quote-right"></i>
+					<br />
+					를 돌아보다
+				</h1>
+				<footer>
+					멀더끙 (mulder21c)
+				</footer>
+			</section>
+
+			<!-- Profile -->
+			<section class="profile">
+				<figure>
+					<img src="./images/1059183183.jpg" alt="" />
+					<figcaption>
+						<h1><i class="fa fa-male"></i> 멀더끙</h1>
+						<ul>
+							<li class="fragment">
+								<i class="fa fa-desktop"></i> 전 J사 용팔이
+							</li>
+							<li class="fragment">
+								<i class="fa fa-clipboard"></i> 전 S사 기획/운영자
+							</li>
+							<li class="fragment">
+								<i class="fa fa-terminal"></i> 전 T사 Back-End개발자
+							</li>
+							<li class="fragment">
+								<i class="fa fa-code"></i> 현 K사 웹퍼블리셔
+							</li>
+							<li class="fragment">
+								<i class="fa fa-ban"></i> 하코사 스팸퇴치 전문 스탭
+							</li>
+						</ul>
+					</figcaption>
+				</figure>
+			</section>
+
+			<!-- Slide Usage Guide - Add 2014.05.23 12:40-->
+			<section>
+				<h1>슬라이드 이용 안내</h1>
+				<ul class="slideGuide">
+					<li>하늘색 배경이 눈이 아프신분은 
+						"g" 키를 누르시면 블랙배경으로 보실 수 있습니다.
+					</li>
+					<li>일부 영어로 나와 있는 내용은 해당 슬라이드에서 "t" 키를 누르시면 
+						번역된 상태를 보실 수 있습니다.
+						<sub>(발번역... 죄송..... ㄷㄷㄷ)</sub>
+					</li>
+					<li>CSS 애니메이션이 기본으로 들어가 있는데,
+						reveal.js 의 문제로 파이어폭스로 보시는 것이 렌더링상 가장 깔끔합니다.
+						<sub>(크롬에서는 일부 슬라이드가 트랜지션 될 때 겹쳐보이는 현상이 있네요 ㅠ)</sub>
+					</li>
+				</ul>
+			</section>
+
+			<!-- Are You  Web Publisher -->
+			<section>
+				<section>
+					<h1 class="one-line-typo">무슨 일 하세요?</h1>
+				</section>
+				<section>
+					<h1 class="one-line-typo">Web Publisher</h1>
+				</section>
+			</section>
+
+			<!-- Who is Web Publisher? -->
+			<section>
+				<section>
+					<h1 class="one-line-typo">Who is 
+					Web Publisher?</h1>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1 class="one-line-typo">해외의 웹 퍼블리셔?</h1>
+				</section>
+
+				<!-- Case of foreign country -->
+				<section>
+					<dl class="job-title">
+						<dt>
+							Front End Web Developer (Apple)
+						</dt>
+						<dd class="translate" data-trans="#trans01" data-cite="https://jobs.apple.com/kr/search?#specs&ss=Front%20End%20Developer&t=0&so=&pN=0&openJobId=31718920">
+							Apple is seeking a creative Front-End Developer to drive user experience innovations for Apple.com. <br />
+							This developer will not only be responsible for defining the architectural strategy for front-end technologies — including HTML5, CSS3 & JavaScript — but for evangelizing that technology across the team and Apple as a whole.
+						</dd>
+					</dl>
+					<aside id="trans01" class="translate">
+						Apple은 apple.com에 대한 사용자 경험의 혁신을 drive하기 위한 창조적인 프론트엔드 개발자를 찾습니다. <br />
+						HTML5, CSS3, JavaScript를 포함하는 프론트 엔드 기술을 위한 아키텍처 전략을 정의하고, 팀과 애플사 전체에 기술을 전파하는 일을 담당하게 됩니다.
+					</aside>
+				</section>
+				<section>
+					<dl class="job-title">
+						<dt>
+							Front End Web Developer (Apple)
+						</dt>
+						<dd class="translate" data-trans="#trans02">
+							<ul>
+								<li>Comfortable with source version control software.</li>
+								<li>Well-versed in fundamental visual and interactive design discipline.</li>
+								<li>Strive to use web standards to build solutions using semantic markup and CSS.</li>
+								<li>Understanding of all major browsers and the special considerations required for all various quirks.</li>
+								<li>Competent JavaScript programmer who doesn't need to rely on libraries to accomplish innovative interactions.</li>
+								<li>Aware of the interplay between JavaScript and HTML & CSS, and can dynamically create, modify, and style elements on a page with ease.</li>
+							</ul>
+						</dd>
+					</dl>
+					<aside id="trans02" class="translate">
+						<ul>
+							<li>버전관리 시스템(SVN, Git 등) 사용 가능</li>
+							<li>기본적인 비쥬얼과 인터랙티브 디자인 분야에 대한 이해</li>
+							<li>의미있는 마크업과 CSS를 사용하여 웹 표준 준수 가능</li>
+							<li>모든 메이저 브라우저에 대한 이해 및 크로스브라우징 이슈에 대한 이해</li>
+							<li>혁신적인 인터랙션을 위해 라이브러리에 의존하지 않는 유능한 자바스크립트 프로그래머</li>
+							<li>JavaScript, HTML, CSS 간 상호작용을 알고, 동적으로 요소들을 생성/수정/스타일링 가능</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<dl class="job-title">
+						<dt>HTML5/CSS3 Developer (uberVU)</dt>
+						<blockquote class="translate likeq" data-trans="#trans03" data-cite="https://www.ubervu.com/jobs/html-css-developer/">
+							We are seeking for an expert in HTML/CSS with strong knowledge and application of modern design styles and technologies. <br /> If you have strong experience with HTML5 technologies, CSS3 latest features and a sincere interest in front-end web application design write us a line. 
+						</blockquote>
+					</dl>
+					<aside id="trans03" class="translate">
+						우리는 현대적인 디자인 스타일과 기술의 어플리케이션과 HTML / CSS에 대해 뛰어난 지식을 가진 전문가 찾고 있습니다. <br />
+						당신이 HTML5 기술 및 최근의 CSS3에 뛰어난 경험과 프론트엔드 웹 어플리케이션 설계에 진심어린 흥미를 가지고 있다면 우리에게 지원해주세요.
+					</aside>
+				</section>
+
+				<section>
+					<dl class="job-title">
+						<dt>HTML5/CSS3 Developer (uberVU)</dt>
+						<dd class="translate" data-trans="#trans04" data-cite="https://www.ubervu.com/jobs/html-css-developer/">
+							<ul>
+								<li>Fluency in HTML5/XHTML</li>
+								<li>Mastering CSS2.1/CSS3</li>
+								<li>Understanding of web standards</li>
+								<li>Experience in modern web techniques and responsive design</li>
+								<li>Basic knowledge of JavaScript</li>
+							</ul>
+						</dd>
+					</dl>
+					<aside id="trans04" class="translate">
+						<ul>
+							<li>HTML5/xHTML에 능숙</li>
+							<li>CSS2.1/CSS3 마스터</li>
+							<li>웹표준에 대한 이해</li>
+							<li>최신 웹 기술과 반응형 웹 경험</li>
+							<li>자바스크립트에 대한 기본 지식</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<dl class="job-title">
+						<dt>
+							Junior FED (Brooks Brothers)
+						</dt>
+						<dd class="translate" data-trans="#trans05" data-cite="http://www.nyjobguide.com/content/junior-front-end-developer">
+							<ul>
+								<li>Extensive experience with HTML5, CSS3 and JavaScript.</li>
+								<li>Knowledge of responsive layouts using Bootstrap, Less, Foundation, etc.</li>
+								<li>Understanding of cross-browser compatibility with special considerations for Internet Explorer 8 and up.</li>
+								<li>Strong knowledge of SEO best practices</li>
+								<li>Knowledge using SVN</li>
+							</ul>
+						</dd>
+					</dl>
+					<aside id="trans05" class="translate">
+						<ul>
+							<li>폭 넓은 HTML5, CSS3, JavaScript 경험</li>
+							<li>Bootstrap, Less, Foundation 등을 이용한 반응형 레이아웃 지식</li>
+							<li>IE 8 이상에 대한 특별한 고려사항과 크로스브라우징의 대한 이해 </li>
+							<li>SEO의 좋은 사례에 대한 높은 지식</li>
+							<li>SVN 사용에 대한 지식</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<ul class="job-title" data-cite="http://css-tricks.com/job-titles-in-the-web-industry/">
+						<li data-memo="#desc-01">
+							Web Designer
+							<aside id="desc-01" class="memo fragment roll-in" data-fragment="1">
+								<q>
+									deciding and implementing how websites look and work. … Specific skills would be design-tools-of-choice, HTML, CSS, and light JavaScript.
+								</q>
+							</aside>
+						</li>
+						<li data-memo="#desc-02">
+							Front End Developer
+							<aside id="desc-02" class="memo fragment" data-fragment="2">
+								<q>
+									This job is focused on HTML, CSS, JavaScript, and light backend work. … 
+								</q>
+							</aside>
+						</li>
+						<li>
+							UI Designer
+						</li>
+						<li>
+							UX Designer
+						</li>
+						<li>
+							Interaction Designer
+						</li>
+						<li>
+							Art Director
+						</li>
+						<li>
+							Web Developer
+						</li>
+						<li>
+							Full Stack Developer
+						</li>
+					</ul>
+					<cite>
+						Job Titles in the Web Industry, css-tricks, Chris Coyier
+					</cite>
+				</section>
+			</section>
+
+			<!-- 국내는 ? -->
+			<section>
+				<section>
+					<h1 class="one-line-typo">해외는 해외일 뿐 ...</h1>
+				</section>
+
+				<section>
+					<h1 class="one-line-typo">웹디자이너와 개발자 사이의 <span class="fragment highlight-red">다리 역할</span>
+					</h1>
+				</section>
+
+				<section>
+					<img src="./images/shinhyeonseok.jpg" alt="누군가의 사진" class="stretch" />
+				</section>
+
+				<section>
+					<q cite="http://hyeonseok.com/soojung/webstandards/2007/08/16/396.html">
+						이 용어를 만들게 된 이유는 퍼블리싱이라는 업무가 <span class="fragment highlight-red">기존의 포지션에서 벗어나서</span> 보다 확실한 전문 영역으로 자리 잡기를 바랬기 때문
+					</q>
+					<cite>
+						웹퍼블리셔라는 말을 만든 이유, 신현석 
+					</cite>
+					<br />
+					<q cite="http://hyeonseok.com/soojung/webpublisher/2011/06/01/657.html">
+						나는 <span class="fragment highlight-red">클라이언트 사이드 개발자</span>가 되고 싶었다. 그런데 에이전시 업계에서는 그런 일 하는 사람이 없으니 이름을 붙여준 것 뿐이다.
+					</q>
+					<cite>
+						프론트 엔드 엔지니어와 웹 퍼블리셔, 신현석 
+					</cite>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1 class="one-line-typo">웹 퍼블리셔 
+						= 프론트 엔드 개발자
+					</h1>
+				</section>
+			</section>
+
+			<!-- 퍼블리셔가 자바스크립트를 해야 하는가? -->
+			<section>
+				<section>
+					<h1 class="one-line-typo">JavaScript,
+						퍼블리셔가 해야 하는가?
+					</h1>
+				</section>
+				
+
+				<section>
+					<img src="./images/hacosa-poll.png" alt="하코사 설문 조사 결과 - 퍼블리셔의 범주 어디까지 보세요?" class="stretch" />
+				</section>
+
+				<section>
+					<img src="./images/back-to-the-past.jpg" alt="back to the past" class="stretch" />
+					<aside class="notes">
+						이에 대한 답을 내려보기에 앞서 우선 과거를 먼저 돌아봐야 할 것 같습니다.
+					</aside>
+				</section>
+
+				<section>
+					<h1 class="bendiagram">과거의 웹 제작</h1>
+					<div class="position-base stretch">
+						<div class="bendiagram ben-2 ben-2-left fragment" data-fragment="1">
+							Web
+							Designer
+						</div>
+
+						<div class="bendiagram ben-2 ben-2-right fragment" data-fragment="2">
+							Server-side
+							Developer
+						</div>
+
+						<div class="bendiagram intersection between-design-dev fragment" data-fragment="3">
+							HTML
+							CSS
+							JS
+						</div> 
+					</div>
+				</section>
+
+				<section>
+					<h1 class="bendiagram">현재의 웹 제작</h1>
+					<div class="pos-base stretch">
+						<div class="bendiagram ben-3 ben-3-left-top fragment" data-fragment-index="1">
+							Web
+							Designer
+						</div>
+						<div class="bendiagram ben-3 ben-3-right-top  fragment" data-fragment-index="2">
+							Server-Side
+							Developer
+						</div>
+						<div class="bendiagram ben-3 ben-3-center-bottom fragment" data-fragment-index="3">
+							Front-End
+							Developer
+						</div>
+						<span class="bar-left-right fragment" data-fragment-index="4"></span>
+						<span class="bar-left-bottom fragment" data-fragment-index="4"></span>
+						<span class="bar-right-bottom fragment" data-fragment-index="4"></span>
+					</div>
+				</section>
+
+				<section>
+					<blockquote class="likeq" data-cite="http://hyeonseok.com/soojung/webpublisher/2009/12/29/560.html">
+						&lsquo;웹 퍼블리셔가 자바스크립트도 해야 하나요?&rsquo;, &lsquo;웹 퍼블리셔의 업무범위는 어디까지 인가요?&rsquo; <br />
+						커뮤니티에서 잊을만 하면 나오는 질문들이다. <br />
+						추측해 보건데 질문 올린 사람의 의도는 다분히 방어적이다.<br />
+						&lsquo;내가 이런것 까지도 해야 하는가?&rsquo;,	&lsquo;이 업무를 내가 해야 하는가?&rsquo;. <br />
+						그리고 그 이면에는 &lsquo;이런거는 잘 모르는데 어떻게 정당화 할 수 있는 수단이 없을까?&rsquo;라는 생각이 깔려 있다.<br />
+						그 안타까운 심정이 이해가 안가는 것은 아니지만 좀 더 발전적으로 자신을 바라봤으면 좋겠다는 생각이 든다.
+					</blockquote>
+					<cite>
+						웹 퍼블리셔의 업무범위, 신현석 
+					</cite>
+				</section>
+				<section>
+					<blockquote class="likeq" data-cite="http://hyeonseok.com/soojung/webpublisher/2009/12/29/560.html">
+						분명히 말하고 싶은 것은 우리 업계는 지금 클라이언트 개발자가 무엇보다도 필요하다. <br />
+						아니 단순히 개발자가 아니라 전문가가 필요하다. <br />
+						그 이름을 웹 퍼블리셔로 부르던 UI 개발자라고 부르던 웹 접근성 전문가라고 부르던 프론트 엔드 디벨로퍼라고 부르던 그건 중요하지 않다. <br />
+						웹 브라우저를 잘 알고 HTML, CSS, 자바스크립트를 잘 알고, 웹표준과 웹접근성을 잘 알고, SEO나 기타 클라이언트 사이드 최적화를 잘 아는 그런 사람들이 필요하다. <br />
+						다 잘하면 가장 좋고 최소한 이런 분야를 자신의 전문 분야로 키워나가려는 자세를 가진 사람이 필요하다 
+					</blockquote>
+					<cite>
+						웹 퍼블리셔의 업무범위, 신현석 
+					</cite>
+				</section>
+
+				<section>
+					<h1 class="one-line-typo">잘 모른다고, 잘 못한다고
+					내 업무 영역이
+					아닌 것은 아니다</h1>
+				</section>
+			</section>
+
+			<!-- 퍼블리셔는 비전이 없다-->
+			<section>
+				<section>
+					<h1 class="one-line-typo">퍼블리셔는 비전이 없다?</h1>
+					<aside class="notes">
+						<p>
+							자, 이제 화제를 좀 바꾸어서 퍼블리셔의 비전에 대한 이야기를 해 보려 합니다. <br />
+							요새 퍼블리셔는 비전이 없다는 말이 제법 들리지요?
+						</p>
+					</aside>
+				</section>
+				<section>
+					<img src="./images/publisher-view.png" alt="하코사에 올라온 퍼블리셔 전망에 대한 부정적인 글들" class="stretch" />
+				</section>
+			</section>
+
+			<!-- 퍼블리셔는 중요한가-->
+			<section>
+				<section>
+					<h1 class="one-line-typo">퍼블리셔는 중요한가요?</h1>
+				</section>
+
+				<section>
+					<ul class="no-style growList">
+						<li class="fragment grow">
+							<span class="fa fa-angle-right"></span> 사용자가 실질적으로 맞닿는 곳은 프론트
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> 크로스브라우징 이슈
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> 웹 표준 / 웹 접근성
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> SEO, semantic 등의 이슈들
+						</li>
+					</ul>
+				</section>
+				<section>
+					<img src="./images/server-client.png" alt="서버 - 클라이언트 도식" class="stretch" />
+				</section>
+
+				<section>
+					<ul class="no-style growList">
+						<li>
+							<span class="fa fa-angle-right"></span> 사용자가 실질적으로 맞닿는 곳은 프론트
+						</li>
+						<li class="grow visible fragment">
+							<span class="fa fa-angle-right"></span> 크로스브라우징 이슈
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> 웹 표준 / 웹 접근성
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> SEO, semantic 등의 이슈들
+						</li>
+					</ul>
+				</section>
+				<section>
+					<img src="./images/cross-browse.png" alt="브라우저 종류 사진 - Andorid Browser, Chrome, Chrome Mobile, Firefox 등등" class="stretch" />
+				</section>
+				<section>
+					<ul class="no-style growList">
+						<li>
+							<span class="fa fa-angle-right"></span> 사용자가 실질적으로 맞닿는 곳은 프론트
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> 크로스브라우징 이슈
+						</li>
+						<li class="fragment grow">
+							<span class="fa fa-angle-right"></span> 웹 표준 / 웹 접근성
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> SEO, semantic 등의 이슈들
+						</li>
+					</ul>
+				</section>
+				<section>
+					<img src="./images/standard-accessibility.jpg" alt="front-end technologies" class="stretch" />
+				</section>
+				<section>
+					<ul class="no-style growList">
+						<li>
+							<span class="fa fa-angle-right"></span> 사용자가 실질적으로 맞닿는 곳은 프론트
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> 크로스브라우징 이슈
+						</li>
+						<li>
+							<span class="fa fa-angle-right"></span> 웹 표준 / 웹 접근성
+						</li>
+						<li class="fragment grow">
+							<span class="fa fa-angle-right"></span> SEO, semantic 등의 이슈들
+						</li>
+					</ul>
+				</section>
+				<section>
+					<img src="./images/front-tech.png" alt="front-end technologies" class="stretch" />
+					<aside class="notes">
+						<p>
+							performace, semantic, seo, responsive 등등 이것들은 모두 Front에 집중되어 있는 기술들입니다. 
+						</p>
+						<p>
+							이 모든 것들을 과연 퍼블리셔 외 다른 직군이 대체하여 작업 할 수 있느냐 하는 것이죠. 
+						</p>
+						(다음 슬라이드)
+					</aside>
+				</section>
+
+				<section>
+					<h1 class="one-line-typo">다른 직군이 퍼블리셔를
+					대체할 수 없다</h1>
+				</section>
+			</section>
+
+			<!-- 좋은 툴이 잘 나오잖아요-->
+			<section>
+				<section>
+					<h1 class="one-line-typo">좋은 툴이 잘 나오잖아요?</h1>
+				</section>
+				<section>
+					<img src="./images/publish-tools.jpg" alt="웹사이트 저작 도구 - redbean, wix, google web designer 등" class="stretch" />
+				</section>
+				<section>
+					<h1 class="one-line-typo">툴이 전문성을 
+					대체할 수 있는가?</h1>
+				</section>
+				<section>
+					<img src="./images/video-editor.png" alt="영상 편집 도구 캡쳐화면" class="stretch" />
+				</section>
+				<section>
+					<h1 class="one-line-typo">전문성을 길러라</h1>
+					<p>그냥 HTML,CSS만 할 줄 아는 이는
+						당연히 툴이 대체할 수 있다.</p>
+				</section>
+			</section>
+
+			<!-- 퍼블리셔의 미래 -->
+			<section>
+				<section>
+					<h1 class="one-line-typo">웹 분야의 확장</h1>
+					<aside class="notes">
+						그리고 퍼블리셔의 전망을 이야기 할 때, 이 이야기를 빼 놓을 수 없을 것 같습니다. <br />
+						웹 분야는 계속해서 확장되어져 가고 있다라는 것인데요
+					</aside>
+				</section>
+
+				<section>
+					<img src="http://www.w3.org/html/logo/downloads/HTML5_sticker.png" alt="i've seen the future. It's in my browser" class="stretch" />
+				</section>
+
+				<section>
+					<img src="./images/epub3.png" alt="EPUB3" class="stretch" />
+				</section>
+
+				<section>
+					<img src="./images/lg-tv.jpg" alt="LG TV WEB OS" class="stretch" />
+				</section>
+
+				<section>
+					<img src="./images/kimkisa.png" alt="국민내비 김기사" class="stretch" />
+				</section>
+
+				<section>
+					<img src="./images/obigo.jpg" alt="오비고 공조시스템구동화면" class="stretch" />
+				</section>
+
+				<section>
+					<h1 class="one-line-typo">HTML5 CT</h1>
+				</section>
+
+				<section>
+					<h1 class="one-line-typo">웹은 여전히 유용한 connection이다</h1>
+				</section>
+
+				<section>
+					<q cite="http://www.zeldman.com/2014/01/06/its-2014-is-web-design-dead/" class="jeffry"> Wisdom is not a job,
+					but it is always an asset </q>
+					<cite>IT’S 2014. IS WEB DESIGN DEAD?, Jeffrey Zeldman</cite>
+				</section>
+
+				<section>
+					<img src="./images/flying-cat.jpg" alt="날으는 고양이" class="stretch" />
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<blockquote class="likeq" data-cite="http://hyeonseok.com/soojung/webpublisher/2011/06/01/657.html">
+						활 시위는 당겨졌다. <br />
+						어느 쪽에 있던 사람이 쏘아지는 화살을 타고 날아갈지는 모른다. <br />
+						명칭이야 뭐라 불리웠던 그 조직이나 업계의 관행을 따라갈 수 밖에 없다. <br />
+						다만 다들 본인이 그 중심에 서기 위해서 노력했으면 좋겠다. 나 자신도 그럴 것이다.
+					</blockquote>
+					<cite>프론트 엔드 엔지니어와 웹 퍼블리셔, 신현석</cite>
+				</section>
+
+				<section>
+					<h1 class="one-line-typo" style="font-size:4.5em;">프로가 되고 싶은가
+					포로가 되고 싶은가
+
+					일을 해치우는 것이 아니라
+					잘하기 위해 노력해야 하는것
+					</h1>
+				</section>
+			</section>
+
+			<section>
+
+				<section>
+					<h1>참고 자료</h1>
+					<ul class="quotList">
+						<li>
+							<a href="https://jobs.apple.com/kr/search?#specs&ss=Front%20End%20Developer&t=0&so=&pN=0&openJobId=31718920" target="_blank">
+								Jobs at Apple
+							</a>
+						</li> 
+						<li>
+							<a href="https://www.ubervu.com/jobs/html-css-developer/" target="_blank">
+								ubervu.com
+							</a>
+						</li>
+						<li>
+							<a href="http://www.nyjobguide.com/content/junior-front-end-developer" target="_blank">
+								NY Job Guide
+							</a>
+						</li>
+						<li>
+							<a href="http://css-tricks.com/job-titles-in-the-web-industry/" target="_blank">
+								Job Titles in the Web Industry, css-tricks
+							</a>
+						</li>
+						<li>
+							<a href="http://hyeonseok.com/soojung/webstandards/2007/08/16/396.html" target="_blank">
+								웹퍼블리셔라는 말을 만든 이유, 신현석 
+							</a>
+						</li>
+						<li>
+							<a href="http://hyeonseok.com/soojung/webpublisher/2011/06/01/657.html" target="_blank">
+								프론트 엔드 엔지니어와 웹 퍼블리셔, 신현석 
+							</a>
+						</li>
+						<li>
+							<a href="http://hyeonseok.com/soojung/webpublisher/2009/12/29/560.html" target="_blank">
+								웹 퍼블리셔의 업무범위, 신현석 
+							</a>
+						</li>
+						<li>
+							<a href="http://www.zeldman.com/2014/01/06/its-2014-is-web-design-dead/" target="_blank">
+								IT’S 2014. IS WEB DESIGN DEAD?, Jeffrey Zeldman
+							</a>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1 class="one-line-typo">END</h1>
+					<address>
+						<h2>문의 및 연락처 : </h2>
+						<ul class="no-style">
+							<li><span class="type"><span class="fa fa-envelope-o"></span>  E-Mail :</span> <a href="mailto:publisher@publisher.name">publisher@publisher.name</a></li>
+							<li><span class="type"><span class="fa fa-desktop"></span>  Cafe :</span> <a href="http://cafe.naver.com/hacosa">하드코딩하는 사람들</a></li>
+							<li><span class="type"><span class="fa fa-facebook-square"></span> Facebook : </span> <a href="https://www.facebook.com/mulder21c?ref=tn_tnmn">@mulder21c</a></li>
+						</ul>
+					</address>
+				</section>
+			</section>
+
+			<!-- 결론 -->
+		</div>
+	</div>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+	<script src="./lib/js/head.min.js"></script>
+	<script src="./js/reveal.min.js"></script>
+	<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Parallax scrolling
+			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+			// parallaxBackgroundSize: '2100px 900px',
+			dependencies: [
+				// Syntax highlight for <code> elements
+				{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+				// Zoom in and out with Alt+click
+				{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+		Reveal.configure({
+			keyboard : {
+				84 : function(event){
+					event = event || window.event;
+					var current = Reveal.getCurrentSlide();
+					var hasTrans = $.contains(current, $(".translate", current)[0]);
+					if(hasTrans){
+						$(current).find(".translate:not('aside')").empty().append( $(current).find("aside.translate").contents() );
+					}
+					current = hasTrans = null;
+				},
+				71 : function(event){
+					event = event || window.event;
+					$("body").is(".gray") ? $("body").removeClass("gray") : $("body").addClass("gray");
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

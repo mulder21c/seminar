@@ -1,0 +1,144 @@
+@font-face{
+	font-family:'Nanum Gothic';
+	font-style: normal;
+	font-weight: 400;
+	src: url(//resource.publisher.name/fonts/NanumGothic-Regular.eot);
+	src: local('나눔고딕'),
+		url(//resource.publisher.name/fonts/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+		url(//resource.publisher.name/fonts/NanumGothic-Regular.woff2) format('woff2'),
+		url(//resource.publisher.name/fonts/NanumGothic-Regular.woff) format('woff'),
+		url(//resource.publisher.name/fonts/NanumGothic-Regular.ttf) format('truetype')
+}
+/* COMMON */
+body{
+	background:#1c1e20;
+	background:-moz-radial-gradient(center, circle cover, #393d41 0%, #1c1e20 100%);
+	background:-webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #393d41), color-stop(100%, #1c1e20));
+	background:-webkit-radial-gradient(center, circle cover, #393d41 0%, #1c1e20 100%);
+	background:-o-radial-gradient(center, circle cover, #393d41 0%, #1c1e20 100%);
+	background:-ms-radial-gradient(center, circle cover, #393d41 0%, #1c1e20 100%);
+	background:radial-gradient(center, circle cover, #393d41 0%, #1c1e20 100%);
+	background-size:100% 100%
+}
+a{color:#FFF}
+a:visited{color:#FFF}
+a:hover{color:#FFF}
+.reveal{font-family:'나눔고딕','Nanum Gothic','맑은 고딕';color:#FFF;line-height:1.8}
+.reveal section{font-size:50px}
+.reveal section header{margin-bottom:2em}
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6,
+.reveal .like-h1,
+.reveal .like-h2,
+.reveal .like-h3,
+.reveal .like-h4,
+.reveal .like-h5,
+.reveal .like-h6{display:block;font-weight:700;line-height:1.8;}
+.reveal h1,
+.reveal .like-h1{font-size:1.8em}
+.reveal h2,
+.reveal .like-h2{font-size:1.65em}
+.reveal h3,
+.reveal .like-h3{font-size:1.5em}
+.reveal h4,
+.reveal .like-h4{font-size:1.3em}
+.reveal h5,
+.reveal .like-h5{font-size:1.15em}
+.reveal h6,
+.reveal .like-h6{font-size:1em}
+.reveal em{font-style:normal;font-size:1.2em;text-decoration:underline;}
+.reveal q:before,
+.reveal q:after{display:inline-block;font-family:'FontAwesome';font-size:.5em;color:#fff}
+.reveal q:before{content:'\f10d';margin-right:.5em;vertical-align:super}
+.reveal q:after{content:'\f10e';margin-left:.5em;vertical-align:super}
+.reveal .cover h1{font-size:1.9em}
+.reveal .preline{white-space:pre-line}
+.reveal .figcaption{display:block;font-size:.5em}
+.reveal .bind-lines-3{position:relative;padding:2.6em 0}
+.reveal .bind-lines-3:before{
+	content:'';
+	display:block;
+	position:absolute;
+	left:-2em;
+	top:15%;
+	border-width:0 .25em 0 0;
+	border-style:solid;
+	border-color:#FFF;
+	-webkit-border-radius:1em;
+	-moz-border-radius:1em;
+	border-radius:1em;
+	width:2em;
+	height:70%;
+}
+.reveal .bind-lines-3:after{
+	content:'';
+	display:block;
+	position:absolute;
+	top:50%;
+	left:-.125em;
+	margin-top:-.25em;
+	width:0;
+	height:0;
+	border-width:.25em;
+	border-style:solid;
+	border-color:transparent #FFF #FFF transparent;
+	-webkit-transform: rotate(315deg);
+	-moz-transform: rotate(315deg);
+	-ms-transform: rotate(315deg);
+	-o-transform: rotate(315deg);
+	transform: rotate(315deg);
+}
+.reveal .bind-lines-3 .a11y-addon-step{
+	position:absolute;
+	top:0em;
+	left:2em;
+}
+.reveal .bind-lines-3 .a11y-addon-step:before{
+	content:'';
+	display:block;
+	position:absolute;
+	top:.75em;
+	left:.5em;
+	width:0;
+	height:150%;
+	border-width:0 0 0 .085em;
+	border-style:solid;
+	border-color:#FFF;
+	-webkit-transform: rotate(310deg);
+	-moz-transform: rotate(310deg);
+	-ms-transform: rotate(310deg);
+	-o-transform: rotate(310deg);
+	transform: rotate(310deg);
+}
+.reveal .bind-lines-3 .a11y-addon-step:after{
+	content:'';
+	display:block;
+	position:absolute;
+	top:-.57em;
+	left:3.3em;
+	width:0;
+	height:250%;
+	border-width:0 0 0 .085em;
+	border-style:solid;
+	border-color:#FFF;
+	-webkit-transform: rotate(55deg);
+	-moz-transform: rotate(55deg);
+	-ms-transform: rotate(55deg);
+	-o-transform: rotate(55deg);
+	transform: rotate(55deg);
+}
+.noteGuide{
+	position:absolute;
+	left:1em;
+	right:0;
+	bottom:1em;
+	text-align:left;
+	height:2em;
+	color:#FFF;
+	z-index:10;
+	font-size:1em;
+}

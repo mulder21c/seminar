@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ko-KR" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head prefix="og: http://ogp.me/ns#">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./css/reveal.min.css" />
+	<!-- <link rel="stylesheet" href="/css/theme/moon.css" /> -->
+	<link rel="stylesheet" type="text/css" href="./fonts/font-awesome-reveal.min.css?v=4.1.0" />	
+	<link rel="stylesheet" href="./css/common.css" />
+	<meta property="og:title" content="오늘도 접근성 이야기">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://mulder21c.github.io/seminar/20141206">
+	<meta property="og:image" content="./images/profile.jpg">
+	<meta property="og:description" content="접근성을 하는 목적은 결국 누구나 쉽게 접근하고 쉽게 사용할 수 있게 하며 편리하게 웹을 이용할 수 있게 하기 위해서다. 그러기 위해 모두가 함께 접근성이 왜 필요하고 또 어떻게 제공할지를 고민하고 노력하는 웹 문화를 만들어 갔으면 좋겠다.">
+	<title>오늘도 접근성 이야기</title>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-55718543-5', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="cover">
+				<h1><i class="fa fa-wheelchair"></i> 오늘도 a11y 이야기</h1>
+			</section>
+			<section>
+				<section>
+					<h2 class="like-h1">발표자 소개</h2>
+				</section>
+				<section>
+					<span class="like-h1">멀더끙</span>
+				</section>
+				<section>
+					<img src="./images/161@2x.png" alt="" class="stretch" />
+					<span class="like-h2">하코사 스팸 관리 스탭	</span>
+				</section>
+				<section>
+					<img src="http://www.pooq.co.kr/images/tmp/jv_pooq_logo.png" alt="" class="stretch" />
+					<span class="like-h2">콘텐츠연합플랫폼 퍼블리셔	</span>
+				</section>
+				<section>
+					<img src="./images/152@2x.png" alt="" class="stretch" />
+					<span class="like-h2">곧 30 중반을 바라보는...</span>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="like-h1">웹 접근성 <br />
+							= 인터넷 경사로</h2>
+				</section>
+				<section>
+					<span class="like-h1">이제는 다 아는 얘기 <br />
+							<q>a11y</q></span>
+				</section>
+				<section>
+					<span class="like-h1">레알?</span>
+				</section>
+				<section>
+					<img src="./images/danger_slope3.jpg" alt="" class="stretch" />
+					<aside class="notes">
+						이 사진을 보면 어떤 것 같나요? <br />
+						접근성이 잘 제공된 것 같나요? <br />
+						사실은 접근성이 잘못 제공된 예입니다. <br />
+						혹 우리가 만드는 웹 접근성도 이러한 것이 되지는 않는지 조심스러워집니다
+					</aside>
+				</section>
+				<section>
+					<span class="like-h1 preline">준수된 듯 ~ ♬
+							준수되지 않은 듯 ~ ♬ 
+							준수된 것 같은 ~ ♬ 
+							a11y</span>
+				</section>
+				<section>
+					<span class="like-h1">무엇이 문제인가?</span>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="like-h1">접근성을 어떻게 접근할 것인가?</h2>
+				</section>
+				<section>
+					<span class="like-h2">기술적 접근 vs 인문적 접근</span>
+				</section>
+				<section>
+					<span class="like-h2">만드는 자 vs 사용하는 자</span>
+				</section>
+				<section>
+					<img src="./images/olleh.jpg" alt="" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="like-h1">장애에 대한 이해</h2>
+				</section>
+				<section>
+					<h3 class="like-h2">각 장애별 웹 이용 방법</h3>
+				</section>
+				<section>
+					<span class="like-h3">Screen Reader</span>
+					<span class="like-h4">Sense Reader, JAWS, NVDA</span>
+				</section>
+				<section>
+					<img src="./images/lowsight.jpg" alt="저시력자의 컴퓨터 이용 사진" class="stretch" />
+					<sub class="figcaption">사진 출처 : "누구를 위하여 종을 울리나" - 김혜일(emotion)님 접근성 세미나 자료 中</sub>
+				</section>
+				<section>
+					<img src="./images/560797_384411068356219_792254154_n.jpg" alt="조우스 시연 사진" class="stretch" >
+					<sub class="figcaption">조우스 - 이미지 출처 : <a href="https://www.facebook.com/groups/kwag.net/">KWAG Facebook</a></sub>
+				</section>
+				<section>
+					<img src="./images/mouse-stick.jpg" alt="마우스 스틱" class="stretch" />
+					<sub class="figcaption">마우스 스틱 - 이미지 출처 : <a href="http://www.sisapress.com/news/quickViewArticleView.html?idxno=43193">시사저널</a></sub>
+				</section>
+				<section>
+					<img src="./images/eyemouse.jpg" alt="안구마우스" class="stretch">
+					<sub class="figcaption">안구 마우스 - 이미지 출처 : <a href="http://www.mediaus.co.kr/news/articleView.html?idxno=14529">미디어스</a></sub>
+				</section>
+				<section>
+					<h2 class="like-h1">내가 그 상황이라면?</h2>
+				</section>
+				<section>
+					<span class="like-h1 preline" style="display:block">공감
+						<span class="fragment grow" style="display:inline-block;">(共感)	</span>
+					</span>
+					<span class="fragment">함께 공</span>
+					<span class="fragment">느낄 감</span>
+					<p class="fragment preline">
+						상대의 느끼는 바를 함께 느낌</p>
+				</section>
+				<section>
+					<h2 class="like-h1">HOW?</h2>
+				</section>
+				<section>
+					<h3 class="like-h1">내가 만약</h3>
+					<span class="like-h4 preline"><span class="fragment">볼 수 없다면... </span>
+						<span class="fragment">들을 수 없다면... </span>
+						<span class="fragment">몸을 움직일 수 없다면...</span> </span>
+				</section>
+				<section>
+					<h3 class="like-h2">네이버 웹 접근성 체험 부스</h3>
+					<a href="http://a11ybooth.naver.com/experience/a11y.nhn" target="_blank" class="stretch"><img src="./images/a11ybooth_naver.png" alt="네이버 웹접근성 체험 부스 캡쳐 화면" /></a>
+				</section>
+				<section>
+					<h3 class="like-h5">네이버 그린팩토리 접근성 체험 부스</h3>
+					<img src="./images/nhn.jpg" alt="네이버 그린팩토리 접근성 체험 부스 사진" class="stretch" />
+				</section>
+				<section>
+					<h3 class="like-h2">한국정보화진흥원 체험관</h3>
+					<img src="http://file.nia.or.kr/NIA/data/kaoni/201112021126599835/201210/e3274b58-d076-478d-81f0-163b8c74ef9b121012%20%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%B3%B4%EC%A1%B0%EA%B8%B0%EA%B8%B0%20%EC%B2%B4%ED%97%98%ED%99%9C%EC%9A%A9%EA%B4%80%20%EC%A7%80%EC%9B%90%EC%82%AC%EC%97%85(%EA%B3%B5%EA%B3%A0%EB%AC%B8_HWP).hwp.files/bindatas/BIN0002.jpg" alt="한국정보화진흥원 체험관 전경 사진" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="like-h1">구현</h2>
+				</section>
+				<section>
+					<span class="like-h1">KWCAG</span>
+					<sub style="font-size:.85em">(Korea Web Content Accessibility Guidelines)</sub>
+					<sub class="like-h3">13개 지침 22개 검사항목 <span style="font-size:.25em">(2.0 문서 기준)</span></sub>
+				</section>
+				<section>
+					<span class="like-h3 preline">내가 웹을 사용할 수 있기 위해
+						필요한 것이 무엇인가?</span>
+					<span class="like-h1 fragment"><i class="fa fa-arrow-right"></i> KWCAG 그 이상</span>
+				</section>
+				<section>
+					<h2 class="like-h3 preline">외우려하지 말고 
+						왜 필요한지를 먼저 생각하라</h2>
+				</section>
+				<section>
+					<h2 class="like-h3 preline">어떻게 사용성을 높일 지를 
+						고민하라</h2>
+				</section>
+				<section>
+					<h2 class="like-h3 preline">접근성 검사를 
+						업무 프로세스 안으로</h2>
+				</section>
+				<section>
+					<span class="like-h4 preline" style="float:left;width:30%;">기획 
+						디자인 
+						개발 
+					</span>
+					<span class="like-h6 bind-lines-3" style="float:right;width:65%;">단계마다 접근성 검사
+						<span class="like-h6 a11y-addon-step fragment">가 끝날 때</span>
+					</span>
+					
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="like-h1">접근성 테스트</h2>
+				</section>
+				<section>
+					<h3 class="like-h2">자동화 툴</h3>
+				</section>
+				<section>
+					<h4 class="like-h3"><a href="http://www.wah.or.kr/Achive/Kadowah.asp">K-WAH</a></h4>
+					<img src="./images/k-wah.jpg" alt="K-WAH 캡쳐 화면" class="stretch" />
+				</section>
+				<section>
+					<h4 class="like-h3"><a href="http://openwax.net/" target="_blank">OpenWAX</a> / <a href="http://nuli.navercorp.com/sharing/fe/nwax" target="_blank">N-WAX</a></h4>
+					<img src="./images/openwax.jpg" alt="OpenWAX 캡쳐 화면" class="stretch" />
+				</section>
+				<section>
+					<h4 class="like-h3"><a href="http://pajet.net/" target="_blank">PAJET</a></h4>
+					<img src="./images/pajet.jpg" alt="PAJET 캡쳐 화면" class="stretch" />
+				</section>
+				<section>
+					<h3 class="like-h4" >자동화 툴에서 통과하면 문제없다?</h3>
+					<span class="like-h1 fragment">No!!!</span>
+				</section>
+				<section>
+					<img src="./images/olleh.jpg" alt="" class="stretch" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="like-h1">쉽지 않은 것은 사실이다.</h2>
+				</section>
+				<section>
+					<span class="like-h2 preline">어렵다고 안할텐가?
+					어렵다고 대강할텐가?
+					</span>
+				</section>
+				<section>
+					<span class="like-h2 preline">피할 수 없다면 즐기고
+					기왕 한다면 잘 해보자
+					</span>
+				</section>
+				<section>
+					<iframe title='시각장애인을 기다렸다가 발을 걸어라?' width='854px' height='641px' src='https://videofarm.daum.net/controller/video/viewer/Video.html?vid=vec5enEEnniXi5DH5n7CoHi&play_loc=undefined&alert=true' frameborder='0' scrolling='no'  class="stretch"></iframe>
+				</section>
+				<section>
+					<p style="text-align:left;">
+						법적으로 설치하라고 하니까 설치한 거죠
+					</p>
+					<p style="text-align:left;">
+						이게 왜 필요한가는, <br />
+						자기들한테는 의미가 없는 거예요
+					
+					</p>
+					<p style="text-align:left;">
+						근데 제가 말하고 싶은 것은 이게 왜 이렇게 설치가 돼 있는지를 알아줬으면 좋겠다.
+					</p>
+				</section>
+				<section>
+					<img src="./images/13@2x.png" alt="" class="stretch" />
+					<h2 class="like-h1">모두에게 편리한 웹을 위하여!</h2>
+				</section>
+			</section>
+		</div>
+		<div class="noteGuide">
+			※ 본 슬라이드의 자세한 발표 내용은 블로그 포스트 - <a href="http://blog.publisher.name/855">오늘도 a11y 이야기</a>에서 확인 가능합니다.
+		</div>
+	</div>
+	<script src="//code.jquery.com/jquery-1.11.0.js"></script>
+	<script src="./lib/js/head.min.js"></script>
+	<script src="./js/reveal.min.js"></script>
+	<script>
+	//<![CDATA[
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Parallax scrolling
+			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+			// parallaxBackgroundSize: '2100px 900px',
+			dependencies: [
+				// Syntax highlight for <code> elements
+				//{ src: '/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+				// Zoom in and out with Alt+click
+				{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+
+			]
+		});
+	//]]>
+	</script>
+</body>
+</html>

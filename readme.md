@@ -1,5 +1,11 @@
 # 세미나 발표 자료들
 
+## 2014년 발표 자료
+
+- [Web Publisher를 돌아보다](https://mulder21c.github.io/seminar/20140517/index.html) - 하드코딩하는사람들 2014 상반기 세미나 발표 자료
+
+- [오늘도 a11y 이야기](https://mulder21c.github.io/seminar/20141206/index.html) - 하드코딩하는사람들 2014 하반기 세미나 발표 자료
+
 ## 2015년 발표 자료
 
 - [WAI-ARIA](https://mulder21c.github.io/seminar/20150530/index.html) - 하드코딩하는사람들 2015 상반기 세미나 발표 자료
@@ -13,6 +19,8 @@
 ## 2017년 발표 자료
 
 - [Web Accessibility 101](https://mulder21c.github.io/seminar/20170618/index.html) - 하드코딩하는사람들 2017 상반기 세미나, WSConf. 2016 Vol1 발표 자료
+
+- Document Outline in HTML 5.1 - WSConf. 2017 Vol 2 발표 자료
 
 ## Q&A
 
