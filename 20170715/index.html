@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./framework/reveal/3.4.1/css/reveal.css">
+    <link rel="stylesheet" href="./fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="./framework/prismjs/prism.css">
+    <link rel="stylesheet" href="./framework/reveal/3.4.1/css/print/pdf.css" media="print">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document Outline in HTML 5.1</title>
+    <script src="./framework/reveal/3.4.1/lib/js/head.min.js"></script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-55718543-5', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section class="cover">
+                <h1 class="heading-primary">
+                    Document Outline
+                </h1>
+            </section>
+            <section>
+                <section class="profile">
+                    <img src="./images/967001_446441215449774_360669820_o.jpg" alt="프로필 사진" class="photo">
+                    <p class="name">
+                        <span aria-hidden="true"><i class="fa fa-vcard-o"></i></span> <b>지성봉</b>
+                    </p>
+                    <p class="company">
+                        現 콘텐츠연합플랫폼(주) 웹 퍼블리셔
+                    </p>
+                    <p class="external-activity">
+                        HTML 5.1 명세 1년째 개인 번역 중
+                    </p>
+                </section>
+            </section>
+			<section>
+				<section>
+					<h2 class="heading-secondary">Adenda</h2>
+					<ol>
+						<li>
+							<p>Document Outline in HTML 5.1</p>
+							<ol style="list-style-type:lower-roman;">
+								<li><p>What is outline?</p></li>
+								<li><p>HTML5 Outline Algorithm</p></li>
+							</ol>
+						</li>
+						<li><p>What is different between HTML 5 and HTML 5.1?</p></li>
+						<li><p>주의해야 할 것들</p></li>
+						<li><p>How to check outline?</p></li>
+						<li><p>Outline을 정말 고려해야 하는가?</p></li>
+					</ol>
+				</section>
+			</section>
+            <section data-transition="zoom">
+                <section>
+                    <h2 class="heading-primary">
+                        <span>Document Outline</span>
+                        <span class="fragment fade-in-width" style="max-height:1.5em;color:#134674;">in HTML 5.1</span></h2>
+                </section>
+                <section>
+                    <h3 class="heading-secondary">What is outline?</h3>
+                </section>
+                <section>
+                    <div style="position:relative;">
+                        <pre style="font-size:1em;"><code class="language-css">a {
+    <mark>outline</mark> : 1px solid #181818
+}</code></pre>
+                    <span aria-hidden="true" style="position:absolute;top:50%;left:50%;margin-left:-.75em;margin-top:-.75em;color:#F00;line-height:1;"><i class="fa fa-close fragment" style="transform:scale(10,10);"></i></span>
+                    </div>
+                </section>
+                <section>
+                    <img src="./images/outline-difinition-in-dictionary.png" alt="outline 사전 정의" class="stretch">
+                    <dl class="hidden-accessible">
+                        <dt>outline</dt>
+                        <dd>개요를 서술하다</dd>
+                        <dd>윤곽을 보여주다</dd>
+                        <dd>개요</dd>
+                        <dd>윤곽</dd>
+                    </dl>
+                </section>
+                <section>
+                    <figure>
+                        <img src="./images/google-docs-outline.jpg" alt="" class="stretch" />
+                    </figure>
+                </section>
+                <section>
+                    <blockquote>
+                        <p>The document outline is the structure of a document.</p>
+                        <cite><a href="http://html5doctor.com/outlines/" target="_blank">HTML5 Doctor</a></cite>
+                    </blockquote>
+                </section>
+                <section>
+                    <blockquote>
+                        <p>섹션화 콘텐트(sectioning content) 요소나 섹션화 루트(sectioning root) 요소에 대한 개요는 하나 이상의 잠재적으로 중첩되는 섹션들의 목록으로 구성됩니다.</p>  <small style="line-height:1;vertical-align:baseline;">... (중략) ...</small><p>섹션은 원래(original) DOM 트리의 일부 노드에 해당하는 컨테이너 입니다.</p>  <small style="line-height:1;vertical-align:baseline;">... (중략) ...</small>  <p>Document의 body 요소(element)에 대해 생성된 개요(outline)은 전체 문서의 개요(outline)입니다.</p>
+                        <cite><a href="https://mulder21c.github.io/html/sections.html#creating-an-outline" target="_blank">4.3.10.1 개요(outline) 생성, W3C HTML 5.1 Spec.</a></cite>
+                    </blockquote>
+                </section>
+            </section>
+            <section  data-transition="zoom">
+                <section>
+                    <h3 class="heading-primary">
+                        Section
+                    </h3>
+                </section>
+                <section>
+                    <div style="position:relative">
+    <pre style="font-size:1em;"><code class="language-markup">&lt;section&gt;
+    Section 1
+&lt;/section&gt;</code></pre>
+                        <span aria-hidden="true" style="position:absolute;top:50%;left:50%;margin-left:-.75em;margin-top:-.75em;color:#F00;line-height:1;"><i class="fa fa-close fragment" style="transform:scale(10,10);"></i></span>
+                    </div>
+                </section>
+                <section>
+                    <blockquote>
+                        <p>섹션은 원래(original) DOM 트리의 일부 노드에 해당하는 컨테이너 입니다.</p>  <small style="line-height:1;vertical-align:baseline;">... (중략) ...</small>  <p>개요(outline)의 섹션들은 섹션 요소(element)들에 해당 할 수 있기는 하지만 섹션 요소(element)들은 아닙니다 — 그것들은 단지 개념적인 섹션들입니다.</p>
+                        <cite><a href="https://mulder21c.github.io/html/sections.html#creating-an-outline" target="_blank">4.3.10.1 개요(outline) 생성, W3C HTML 5.1 Spec.</a></cite>
+                    </blockquote>
+                </section>
+                <section>
+                    <blockquote>
+                        <span>The document outline is the</span> <span class="fragment fade-in-width" data-fragment-index="0"><mark>section structure</mark></span> <span><span class="fragment fade-out fade-out-width" data-fragment-index="0" style="vertical-align:bottom;">structure</span> of a document. </span>
+                    </blockquote>
+                </section>
+            </section>
+            <section data-transition="zoom">
+                <section>
+                    <h3 class="heading-secondary">HTML5 Outline Algorithm</h3>
+                </section>
+                <section>
+                    <ul>
+                        <li>
+                            제목(heading)은 암묵적 섹션을 생성
+                        </li>
+                        <li>
+                            섹션화(sectioning) 콘텐트는 명시적 섹션 생성
+                        </li>
+                        <li>
+                            제목(heading)이 없는 섹션의 제목은 기본 제목을 사용.
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <p class="pre-formatted">섹션화 루트(sectioning root) 요소들은
+                    자신의 개요를 가짐</p>
+                </section>
+                <section class="overlay-base">
+                    <pre><code class="language-markup">&lt;body&gt;                <span class="fragment" style="color:#fefefe;">&ast; Section created for body node</span>
+                    
+	&lt;h1&gt;A&lt;/h1&gt;
+	&lt;p&gt;B&lt;/p&gt;
+
+&lt;/body&gt;</code></pre>
+                </section>
+                <section>
+                    <p class="pre-formatted">섹션 안의 헤딩 요소들 중 첫 번째 요소가
+                    그 개요에 대한 헤딩(heading)이 된다.</p>
+                </section>
+                <section class="overlay-base">
+                    <pre><code class="language-markup">&lt;body&gt;                &ast; Section created for body node
+
+    &lt;h1&gt;A&lt;/h1&gt;        <span class="fragment" data-fragment-index="0">&ast; Associated with heading "A"</span>
+    &lt;p&gt;B&lt;/p&gt;          <span class="fragment" data-fragment-index="0">&ast; Associated with paragraph "B"</span>
+
+&lt;/body&gt;</code></pre>
+					<div class="structureoutline overlay-layer fragment" data-fragment-index="1">
+						<strong>Structural outline</strong> <br />
+						<ol>
+							<li>
+								<span class="heading">A</span>
+							</li>
+						</ol>
+					</div>
+                    <a href="test/outline1.html" target="outline-test">outline test</a>
+                </section>
+                <section>
+                    <p class="pre-formatted">하위 등급(rank)의 헤딩(heading)은
+                    이전 섹션의 일부로 암묵적인 하위 섹션을 시작</p>
+                </section>
+                <section class="overlay-base">
+                    <pre><code class="language-markup">&lt;body&gt;                &ast; Section created for body node
+
+    &lt;h1&gt;A&lt;/h1&gt;        &ast; Associated with heading "A"
+    &lt;p&gt;B&lt;/p&gt;          &ast; Associated with paragraph "B"
+
+    &lt;h2&gt;C&lt;/h2&gt;            <span class="fragment">&mdash; Subsection implied for h2 element</span>
+    &lt;p&gt;D&lt;/p&gt;              <span class="fragment">&mdash; Associated with heading "C" and paragraph "D"</span>
+
+&lt;/body&gt;</code></pre>
+					<div class="structureoutline overlay-layer fragment">
+						<strong>Structural outline</strong> <br />
+						<ol>
+							<li>
+								<span class="heading">A</span>
+								<ol>
+									<li><span class="heading">C</span></li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+                    <a href="test/outline2.html" target="outline-test">outline test</a>
+                </section>
+                <section>
+                    <p class="pre-formatted">동일 등급(rank)의 헤딩(heading)은
+                    새로운 (암묵적인) 섹션을 시작</p>
+                </section>
+                <section class="overlay-base">
+                    <pre><code class="language-markup">&lt;body&gt;                &ast; Section created for body node
+
+    &lt;h1&gt;A&lt;/h1&gt;        &ast; Associated with heading "A"
+    &lt;p&gt;B&lt;/p&gt;          &ast; Associated with paragraph "B"
+
+    &lt;h2&gt;C&lt;/h2&gt;            &mdash; Subsection implied for h2 element
+    &lt;p&gt;D&lt;/p&gt;              &mdash; Associated with heading "C" and paragraph "D"
+
+    &lt;h2&gt;E&lt;/h2&gt;            <span class="fragment">&mdash; Second new subsection implied for h2 element</span>
+    &lt;p&gt;F&lt;/p&gt;              <span class="fragment">&mdash; Associated with heading "E" and paragraph "F"</span>
+
+&lt;/body&gt;</code></pre>
+					<div class="structureoutline overlay-layer fragment">
+						<strong>Structural outline</strong> <br />
+						<ol>
+							<li>
+								<span class="heading">A</span>
+								<ol>
+									<li><span class="heading">C</span></li>
+									<li><span class="heading">E</span></li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+                    <a href="test/outline3.html" target="outline-test">outline test</a>
+                </section>
+                <section>
+                    <p class="pre-formatted">상위 등급(rank)의 헤딩(heading)은
+                    상위 아웃라인의 수준에서
+                    새로운 (암묵적인) 섹션을 시작</p>
+                </section>
+                <section class="overlay-base">
+                    <pre><code class="language-markup">&lt;body&gt;                &ast; Section created for body node
+
+    &lt;h1&gt;A&lt;/h1&gt;        &ast; Associated with heading "A"
+    &lt;p&gt;B&lt;/p&gt;          &ast; Associated with paragraph "B"
+
+    &lt;h2&gt;C&lt;/h2&gt;            &mdash; Subsection implied for h2 element
+    &lt;p&gt;D&lt;/p&gt;              &mdash; Associated with heading "C" and paragraph "D"
+
+    &lt;h3&gt;E&lt;/h3&gt;                &plus; Subsection implied for h3 element
+    &lt;p&gt;F&lt;/p&gt;                  &plus; Associated with heading "E" and paragraph "F"
+
+    &lt;h2&gt;G&lt;/h2&gt;            <span class="fragment">&mdash; Second new subsection implied for h2 element</span>
+    &lt;p&gt;H&lt;/p&gt;              <span class="fragment">&mdash; Associated with heading "G" and paragraph "H"</span>
+
+&lt;/body&gt;</code></pre>
+					<div class="structureoutline overlay-layer fragment">
+						<strong>Structural outline</strong> <br />
+						<ol>
+							<li>
+								<span class="heading">A</span>
+								<ol>
+									<li>
+										<span class="heading">C</span>
+										<ol>
+											<li>
+												<span class="heading">E</span>
+											</li>
+										</ol>
+									</li>
+									<li><span class="heading">G</span></li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+                    <a href="test/outline4.html" target="outline-test">outline test</a>
+                </section>
+                <section>
+                    <p class="pre-formatted">섹션화 루트(sectioning root) 요소 내부의
+                    섹션과 헤딩(heading)은 조상들의 개요에 영향을 주지 않는다.
+                    </p>
+                </section>
+                <section class="overlay-base">
+                    <pre><code class="language-markup">&lt;body&gt;                &ast; Section created for body node
+
+    &lt;h1&gt;A&lt;/h1&gt;        &ast; Associated with heading "A"
+    &lt;p&gt;B&lt;/p&gt;          &ast; Associated with paragraph "B"
+
+    &lt;h2&gt;C&lt;/h2&gt;            &mdash; Subsection implied for h2 element
+    &lt;p&gt;D&lt;/p&gt;              &mdash; Associated with heading "C" and paragraph "D"
+
+    &lt;blockquote&gt;          <span class="fragment"><span aria-hidden="true"><span class="fa fa-check" style="color:#f00;"></span></span> do not contribute to the outlines of ancestors</span>
+        &lt;h3&gt;E&lt;/h3&gt;
+        &lt;p&gt;F&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;h2&gt;G&lt;/h2&gt;            <span class="fragment">&mdash; Second new subsection implied for h2 element</span>
+    &lt;p&gt;H&lt;/p&gt;              <span class="fragment">&mdash; Associated with heading "G" and paragraph "H"</span>
+
+&lt;/body&gt;</code></pre>
+					<div class="structureoutline overlay-layer fragment">
+						<strong>Structural outline</strong> <br />
+						<ol>
+							<li>
+								<span class="heading">A</span>
+								<ol>
+									<li>
+										<span class="heading">C</span>
+									</li>
+									<li><span class="heading">G</span></li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+                    <a href="test/outline5.html" target="outline-test">outline test</a>
+                </section>
+                <section>
+                    <p class="pre-formatted">섹션화 콘텐츠는 암묵적 섹션과 관계없이
+                    가장 가까운 조상 섹션화 루트나 섹션화 콘텐트의
+                    하위 섹션으로 간주</p>
+                </section>
+                <section class="overlay-base">
+                    <pre><code class="language-markup">&lt;body&gt;                &ast; Section created for body node
+
+    &lt;h1&gt;A&lt;/h1&gt;        &ast; Associated with heading "A" 
+    &lt;p&gt;B&lt;/p&gt;          &ast; Associated with paragraph "B"
+
+    &lt;h2&gt;C&lt;/h2&gt;            &mdash; Subsection implied for h2 element
+    &lt;p&gt;D&lt;/p&gt;              &mdash; Associated with heading "C" and paragraph "D"
+
+    &lt;h3&gt;E&lt;/h3&gt;                &plus; Subsection implied for h3 element
+    &lt;p&gt;F&lt;/p&gt;                  &plus; Associated with heading "E" and paragraph "F"
+
+    &lt;section&gt;             <span class="fragment">&mdash; explicit &lt;section&gt; subsection for body node</span>
+        &lt;h2&gt;G&lt;/h2&gt;        <span class="fragment">&mdash; Associated with heading "G" and paragraph "H"</span>
+        &lt;p&gt;H&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/body&gt;</code></pre>
+					<div class="structureoutline overlay-layer fragment">
+						<strong>Structural outline</strong> <br />
+						<ol>
+							<li>
+								<span class="heading">A</span>
+								<ol>
+									<li>
+										<span class="heading">C</span>
+										<ol>
+											<li>
+												<span class="heading">E</span>
+											</li>
+										</ol>
+									</li>
+									<li><span class="heading">G</span></li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+                    <a href="test/outline6.html" target="outline-test">outline test</a>
+                </section>
+                <section>
+                    <ul>
+                        <li class="pre-formatted">명시적 섹션이 생성될 때 
+                            헤딩(heading)이 존재하지 않을 경우 
+                            암묵적 헤딩(일반적으로 untitled)을 생성.</li>
+                        <li class="pre-formatted">명시적인 섹션 제목(heading)을 가지지 않는 섹션들에 대한
+                        기본 제목(heading)들을 제공</li>
+                    </ul>
+                    </p>
+                </section>
+                <section class="overlay-base">
+                    <pre><code class="language-markup">&lt;body&gt;                &ast; Section created for body node
+    &lt;h1&gt;A&lt;/h1&gt;        &ast; Associated with heading "A" 
+    &lt;p&gt;B&lt;/p&gt;          &ast; Associated with paragraph "B"
+
+    &lt;nav&gt;                 <span class="fragment">&mdash; explicit &lt;nav&gt; subsection for body node</span>
+        &lt;ul&gt;              <span class="fragment"><span aria-hidden="true"><span class="fa fa-check" style="color:#f00;"></span></span> implied heading created for &lt;nav&gt; section</span>
+            &lt;li&gt;
+                &lt;a href=".."&gt;menu&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;section&gt;             <span class="fragment">&mdash; explicit &lt;section&gt; subsection for body node</span>
+        &lt;h2&gt;&lt;/h2&gt;         <span class="fragment"><span aria-hidden="true"><span class="fa fa-check" style="color:#f00;"></span></span> default heading for &lt;section&gt; section</span>
+        &lt;p&gt;D&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/body&gt;</code></pre>
+					<div class="structureoutline overlay-layer fragment">
+						<strong>Structural outline</strong> <br />
+						<ol>
+							<li>
+								<span class="heading">A</span>
+								<ol>
+									<li>Untitled [nav element with no heading]</li>
+									<li>Untitled [section element with empty heading]</li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+	                <a href="test/outline7.html" target="outline-test">outline test</a>
+                </section>
+            </section>
+
+            <section data-transition="zoom">
+                <section>
+                    <h2 class="heading-secondary">
+                        What is different between HTML 5 and HTML 5.1?
+                    </h2>
+                </section>
+                <section>
+                    <blockquote>
+                        섹션들은 모든 등급의 제목(heading)들을 포함할 수 있고, 작성자들은 섹션의 중첩 레벨에 대한 적절한 등급의 제목(heading)들을 사용할 것이 강력히 권장됩니다.
+                        <cite>4.3.10 제목(heading)들과 섹션들 - in HTML 5</cite>
+                    </blockquote>
+                </section>
+                <section>
+                    <blockquote style="line-height:1.6;">
+                        섹션들은 <mark>그들의 섹션 중첩 수준과 동일한 등급</mark>의 제목(heading)들을 포함할 수 있습니다. 작성자들은 섹션의 중첩 수준에 대한 적절한 등급의 제목(heading)들을 <mark>사용해야(should)</mark> 합니다.
+                        <cite><a href="https://mulder21c.github.io/html/sections.html#headings-and-sections" target="_blank">4.3.10 제목(heading)들과 섹션들 - in HTML 5.1</a></cite>
+                    </blockquote>
+                </section>
+                <section>
+                    <div style="position:relative">
+    <pre><code class="language-markup">&lt;body&gt;
+        &lt;h1&gt;A&lt;/h1&gt;
+        &lt;p&gt;B&lt;/p&gt;
+    
+        &lt;section&gt;
+            &lt;h1&gt;C&lt;/h1&gt;
+            &lt;p&gt;D&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/body&gt;</code></pre>
+                        <span aria-hidden="true" style="position:absolute;top:50%;left:50%;margin-left:-.75em;margin-top:-.75em;color:#F00;line-height:1;"><i class="fa fa-close fragment" style="transform:scale(10,10);"></i></span>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2 class="heading-secondary">주의해야 할 것들</h2>
+                </section>
+                <section>
+                    <h3 class="heading-tertiary pre-formatted">문서 구조를 전달하기 위해 
+                    outline에 의존하지 마세요.</h3>
+                </section>
+                <section>
+                    <blockquote class="w3c">
+                        <p class="warning"> 개요(outline) 알고리즘이 적합성 검사기들과 브라우저 확장들 같은 다른 소프트웨어에 구현되기는 하지만, 그래픽 브라우저들이나 보조 도구 유저 에이전트들에 현재 알려진 개요(outline) 알고리즘의 네이티브 구현은 없습니다. 따라서 개요 알고리즘은 사용자들에게 문서 구조를 전달하는데 신뢰될 수 없습니다. 작성자들은 문서 구조를 전달하기 위해 제목(heading) 등급을 (<code>h1</code>-<code>h6</code>) 사용해야(should) 합니다. </p>
+                        <cite><a href="https://mulder21c.github.io/html/sections.html#creating-an-outline" target="_blank">4.3.10.1. 개요(outline) 생성 - HTML 5.1</a></cite>
+                    </blockquote>
+                </section>
+                <section>
+                    <pre><code class="language-markup">&lt;body&gt;                <span class="fragment" style="color:#dfdf00;" data-fragment-index="0">&ast; Section created for body node</span>
+  &lt;h1&gt;Apples&lt;/h1&gt;      <span class="fragment" style="color:#dfdf00;" data-fragment-index="0">&ast; Associated with heading "Apples" </span>
+  &lt;p&gt;Apples are fruit.&lt;/p&gt;
+  &lt;section&gt;               <span class="fragment" style="color:#dfdf00;" data-fragment-index="1">&mdash; explicit &lt;section&gt; section for body node</span>
+    &lt;h2&gt;Taste&lt;/h2&gt;        <span class="fragment" style="color:#dfdf00;" data-fragment-index="1">&mdash; Associated with heading "Taste"</span> 
+    &lt;p&gt;They taste lovely.&lt;/p&gt;
+    &lt;section&gt;                 <span class="fragment" style="color:#dfdf00;" data-fragment-index="2">&plus; explicit &lt;section&gt; section for "Taste" section</span>
+      &lt;h3&gt;Sweet&lt;/h3&gt;          <span class="fragment" style="color:#dfdf00;" data-fragment-index="2">&plus; Associated with heading "Sweet"</span> 
+      &lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/section&gt;
+  &lt;section&gt;               <span class="fragment" style="color:#dfdf00;" data-fragment-index="3">&mdash; explicit &lt;section&gt; section for body node</span>
+    &lt;h3&gt;Color&lt;/h3&gt;        <span class="fragment" style="color:#dfdf00;" data-fragment-index="3">&mdash; Associated with heading "Color"</span> 
+    &lt;p&gt;Apples come in various colors.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/body&gt;</code></pre>
+                </section>
+                <section>
+                    <div class="structureoutline">
+                        <strong>Structural outline</strong> <br />
+                        <ol>
+                            <li><span class="heading">Apples</span>
+                                <ol>
+                                    <li><span class="heading">Taste</span>
+                                        <ol><li><span class="heading">Sweet</span></li></ol>
+                                    </li>
+                                    <li><span class="heading">Color</span></li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="headingoutline fragment">
+                        <strong>Heading-level outline</strong> <br />
+                        <p class="h1"><span class="headinglevel">&lt;h1&gt;</span> Apples</p>
+                        <p class="h2"><span class="headinglevel">&lt;h2&gt;</span> Taste</p>
+                        <p class="h3"><span class="headinglevel">&lt;h3&gt;</span> Sweet</p>
+                        <p class="h3"><span class="headinglevel">&lt;h3&gt;</span> Color</p>
+                    </div>
+                </section>
+				<section>
+					<h3 class="heading-tertiary pre-formatted"><code class="language-markup" style="font-size:1em;">&lt;h1&gt;</code> 은 
+                    모든 heading들 중 선두로!</h3>
+				</section>
+				<section>
+					<pre><code class="language-markup">&lt;body&gt
+
+    &lt;h2&gt;C&lt;/h2&gt;
+    &lt;p&gt;D&lt;/p&gt;
+
+    &lt;h1&gt;A&lt;/h1&gt;
+    &lt;p&gt;B&lt;/p&gt;
+
+&lt;/body&gt;</code></pre>
+				</section>
+                <section>
+                    <div class="structureoutline">
+                        <strong>Structural outline</strong> <br />
+                        <ol>
+                            <li><span class="heading">C</span></li>
+                            <li><span class="heading">A</span></li>
+                        </ol>
+                    </div>
+                    <div class="headingoutline fragment">
+                        <strong>Heading-level outline</strong> <br />
+                        <p class="h1"><span class="missingheadinglevel">&lt;h1&gt;</span><span class="missingheading"> [missing]</span></p>
+                        <p class="h2"><span class="headinglevel">&lt;h2&gt;</span> C</p>
+                        <p class="h1"><span class="headinglevel">&lt;h1&gt;</span> A</p>
+                    </div>
+                </section>
+                <section>
+                    <h3 class="heading-tertiary pre-formatted"><code class="language-markup" style="font-size:1em;">&lt;li&gt;</code> 요소 내부에
+                    heading 사용하지 마세요</h3>
+                </section>
+                <section>
+                    <pre><code class="language-markup">&lt;body&gt;
+	&lt;h1&gt;A&lt;/h1&gt;		<span class="fragment" style="color:#dfdf00;" data-fragment-index="0">section implied for h1 element</span>
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;h2&gt;B&lt;/h2&gt;      <span class="fragment" style="color:#dfdf00;" data-fragment-index="1">Subsection implied for h2 element</span>
+            &lt;p&gt;C&lt;/p&gt;
+		&lt;/li&gt;               <span class="fragment" style="color:#dfdf00;" data-fragment-index="3"><span aria-hidden="true"><span class="fa fa-question"></span><span class="fa fa-question"></span><span class="fa fa-question"></span><span class="fa fa-question"></span><span class="fa fa-question"></span></span> </span>
+		&lt;li&gt;                  
+			&lt;h2&gt;D&lt;/h2&gt;      <span class="fragment" style="color:#dfdf00;" data-fragment-index="2">Subsection implied for h2 element</span>
+            &lt;p&gt;E&lt;/p&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;h2&gt;F&lt;/h2&gt;
+            &lt;p&gt;G&lt;/p&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/body&gt;</code></pre>
+                </section>
+                <section>
+                    <blockquote class="w3c">
+                        <p class="note" role="note"> <code>li</code> 요소(element)들 안에 제목(heading) 요소(element)들을 (예를 들어, <code>h1</code>) 
+                        포함시키는 경우, 작성자가 의도한 의미(semantics)를 전달하지 않을 것입니다. 제목(heading)은 
+                        새로운 섹션을 시작하고, 따라서 목록 내의 제목(heading)은 암묵적으로 여러 섹션들로 목록을 
+                        분리시킵니다. </p>
+                        <cite><a href="https://mulder21c.github.io/html/grouping-content.html#the-li-element" target="_blank">4.4.7. li 요소(element) - HTML 5.1</a></cite>
+                    </blockquote>
+                </section>
+            </section>
+			<section>
+				<section>
+					<h2 class="heading-secondary">
+						How to check outline?
+					</h2>
+				</section>
+				<section>
+					<h3 class="heading-tertiary"><a href="https://validator.w3.org/nu/">W3C Nu Html Checker</a></h3>
+				</section>
+				<section>
+					<img src="./images/nu-html-checkout-outline.png" alt="Nu Html Checker 검사 화면 캡쳐" class="stretch">
+				</section>
+				<section>
+					<h3 class="heading-tertiary">HeadingsMap</h3>
+					<p>
+						<a href="https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi" target="_blank">Chrome Extension</a>, <a href="https://addons.mozilla.org/ko/firefox/addon/headingsmap/?src=userprofile" target="_blank">FireFox Addon</a>
+					</p>
+				</section>
+				<section>
+					<img src="./images/headingsmap.jpg" alt="headingsMap 검사 화면 캡쳐" class="stretch">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2 class="heading-tertiary">
+						Outline을 정말 고려해야 하는가?
+					</h2>
+				</section>
+				<section>
+					<h3 class="heading-tertiary pre-formatted">HTML provides 
+					the structure of the page.</h3>
+					<p class="pre-formatted fragment">
+						The <b>Document Outline</b> is 
+						the section structure of a document.
+					</p>
+				</section>
+				<section>
+					<h3 class="heading-tertiary pre-formatted">Not yet... 
+					but in the future?</h3>
+				</section>
+			</section>
+			<section>
+				<h2 class="heading-secondary">Thank you <span aria-hidden="true"><i class="fa fa-hourglass-end"></i></span></h2>
+				<div style="text-align:right;margin-top:3em;">
+					<ul style="list-style:none;">
+						<li>
+							<span aria-hidden="true"><i class="fa fa-envelope-o"></i></span> 
+							<span class="hidden-accessible">Email</span> <a href="mailto:publisher@publisher.name" target="_blank">publisher@publisher.name</a>
+						</li>
+						<li>
+							<span aria-hidden="true"><i class="fa fa-github-alt"></i></span><span class="hidden-accessible">github</span> 
+							<a href="https://github.com/mulder21c/seminar" target="_blank">@mulder21c</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+        </div>
+    </div>
+    <script src="./framework/reveal/3.4.1/js/reveal.js" ></script>
+    <script src="./framework/prismjs/prism.js" ></script>
+    <script src="./js/script.js" ></script>
+</body>
+</html>
