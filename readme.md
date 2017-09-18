@@ -20,7 +20,12 @@
 
 - [Web Accessibility 101](https://mulder21c.github.io/seminar/20170618/index.html) - 하드코딩하는사람들 2017 상반기 세미나, WSConf. 2016 Vol1 발표 자료
 
-- [Document Outline in HTML](https://mulder21c.github.io/seminar/20170715/index.html) 5.1 - WSConf. 2017 Vol 2 발표 자료 ( [PDF Ver.](https://mulder21c.github.io/seminar/20170715/document-outline-in-html51.pdf) )
+- [Document Outline in HTML 5.1](https://mulder21c.github.io/seminar/20170715/index.html) - WSConf. 2017 Vol 2 발표 자료 ( [PDF Ver.](https://mulder21c.github.io/seminar/20170715/document-outline-in-html51.pdf) ) 
+
+  (본 자료는 아래 'WSConf. Busan 2017 발표 자료' 자료로 보시기 바랍니다. 기본 버전에서 약간의 수정이 있습니다.)
+
+- [Document Outline in HTML 5.1](https://mulder21c.github.io/seminar/20170916/index.html) - WSConf. Busan 2017 발표 자료 ( [PDF Ver.](https://mulder21c.github.io/seminar/20170916/document-outline-in-html51.pdf) )
+
 
 ## Q&A
 
