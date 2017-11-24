@@ -1,0 +1,111 @@
+/**
+ * Solarized Dark theme for reveal.js.
+ * Author: Achim Staebler
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+/**
+ * Copyright (c) 2015 Spoqa, Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+@font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 700;
+    src: local('Spoqa Han Sans Bold'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansBold.woff2') format('woff2'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansBold.woff') format('woff'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 400;
+    src: local('Spoqa Han Sans Regular'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansRegular.woff2') format('woff2'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansRegular.woff') format('woff'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansRegular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 300;
+    src: local('Spoqa Han Sans Light'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansLight.woff2') format('woff2'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansLight.woff') format('woff'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 100;
+    src: local('Spoqa Han Sans Thin'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansThin.woff2') format('woff2'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansThin.woff') format('woff'),
+    url('../../lib/font/SpoqaHanSans/SpoqaHanSansThin.ttf') format('truetype');
+}
+
+/**
+ * Solarized colors by Ethan Schoonover
+ */
+html * {
+	color-profile: sRGB;
+	rendering-intent: auto;
+}
+
+// Solarized colors
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #f6f3e9;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: $base1;
+$headingColor: $base2;
+$headingTextShadow: none;
+$backgroundColor: $base03;
+$linkColor: $blue;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: $magenta;
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

@@ -26,6 +26,7 @@
 
 - [Document Outline in HTML 5.1](https://mulder21c.github.io/seminar/20170916/index.html) - WSConf. Busan 2017 발표 자료 ( [PDF Ver.](https://mulder21c.github.io/seminar/20170916/document-outline-in-html51.pdf) )
 
+- [웹 미디어 플레이어 접근성](https://mulder21c.github.io/seminar/20171124/index.html) - IAT(정보 접근성 기술) 컨퍼런스 발표 자료 ( [PDF Ver.](https://mulder21c.github.io/seminar/20171124/media-player-accessibility-on-web.pdf), [원고](https://github.com/mulder21c/seminar/blob/gh-pages/20171124/README.md) ) 
 
 ## Q&A
 
