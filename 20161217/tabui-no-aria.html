@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>example</title>
+	<link rel="stylesheet" href="http://resource.publisher.name/css/seminar2016/tabui.css">
+</head>
+<body>
+	<h1>
+		어떤 컨텐츠인지 맞춰보세요
+	</h1>
+	<div class="mulder21c-tabui" aria-labelledby="heading">
+		<h2 id="heading" class="hidden-accessible">2016년 어록</h2>
+		<ul class="tablist">
+			<li><a href="#tabpanel1" id="tab1" data-controls="tabpanel1" class="tab">김씨</a></li>
+			<li><a href="#tabpanel2" id="tab2" data-controls="tabpanel2" class="tab">박씨</a></li>
+			<li><a href="#tabpanel3" id="tab3" data-controls="tabpanel3" class="tab">정씨</a></li>
+		</ul>
+		<div id="tabpanel1" class="tabpanel" data-focusable-content="false">
+			<p>촛불은 바람불면 꺼진다.</p>
+			<p>최순실 씨가 사용했다고 보도된 태블릿 PC는 다른 사람 명의의 것이다. 최 씨가 그걸 사용했다는 단서도 없다. 단서도 없는 걸 가지고 세상이 이렇게 시끄러운 것</p>
+		</div>
+		<div id="tabpanel2" class="tabpanel" data-focusable-content="false">
+			<p>정말 간절하게 원하면 전 우주가 나서서 다 같이 도와준다. 그리고 꿈이 이루어진다.</p>
+			<p>15년 동안의 대통력직을 사퇴합니다.</p>
+			<p>내가 이러려고 대통령을 했나라는 자괴감이 들 정도로 괴롭기만 합니다</p>
+		</div>
+		<div id="tabpanel3" class="tabpanel" data-focusable-content="false">
+			<p>능력 없으면 니네 부모를 원망해. 있는 우리 부모 가지고 감 놔라 배 놔라 하지말고 돈도 실력이야</p>
+			<p>불만이면 종목을 갈아타야지. 남의 욕하기 바쁘니까 아무리 다른거 한들 어디 성공하겠니?</p>
+		</div>
+	</div>
+	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="http://resource.publisher.name/script/seminar2016/mulder21c-tabui.js"></script>
+	<script>
+		$(".mulder21c-tabui").TabUI({
+			useAria : false
+		});
+	</script>
+</body>
+</html>

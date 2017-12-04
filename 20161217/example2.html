@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.tab-box{padding:50px 20px 0;width:500px;}
+		.tab-menus{list-style-type:none;margin:0;padding:0;}
+		.tab-menus:after{clear:both;overflow:hidden;content:'';display:table;height:0}
+		.tab-menus > li{float:left;width:150px;border-width:1px 1px 0 0;border-style:solid;border-color:#ccc;}
+		.tab-menus > li:first-child{border-left-width:1px;}
+		.tab-menus > li a{display:block;height:100%;line-height:2.5;text-align:center}
+		.tab-menus > li.active a{background-color:#ccc;color:#000;font-weight:bold;}
+		.tab-pannels{border:1px solid #ccc;padding:10px;display:none;}
+		.tab-pannels.active{display:block;}
+	</style>
+</head>
+<body>
+	<div class="tab-box">
+		<ul class="tab-menus" role="tablist">
+			<li class="active"><a href="#cont1" role="tab">메뉴 1</a></li>
+			<li><a href="#cont2" role="tab">메뉴 2</a></li>
+			<li><a href="#cont3" role="tab">메뉴 3</a></li>
+		</ul>
+		<div id="cont1" class="tab-pannels active" role="tabpannel">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptate sequi veritatis nostrum at dolorem similique minus inventore quibusdam a recusandae sunt dicta mollitia accusamus cumque maiores cupiditate perferendis blanditiis.
+		</div>
+		<div id="cont2" class="tab-pannels" role="tabpannel">
+			Quasi numquam nihil autem culpa obcaecati consequuntur sunt nostrum quas officia natus dolor at impedit tempore dignissimos explicabo! Ipsa earum consequatur natus tenetur quidem cum alias sequi quo dolores voluptatem.
+		</div>
+		<div id="cont3" class="tab-pannels" role="tabpannel">
+			Consequuntur qui delectus molestiae exercitationem animi eligendi ratione tempore aspernatur consectetur! A sed quam et sunt voluptas quaerat ullam inventore omnis magnam odio eum enim veniam laboriosam explicabo repudiandae saepe.
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		(function(tabComp){
+			function tabActive(event){
+				event = event || window.event;
+				event.preventDefault ? event.preventDefault() : event.returnValue = false;
+				
+				// clicked tab activation
+				$(this).addClass("active").find("a").attr("aria-selected", "true");
+
+				// remains tab deactivation 
+				$(this).siblings().removeClass("active").find("a").attr("aria-selected", "false");
+
+				// tab pannel activation that is related clicked tab
+				$($("a", this).attr("href")).addClass("active");
+
+				// remains tab pannel deactivation
+				$($("a", this).attr("href")).siblings().removeClass("active");
+
+			}
+			$(tabComp).on("click", "li", tabActive);
+		})(document.querySelector(".tab-box"));
+	</script>
+</body>
+</html>

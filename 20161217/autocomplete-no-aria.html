@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>example</title>
+	<link rel="stylesheet" href="http://resource.publisher.name/css/seminar2016/autocomplete.css">
+</head>
+<body>
+	<h1>
+		어떤 컨텐츠인지 맞춰보세요
+	</h1>
+	<div class="wrap">
+		<div class="column-01 combobox">
+			<form action="#" name="srch" id="srch" method="get">
+				<fieldset>
+					<label class="hidden-accessible" for="keyword">검색어</label>
+					<input type="text" name="keyword" id="keyword" required>
+					<button type="submit">검색</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="http://resource.publisher.name/script/seminar2016/mulder21c-autocomplete.js"></script>
+	<script>
+		$('#keyword').AutoCompleteUI({
+			useAria : false,
+			getSources : function(){
+				var me = this;
+				$.ajax({
+					url : 'http://apis.daum.net/search/book',
+					data : {
+						apikey : 'a8cf3d52fc7b462f40a4469099d8e11a',
+						output : 'json',
+						display : 15,
+						searchType : 'title',
+						sort : 'accu',
+						q : me.keyword
+					},
+					method : 'GET',
+					dataType : 'jsonp',
+					cache : false,
+					context : me
+				})
+				.done(function(data){
+					for (var i = -1, source = [], item = null; item = data.channel.item[++i] ; ){
+						source.push( item['title'].replace(/\&lt;b\&gt;|\&lt;\/b\&gt;/g, '') );
+					}
+					me.setSources(source);
+				});
+			}
+		});
+	</script>
+</body>
+</html>
