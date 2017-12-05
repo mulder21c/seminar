@@ -28,6 +28,9 @@
 
 - [웹 미디어 플레이어 접근성](https://mulder21c.github.io/seminar/20171124/index.html) - IAT(정보 접근성 기술) 컨퍼런스 발표 자료 ( [PDF Ver.](https://mulder21c.github.io/seminar/20171124/media-player-accessibility-on-web.pdf), [원고](https://github.com/mulder21c/seminar/blob/gh-pages/20171124/README.md) ) 
 
+- [WAI-ARIA Best Practices](https://mulder21c.github.io/seminar/20171206/index.html) - W3C HTML5 Conference 2017 발표 자료 ( [PDF Ver. 컬러](https://mulder21c.github.io/seminar/20171206/wai-aria-best-practices%28colored%29.pdf), [PDF Ver. 고대비](https://mulder21c.github.io/seminar/20171206/wai-aria-best-practices%28high-contrast%29.pdf), [원고](https://github.com/mulder21c/seminar/blob/gh-pages/20171206/README.md) ) 
+
+
 ## Q&A
 
   발표 내용 및 발표 자료에 관한 질문 사항들은 [issues](https://github.com/mulder21c/seminar/issues)에 남겨주세요.

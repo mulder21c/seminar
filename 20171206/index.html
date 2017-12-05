@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WAI-ARIA Best Practices</title>
+
+    <link rel="stylesheet" href="lib/font/source-sans-pro/source-sans-pro.css" />
+    <link rel="stylesheet" href="lib/css/spoqa-han-sans-kr.css" />
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/prismjs/prism.min.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1><span class="non-break">WAI-ARIA</span> <span class="non-break">Best Practices</span></h1>
+          <p data-align="right">
+            콘텐츠연합플랫폼 <br>
+            클라이언트개발부 지성봉
+          </p>
+        </section>
+        <section>
+          <section>
+            <h2>What is WAI-ARIA</h2>
+          </section>
+          <section>
+            <dl>
+              <dt>WAI</dt>
+              <dd>Web Accessibility Initiative</dd>
+              <dt>ARIA</dt>
+              <dd>Accessible Rich Internet Application</dd>
+            </dl>
+          </section>
+          <section>
+            <img src="images/wai-aria-1.0.png" alt="WAI-ARIA 1.0 Working Draft 화면 캡쳐" class="stretch">
+
+          </section>
+          <section>
+            <img src="images/wai-aria-1.1.png" alt="WAI-ARIA 1.1 명세 화면 캡쳐" class="stretch">
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Why use?</h2>
+          </section>
+          <section>
+            <h3 class="heading4"><span class="non-break">supplement for</span> <span class="non-break">native language semantics</span>, <span class="non-break">not a replacement</span></h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Role, Property, State</h2>
+          </section>
+          <section>
+            <h3>Role</h3>
+            <span class="non-break">Attaching a role gives</span> 
+            <span class="non-break">assistive technologies information</span> 
+            <span class="non-break">about how to handle each element</span>
+          </section>
+          <section>
+            <pre class="language-markup"><code>&lt;tag role="<var>keyword</var>"></code></pre>
+            <pre class="fragment fade-in language-markup"><code>&lt;div role="navigation"></code></pre>
+            <a href="https://www.w3.org/TR/wai-aria/#x5-4-definition-of-roles" class="fragment fade-up" target="_blank" title="새창에서 열림">list of role keywords</a>
+          </section>
+          <section>
+            <h3>Property, State</h3>
+            <span class="non-break">Both provide specific information</span> 
+            <span class="non-break">about an object,</span> 
+            <span class="non-break">and both form part of the definition</span> 
+            <span class="non-break">of the nature of roles.</span> 
+          </section>
+          <section>
+            <pre class="language-markup"><code>&lt;tag aria-*="value"></code></pre>
+            <pre class="fragment language-markup"><code>&lt;button aria-expanded="false" aria-controls="sect1"></code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>How to improve a11y with WAI-ARIA</h2>
+          </section>
+          <section>
+            <h3>Step 1</h3>
+            <p class="fragment">
+              use native HTML
+            </p>
+          </section>
+          <section>
+            <h4>then, when use WAI-ARIA?</h4>
+            <ul>
+              <li class="fragment fade-up">the feature is available in HTML but it is not implemented 
+              or it is implemented, but accessibility support is not.</li>
+              <li class="fragment fade-up">visual design constraints rule out the use of a particular 
+              ative element</li>
+              <li class="fragment fade-up">feature is not currently available in HTML</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Step 2</h3>
+            <p class="fragment">
+              Add ARIA
+            </p>
+          </section>
+          <section>
+            <h4>inline or via Script?</h4>
+            <ul>
+              <li class="fragment">If the ARIA role or aria-* attribute does not rely on scripting 
+              to provide interaction behavior,  then inline.</li>
+              <li class="fragment">If the content and interaction is only supported in a 
+              scripting-enabled browsing context, then inline.</li>
+              <li class="fragment">If the ARIA role or aria-* attribute can be inserted, changed and 
+              removed ARIA via scripting, then via script.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Step 3</h3>
+            <p class="fragment">
+              developing keyboard interface
+            </p>
+          </section>
+          <section>
+            <h4>requirements</h4>
+            <ul>
+              <li class="fragment">All interactive ARIA controls must be usable with the keyboard.</li>
+              <li class="fragment">If can click or tap or drag or drop or slide or scroll, must also 
+              be able to perform an equivalent action using the keyboard</li>
+              <li class="fragment">All interactive widgets must be scripted to respond to standard 
+              key strokes or key stroke combinations where applicable</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h2>Best Practices</h2>
+        </section>
+        <section>
+          <section>
+            <h3>Landmark</h3>
+          </section>
+          <section>
+            <img src="images/skip-nav.png" alt="여러 개의 바로가기 링크 제공 사례 캡쳐 화면" class="stretch">
+          </section>
+          <section>
+            <h4>legecy</h4>
+            <pre class="language-markup"><code>&lt;div class="header">
+  &lt;h1>ARIA Landmarks Example&lt;/h1>
+&lt;/div>
+&lt;div class="navigation">
+  &lt;ul>&lt;li>&lt;a>...&lt;/a>&lt;/li>...&lt;/ul>
+&lt;/div>
+&lt;div class="main">
+  &lt;h2>Banner Landmark&lt;/h2>
+  &lt;div class="tab-container">
+	  ...
+  &lt;/div>
+&lt;/div>
+&lt;div class="sidebar">
+  &lt;h2>Landmarks&lt;/h2>
+&lt;/div>
+&lt;div class="sidebar">
+  &lt;h2>Related W3C Documents&lt;/h2>
+&lt;/div>
+&lt;div class="footer">
+  Copyright
+&lt;/div></code></pre>
+          </section>
+          <section>
+            <img src="images/landmark.png" alt="랜드마크 제공 사례  캡쳐 화면" class="stretch">
+          </section>
+          <section>
+            <h4>use Native Language</h4>
+            <pre class="language-markup"><code>&lt;header>                                                  &lt;!-- banner landmark -->
+  &lt;h1>ARIA Landmarks Example&lt;/h1>
+&lt;/header>
+&lt;nav>                                                       &lt;!-- navigation landmark -->
+  &lt;ul>...&lt;/ul>
+&lt;/nav>
+&lt;main>                                                     &lt;!-- main landmark -->
+  &lt;h2>Banner Landmark&lt;/h2>
+  &lt;section>                                               &lt;!-- region landmark -->
+    ...
+  &lt;/section>
+&lt;/main>
+&lt;aside>                                                    &lt;!-- complementary landmark -->
+  &lt;h2>Landmarks&lt;/h2>
+&lt;/aside>
+&lt;aside>                                                    &lt;!-- complementary landmark -->
+  &lt;h2>Related W3C Documents&lt;/h2>
+&lt;/aside>
+&lt;footer>                                                   &lt;!-- contentinfo landmark -->
+  Copyright
+&lt;/footer></code></pre>
+          </section>
+          <section>
+            <h4>Use ARIA Techniques</h4>
+            <pre class="language-markup"><code>&lt;div class="header" <mark>role="banner"</mark>>
+  &lt;h1>ARIA Landmarks Example&lt;/h1>
+&lt;/div>
+&lt;div class="navigation" <mark>role="navigation"</mark>>
+  &lt;ul>&lt;li>&lt;a>...&lt;/a>&lt;/li>...&lt;/ul>
+&lt;/div>
+&lt;div class="main" <mark>role="main"</mark>>
+  &lt;h2>Banner Landmark&lt;/h2>
+  &lt;div class="tab-container" <mark>role="region"</mark> <mark>aria-label="Coding Tequniques"</mark>>
+	  ...
+  &lt;/div>
+&lt;/div>
+&lt;div class="sidebar" <mark>role="complementary"</mark> <mark>aria-labelledby="id3"</mark>>
+  &lt;h2 id="id3">Landmarks&lt;/h2>
+&lt;/div>
+&lt;div class="sidebar" <mark>role="complementary"</mark> <mark>aria-labelledby="id4"</mark>>
+  &lt;h2 id="id4">Related W3c Documents&lt;/h2>
+&lt;/div>
+&lt;div class="footer" <mark>role="contentinfo"</mark>>
+  Copyright
+&lt;/div></code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Tab Contents</h3>
+          </section>
+          <section>
+            <img src="images/tab-ui.png" alt="3개의 탭 메뉴와 탭 패널이 있는 탭 UI 예제 캡쳐 화면" class="stretch">
+          </section>
+          <section>
+            <h4>legacy</h4>
+            <pre class="language-markup"><code>&lt;div class="tab-menu">
+  &lt;a href="#tab-panel1">HTML&lt;/a>
+  &lt;a href="#tab-panel2">CSS&lt;/a>
+  &lt;a href="#tab-panel3">JavaScript&lt;/a>
+&lt;/div>
+&lt;div class="tab-panels">
+  &lt;div id="tab-panel1">
+    &lt;h3>HTML&lt;/h3>
+    ...
+  &lt;/div>
+  &lt;div id="tab-panel2">
+    &lt;h3>CSS&lt;/h3>
+    ...
+  &lt;/div>
+  &lt;div id="tab-panel3">
+    &lt;h3>JavaScript&lt;/h3>
+    ...
+  &lt;/div>
+&lt;/div></code></pre>
+          </section>
+          <section>
+            <h4 class="heading5">Use ARIA Techniques <small>- add roles</small></h4>
+             <pre class="language-markup"><code>&lt;div class="tab-menu" <mark>role="tablist"</mark>>
+  &lt;a href="#tab-panel1" <mark>role="tab"</mark>>HTML&lt;/a>
+  &lt;a href="#tab-panel2" <mark>role="tab"</mark>>CSS&lt;/a>
+  &lt;a href="#tab-panel3" <mark>role="tab"</mark>>JavaScript&lt;/a>
+&lt;/div>
+&lt;div class="tab-panels">
+  &lt;div id="tab-panel1" <mark>role="tabpanel"</mark>>
+    ... 
+  &lt;/div>
+  &lt;div id="tab-panel2" <mark>role="tabpanel"</mark>>
+    ... 
+  &lt;/div>
+  &lt;div id="tab-panel3" <mark>role="tabpanel"</mark>>
+    ... 
+  &lt;/div>
+&lt;/div></code></pre>
+          </section>
+          <section>
+            <h4 class="heading5">Use ARIA Techniques <small>- add properties, states</small></h4>
+             <pre class="language-markup"><code>&lt;div class="tab-menu" role="tablist">
+  &lt;a id="tab1" href="#tab-panel1" role="tab" 
+      <mark>aria-controls="tab-panel1"</mark> <mark>aria-selected="true"</mark>>HTML&lt;/a>
+  &lt;a id="tab2" href="#tab-panel2" role="tab" 
+      <mark>aria-controls="tab-panel2"</mark> <mark>aria-selected="false"</mark>>CSS&lt;/a>
+  &lt;a id="tab3" href="#tab-panel3" role="tab" 
+      <mark>aria-controls="tab-panel3"</mark> <mark>aria-selected="false"</mark>>JavaScript&lt;/a>
+&lt;/div>
+&lt;div class="tab-panels">
+  &lt;div id="tab-panel1" role="tabpanel" 
+         <mark>aria-labelledby="tab1"</mark>>
+    ... 
+  &lt;/div>
+  &lt;div id="tab-panel2" role="tabpanel" 
+         <mark>aria-labelledby="tab2"</mark> <mark>aria-hidden="true"</mark>>
+    ... 
+  &lt;/div>
+  &lt;div id="tab-panel3" role="tabpanel" 
+         <mark>aria-labelledby="tab3"</mark> <mark>aria-hidden="true"</mark>>
+    ... 
+  &lt;/div>
+&lt;/div></code></pre>
+          </section>
+          <section>
+            <h4 class="heading5">Use ARIA Technique <small>- developing keyboard interface</small></h4>
+            <table class="keyboard-interaction">
+              <caption>Keyboard Support</caption>
+              <colgroup>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Key</th>
+                  <th scope="col">Function</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><kbd>Tab</kbd></th>
+                  <td>
+                    <ul>
+                      <li>when focus moves into the tab list, place focus on active <code>tab</code> element</li>
+                      <li>When the tab list contains the focus, moves focus to the next element in the tab sequence, which is the tabpanel element</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><kbd>Right Arrow</kbd></th>
+                  <td>
+                    <ul>
+                      <li>Moves focus to the next tab.</li>
+                      <li>If focus is on the last tab, moves focus to the first tab.</li>
+                      <li>Activates the newly focused tab</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><kbd>Left Arrow</kbd></th>
+                  <td>
+                    <ul>
+                      <li>Moves focus to the previous tab.</li>
+                      <li>If focus is on the first tab, moves focus to the last tab.</li>
+                      <li>Activates the newly focused tab</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><kbd>Home</kbd></th>
+                  <td>Moves focus to the first tab and activates it</td>
+                </tr>
+                <tr>
+                  <th scope="row"><kbd>End</kbd></th>
+                  <td>Moves focus to the last tab and activates it</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class="heading4">Should I implement it myself?</h2>
+          </section>
+          <section>
+            <h3 class="heading4">Yes, if you can.</h3>
+          </section>
+          <section>
+            <img src="images/w3c-practices.png" alt="W3C Authoring Practices 문서 캡쳐 화면" class="stretch"> <br />
+            <a href="https://www.w3.org/TR/wai-aria-practices-1.1/" target="_blank" title="새창으로 열림">WAI-ARIA Authoring Practices 1.1</a>
+          </section>
+          <section>
+            <img src="images/aria-cover.jpg" alt="예제로 보는 WAI-ARIA 사례집" class="stretch"> <br />
+            <a href="http://www.wah.or.kr/_Upload/pds2/WAI-ARIA%20사례집(온라인판).pdf" target="_blank" title="새창으로 열림">WAI-ARIA 사례집</a>
+          </section>
+          <section>
+            <h3 class="heading4">otherwise</h3>
+            <p>
+              you can use jQueryUI, github, wai-aria 사례집, etc...
+            </p>
+          </section>
+          <section>
+            <img src="images/jquery-ui.png" alt="jQueryUI 아코디언 위젯에 aria가 적용된 것을 코드 상에서 확인 할 수 있다." class="stretch">
+          </section>
+          <section>
+            <img src="images/github.png" alt="github에서 accordion wai-aria로 검색한 결과 화면" class="stretch">
+          </section>
+          <section>
+            <img src="images/niawa-github.png" alt="정보화진흥원 WAI-ARIA 사례집 코드 수록 github 페이지 화면" class="stretch"> <br>
+            <a href="https://github.com/niawa/ARIA" target="_blank" title="새창으로 열림">NIA github</a>
+          </section>
+        </section>
+        <section>
+          <h2 class="heading4">References</h2>
+          <ul>
+            <li><a href="https://www.w3.org/TR/wai-aria" target="_blank" title="새창으로 열림">WAI-ARIA Specification</a></li>
+            <li><a href="https://www.w3.org/TR/using-aria" target="_blank" title="새창으로 열림">Using ARIA</a></li>
+            <li><a href="https://www.w3.org/TR/wai-aria-practices" target="_blank" title="새창으로 열림">WAI-ARIA Authoring Practices</a></li>
+            <li><a href="http://www.html5accessibility.com" target="_blank" title="새창으로 열림">HTML5 Accessibility</a></li>
+          </ul>
+        </section>
+        <section>
+          <h2>감사합니다.</h2>
+          <p data-align="right">
+        	  <a href="https://mulder21c.github.io/seminar" target="_blank">PDF 다운로드 / Transcript 보기</a> <br />
+            publisher@publisher.name
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/prismjs/prism.min.js'}
+        ]
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,432 @@
+// Base theme template for reveal.js
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+
+body {
+	@include bodyBackground();
+	background-color: $backgroundColor;
+
+  @media print {
+    background-color: #fff;
+  }
+}
+
+::selection {
+	color: $selectionColor;
+	background: $selectionBackgroundColor;
+	text-shadow: none;
+}
+
+::-moz-selection {
+	color: $selectionColor;
+	background: $selectionBackgroundColor;
+	text-shadow: none;
+}
+
+.reveal {
+	font-family: $mainFont;
+	font-size: $mainFontSize;
+	font-weight: normal;
+	color: $mainColor;
+
+  @media print {
+    color: $backgroundColor;
+  }
+
+  .slides>section,
+  .slides>section>section {
+    line-height: 1.6;
+	  font-weight: inherit;
+  }
+
+  pre[class*="language-"] {
+    font-size: .5em;
+    -webkit-font-kerning: auto;
+    font-kerning: auto;
+    letter-spacing: .15em;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      height: 1px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      background-clip: padding-box;
+      background: rgba(153, 153, 153, 0.5);
+    }
+
+    mark {
+      overflow:hidden;
+      border-radius: .25em;
+      margin: 0 .15em;
+      padding: 0 .15em;
+      background: rgba(6, 171, 192, .75);
+      text-shadow: 2px 2px 5px #000;
+      vertical-align: middle;
+      color: inherit
+    }
+
+    @media print {
+      font-size: .4em;
+      -webkit-font-kerning: none;
+      font-kerning: none;
+      letter-spacing: .1em;
+    }
+  }
+
+  .non-break{
+    white-space: nowrap;
+  }
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+
+.reveal {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .heaidng1,
+  .heading2,
+  .heading3,
+  .heading4,
+  .heading5,
+  .heading6{
+    margin: $headingMargin;
+    color: $headingColor;
+
+    font-family: $headingFont;
+    font-weight: $headingFontWeight;
+    line-height: $headingLineHeight;
+    letter-spacing: $headingLetterSpacing;
+
+    text-transform: $headingTextTransform;
+    text-shadow: $headingTextShadow;
+
+    word-wrap: break-word;
+
+    small{
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    @media print {
+      color: $backgroundColor;
+    }
+  }
+
+  h1,
+  .heading1{
+    font-size: $heading1Size;
+    text-shadow: $heading1TextShadow;
+  }
+  h2,
+  .heading2{
+    font-size: $heading2Size;
+  }
+  h3,
+  .heading3{
+    font-size: $heading3Size;
+  }
+  h4,
+  .heading4{
+    font-size: $heading4Size;
+  }
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+
+.reveal p {
+	margin: $blockMargin 0;
+	line-height: 1.3;
+
+  &[data-align="right"]{
+    text-align: right;
+  }
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+	max-width: 95%;
+	max-height: 95%;
+}
+.reveal strong,
+.reveal b {
+	font-weight: bold;
+}
+
+.reveal em {
+	font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+	display: inline-block;
+
+	text-align: left;
+	margin: 0 0 0 1em;
+}
+
+.reveal ol {
+	list-style-type: decimal;
+
+  li {
+    line-height: 1.6;
+  }
+}
+
+.reveal ul {
+	list-style-type: disc;
+
+  li {
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style-type: square;
+
+    ul {
+      list-style-type: circle;
+    }
+  }
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+	display: block;
+	margin-left: 40px;
+}
+
+.reveal dt {
+	font-weight: bold;
+
+  ~ dt{
+    margin-top: .5em;
+  }
+}
+
+.reveal dd {
+	margin-left: 40px;
+}
+
+.reveal blockquote {
+	display: block;
+	position: relative;
+	width: 70%;
+	margin: $blockMargin auto;
+	padding: 5px;
+
+	font-style: italic;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+
+  p:first-child,
+  p:last-child {
+		display: inline-block;
+	}
+}
+
+.reveal q {
+	font-style: italic;
+}
+
+.reveal pre {
+	display: block;
+	position: relative;
+	width: calc(100% - 30px);
+	margin: $blockMargin auto;
+
+	text-align: left;
+	font-size: 0.55em;
+	font-family: monospace;
+	line-height: 1.2em;
+
+	word-wrap: break-word;
+
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+
+  &:only-of-type{
+    margin:0 auto;
+  }
+}
+
+.reveal code {
+	/* font-family: monospace; */
+	text-transform: none;
+}
+
+.reveal pre code {
+	display: block;
+	max-height: 700px;
+	word-wrap: normal;
+}
+
+.reveal table {
+	margin: auto;
+	border-collapse: collapse;
+	border-spacing: 0;
+
+  th {
+    font-weight: bold;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    border-bottom: 1px solid;
+
+    &[data-align="center"] {
+      text-align: center;
+    }
+
+    &[data-align="right"] {
+      text-align: right;
+    }
+  }
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.reveal sup {
+	vertical-align: super;
+}
+.reveal sub {
+	vertical-align: sub;
+}
+
+.reveal small {
+	display: inline-block;
+	font-size: 0.6em;
+	line-height: 1.2em;
+	vertical-align: top;
+}
+
+
+/*********************************************
+ * LINKS
+ *********************************************/
+
+.reveal a {
+	color: $linkColor;
+	text-decoration: none;
+
+	-webkit-transition: color .15s ease;
+	   -moz-transition: color .15s ease;
+	        transition: color .15s ease;
+
+  &:hover {
+    color: $linkColorHover;
+
+		text-shadow: none;
+		border: none;
+  }
+
+  &:after {
+    @media print {
+      content: attr(href);
+      display: block;
+      margin-top: -.75em;
+      font-size: .4em;
+    }
+  }
+}
+
+.reveal .roll span:after {
+	color: #fff;
+	background: darken( $linkColor, 15% );
+}
+
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+
+.reveal section img {
+	margin: 15px 0px;
+	background: rgba(255,255,255,0.12);
+	border: 4px solid $mainColor;
+  border-radius: 10px;
+
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+  &.plain {
+    border: 0;
+		box-shadow: none;
+  }
+
+  img {
+    -webkit-transition: all .15s linear;
+		   -moz-transition: all .15s linear;
+		        transition: all .15s linear;
+  }
+
+  &:hover img {
+    background: rgba(255,255,255,0.2);
+		border-color: $linkColor;
+
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+  }
+}
+
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+
+.reveal .controls {
+	color: $linkColor;
+}
+
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+
+.reveal .progress {
+	background: rgba(0,0,0,0.2);
+	color: $linkColor;
+
+  span {
+    -webkit-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+		   -moz-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+		        transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+  }
+}
+
+
+.reveal .keyboard-interaction{
+  font-size: .5em;
+
+  th, 
+  td{
+    vertical-align: middle;
+  }
+  thead th,
+  tbody th{
+    text-align: center;
+  }
+}
