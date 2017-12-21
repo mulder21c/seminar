@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>접근 가능한 레이어팝업 만들기</title>
+
+    <link rel="stylesheet" href="lib/font/source-sans-pro/source-sans-pro.css" />
+    <link rel="stylesheet" href="lib/css/spoqa-han-sans-kr.css" />
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/prismjs/prism.min.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+          <h1><span class="non-break">접근 가능한 레이어팝업</span><small class="non-break">feat. WAI-ARIA</small></h1>
+          <p data-align="right">
+            콘텐츠연합플랫폼 <br>
+            클라이언트개발부 지성봉
+          </p>
+        </section>
+        <section>
+          <section>
+            <h2 class="heading3">Modal Window</h2>
+            <img src="images/layerpopup.jpg" alt="modal window layer popup 예제" class="stretch">
+          </section>
+          <section>
+            <dl>
+              <dt>Modal Window</dt>
+              <dd>
+                 사용자 인터페이스 디자인 개념에서 자식 윈도에서 부모 윈도로 돌아가기 전에 사용자의 
+                 상호동작을 요구하는 창. 응용 프로그램의 메인 창의 작업 흐름을 방해한다. 
+              </dd>
+            </dl>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>native HTML의 한계점</h3>
+            <ul>
+              <li class="fragment">팝업이 떴다라는 정보를 인지할 수 없다.</li>
+              <li class="fragment">팝업 이외의 문서 정보에 접근이 된다.</li>
+              <li class="fragment">키보드 <kbd>tab</kbd>키 운용이 팝업을 벗어난다.</li>
+              <li class="fragment">키보드 트랩 문제 (IE8 ~ 10)</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>requirement</h2>
+            <ul>
+              <li class="fragment">팝업이 열렸을 때 팝업 내용 인식 가능</li>
+              <li class="fragment">팝업 아래의 Windows는 비활성화</li>
+              <li class="fragment"><kbd>tab</kbd>키 운용이 팝업 내부에서만 순환</li>
+              <li class="fragment">팝업이 닫혔을 때 초점이 원래 있던 곳으로 반환</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>How to?</h2>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3 class="heading4">Step 1. 콘텐츠 역할 정의</h3>
+            <p class="fragment">
+              <code class="language-markup">role="dialog"</code>
+            </p>
+            <p class="fragment advisor">
+              <span class="non-break">사용자가 정보를 입력하거나 응답할 것을 요구하도록</span> 
+              <span class="non-break">유도하기 위해 </span>
+              <span class="non-break">어플리케이션의 현재 처리를 중단시키도록 설계된</span> 
+              <span class="non-break">어플리케이션 윈도우</span>
+            </p>
+          </section>
+          <section>
+            <pre><code class="language-markup">&lt;div class="popup-wrap">
+  &lt;div class="popup-body" 
+          <span class="fragment" data-fragment-index="0">role="dialog"</span>
+          <span class="fragment" data-fragment-index="1">aria-labelledby="<mark class="fragment" data-fragment-index="2">pop-title</mark>"</span>>
+    &lt;strong <mark class="fragment" data-fragment-index="2">id="pop-title"</mark> class="modal-header">접근 가능한 레이어 팝업&lt;/strong>
+    &lt;div class="modal-body">
+      &lt;p>
+        접근 가능한 레이어 팝업이란?
+      &lt;/p>
+      ...</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3 class="heading4">Step 2. 팝업이 열릴 때 내용 인식</h3>
+            <p class="fragment">
+              대화 상자 내부로 초점 이동
+            </p>
+            <ul class="advisor">
+              <li class="fragment">
+                모든 상황에서 초점은 대화 상자 안에 있는 요소로 이동
+              </li>
+              <li class="fragment">
+                첫 번째 초점을 얻을 수 있는 요소로 이동하는 것이 기본
+              </li>
+              <li class="fragment">
+                <ul style="">
+                  <li>
+                    첫번째 포커스 가능한 요소로 초점을 이동시키는 것이 <br>
+                    콘텐츠의 시작 부분을 스크롤 밖으로 밀어낼 경우
+                  </li>
+                  <li>대화상자 안에 초점을 받을 수 있는 요소가 없을 경우</li>
+                </ul>
+                정적 요소에 <code class="language-markup">tabindex="-1"</code>을 추가하여 이 요소로 초점 이동
+              </li>
+            </ul>
+          </section>
+          <section>
+            <pre data-line="3"><code class="language-markup">&lt;div class="popup-wrap">
+  &lt;div class="popup-body" role="dialog" aria-labelledby="pop-title">
+    <span class="fragment">&lt;a class="placeholder" tabindex="-1">&lt;/a></span>
+    &lt;strong id="pop-title" class="modal-header">접근 가능한 레이어 팝업&lt;/strong>
+    &lt;div id="popup-contents" class="modal-body">
+      &lt;p>
+        접근 가능한 레이어 팝업이란?
+      &lt;/p></code></pre>
+          </section>
+          <section>
+            <pre data-line="2,4"><code class="language-javascript">function openPopup () {
+  <span class="fragment" data-fragment-index="0">var popupBody = document.querySelector(".popup-body");</span>
+  document.documentElement.classList.add("on-popup");
+  <span class="fragment" data-fragment-index="0">popupBody.querySelector(".placeholder").focus();</span>
+}</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3 class="heading4">Step 3. 팝업 아래 Windows 비활성화</h3>
+            <ul>
+              <li class="fragment">Browse mode 진입 차단</li>
+              <li class="fragment">대화 상자 내에서 tab 이동 순환</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Browse mode 진입 차단</h4>
+            <p class="fragment advisor" data-align="left" data-fragment-index="0">
+              <code class="language-markup">role="dialog"</code>가 자동으로 처리 <br>
+              단, NVDA 2017.4+, NVDA 2017.2 + FireFox, JAWS 18+ 등에서만 지원
+            </p>
+            <p class="fragment advisor" data-align="left" data-fragment-index="1">
+              <code class="language-markup">aria-modal="true"</code> in ARIA 1.1 <br>
+              iOS 10.x/10.2에서는 문제가 있는 것으로 리포트 됨 <br>(대화상자 제목과 지시사항들이 읽는 순서에 따라 접근 가능하지 않게 되는 문제 발생)
+            </p>
+          </section>
+          <section>
+            <h4>Browse mode 진입 차단</h4>
+            <p class="fragment advisor">
+              차선책: 대화 상자 외 타 콘텐츠에 <code class="language-markup">aria-hidden="true"</code> 설정
+            </p>
+            <p class="fragment advisor">
+              단, 마크업 순서에 따라 적용이 어려워지는 상황이 발생. <br>
+              가급적 dialog 요소를 level 1 수준으로 위치시키는 것이 정신건강에 좋음
+            </p>
+          </section>
+          <section>
+            <pre data-line="1-9,14"><code class="language-javascript"><span class="fragment" data-fragment-index="0">function setSiblingsHidden(currElem){
+  var ommits = ["script", "meta", "link", "style", "base"];
+  for(var i = -1, node; node = currElem.parentNode.children[++i];){
+    if(node == currElem || ommits.indexOf(node.tagName.toLowerCase()) > -1) 
+      continue;
+    node.setAttribute("aria-hidden", "true");
+    node.setAttribute("data-outside-modal", "true");
+  }
+}</span>
+            
+function openPopup(){
+  var popupBody = document.querySelector(".popup-body");
+  document.documentElement.classList.add("on-popup");
+  <span class="fragment" data-fragment-index="0">setSiblingsHidden(document.querySelector(".popup-wrap"));</span>
+  popupBody.querySelector(".placeholder").focus();
+}</code></pre>
+          </section>
+          <section>
+            <pre data-line="1-9,14"><code class="language-javascript"><span class="fragment" data-fragment-index="0">function unsetSiblingsHidden(currElem){
+  for(var i = -1, 
+              node, 
+              outsides= document.querySelectorAll("[data-outside-modal]"); 
+              node = outsides[++i]; ) {
+    node.removeAttribute("aria-hidden");
+    node.removeAttribute("data-outside-modal");
+  }
+}</span>
+
+function closePopup(event){
+  event = event || window.event;  
+  document.documentElement.classList.remove("on-popup");
+  <span class="fragment" data-fragment-index="0">unsetSiblingsHidden();</span>
+}</code></pre>
+          </section>
+          <section>
+            <h4 class="heading4">대화 상자 내에서 tab 이동 순환</h4>
+            <ul class="advisor">
+              <li class="fragment">
+                Tab 키
+                <ul>
+                  <li>
+                    대화상자 내 다음 tabbable 요소로 이동
+                  </li>
+                  <li>
+                    마지막 tabbable 요소에 있는 경우 포커스를 대화상자 내 첫 번째 tabbable 요소로 이동
+                  </li>
+                </ul>
+              </li>
+              <li class="fragment">
+                SHFIT + Tab 키
+                <ul>
+                  <li>
+                    대화상자 내 이전 tabbable 요소로 이동
+                  </li>
+                  <li>
+                    첫번째 tabbable 요소에 있는 경우 포커스를 대화상자 내 마지막 tabbable 요소로 이동
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <pre data-line="14-20"><code class="language-javascript">(function(){
+  var focuslock = (function(){
+    var firstElem, lastElem;
+    return {
+      setFirstBtn : function(el){
+        firstElem = el;
+      },
+      setLastBtn : function(el){
+        lastElem = el;
+      },
+      focuslockKeyDown : function(event){
+        event = event || window.event;
+        var keycode = event.which || event.keyCode;
+        if(event.shiftKey && keycode === 9 && event.target === firstElem){
+          event.preventDefault ? event.preventDefault() : event.returnValue = false;
+          lastElem.focus();
+        }else if(!event.shiftKey && keycode === 9 && event.target === lastElem){
+          event.preventDefault ? event.preventDefault() : event.returnValue = false;
+          firstElem.focus();
+        }
+      }
+    };
+  }());
+  window.focuslock = window.focuslock || focuslock;
+}());</code></pre>
+          </section>
+          <section>
+            <pre data-line="5-7"><code class="language-javascript">function openPopup(){
+  var popupBody = document.querySelector(".popup-body");
+  document.documentElement.classList.add("on-popup");
+
+  <span class="fragment">focuslock.setFirstBtn(btnClosePopup);
+  focuslock.setLastBtn(btnClosePopup);
+  popupBody.addEventListener("keydown", focuslock.focuslockKeyDown);</span>
+
+  setSiblingsHidden(document.querySelector(".popup-wrap"));
+  popupBody.querySelector(".placeholder").focus();
+}</code></pre>
+          </section>
+          <section>
+            <pre data-line="3,5"><code class="language-javascript">function closePopup(event){
+  event = event || window.event;
+  <span class="fragment" data-fragment-index="0">var popupBody = document.querySelector(".popup-body");</span>  
+  document.documentElement.classList.remove("on-popup");
+  <span class="fragment" data-fragment-index="0">popupBody.removeEventListener("keydown", focuslock.focuslockKeyDown);</span>
+  unsetSiblingsHidden();
+}</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3 class="heading4">Step 4. 키보드 트랩 방지</h3>
+            <p class="fragment advisor">
+              팝업이 열릴 때 초점이 얻어진 요소를 기억해 두었다가 팝업이 닫힐 때 해당 요소에 다시 초점 이동
+            </p>
+          </section>
+          <section>
+            <pre data-line="2,9,20"><code class="language-javascript">(function () {
+  <span class="fragment" data-fragment-index="0">var focusedElem = null;</span>
+  var btnOpenPopup = document.getElementById("open-popup");
+  var btnClosePopup = document.getElementById("close-popup");
+  ...
+  function openPopup(){
+    var popupBody = document.querySelector(".popup-body");
+    document.documentElement.classList.add("on-popup");    
+    <span class="fragment" data-fragment-index="0">focusedElem = this;</span>
+
+    focuslock.setFirstBtn(btnClosePopup);
+    focuslock.setLastBtn(btnClosePopup);
+    popupBody.addEventListener("keydown", focuslock.focuslockKeyDown);
+    ...
+  }
+  function closePopup(event){
+    event = event || window.event;
+    var popupBody = document.querySelector(".popup-body");
+    ...
+    <span class="fragment" data-fragment-index="0">focusedElem.focus();</span>
+  }
+}());</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3 class="heading4">Step 5. ESC 키를 눌렀을 때 팝업 닫기</h3>
+          </section>
+          <section>
+            <pre data-line="4,9-11,14"><code class="language-javascript">function openPopup(){
+  ...
+
+  <span class="fragment" data-fragment-index="0">document.addEventListener("keydown", closePopup);</span>
+}
+
+function closePopup(event){
+  event = event || window.event;
+  <span class="fragment" data-fragment-index="0">if(event.type === 'keydown' && event.keyCode !== 27){
+    return;
+  }</span>
+
+  ...
+  <span class="fragment" data-fragment-index="0">document.removeEventListener("keydown", closePopup);</span>
+}</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class="heading3">Used ARIA Role, Property</h2>
+            <table class="fragment aria-describe">
+              <colgroup>
+                <col style="width: 30%;">
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Roles/Property</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><var>dialog</var></th>
+                  <td>사용자가 정보를 입력하거나 응답할 것을 요구하도록 유도하기 위해 어플리케이션의 현재 처리를 중단시키도록 설계된 어플리케이션 윈도우</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="non-break">aria-label</span> <span class="non-break">aria-labelledby</span></th>
+                  <td>해당 객체의 label(이름)을 설정</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="non-break">aria-describe</span> <span class="non-break">aria-describedby</span></th>
+                  <td>해당 객체에 대한 설명 추가</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2 class="heading3">Keyboard Interaction</h2>
+            <table class="fragment aria-describe">
+              <colgroup>
+                <col style="width: 30%;">
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Key</th>
+                  <th scope="col">Behavior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><kbd>Tab</kbd></th>
+                  <td>
+                    <ul>
+                      <li>대화 상자 내 다음 tabbable 요소로 초점 이동</li>
+                      <li>마지막 tabbable 요소에 있는 경우 포커스를 대화상자 내 첫 번째 tabbable 요소로 이동</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><kbd>Shift</kbd> + <kbd>Tab</kbd></th>
+                  <td>
+                    <ul>
+                      <li>대화 상자 내 이전 tabbable 요소로 초점 이동</li>
+                      <li>첫 번째 tabbable 요소에 있는 경우 포커스를 대화상자 내 마지막 tabbable 요소로 이동</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><kbd>Esc</kbd></th>
+                  <td>대화상자 닫기</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+        <section>
+          <h2>Reference</h2>
+          <ul>
+            <li><a href="https://labs.ssbbartgroup.com/index.php/ARIA_Dialog_Role" target="_blank">SSB BART group- ARIA Dialog Role</a></li>
+            <li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal" target="_blank">Dialog (Modal) Design Patterns - W3C</a></li>
+          </ul>
+        </section>
+        <section>
+          <p class="heading2">감사합니다</p>
+          <p data-align="right">
+            <a href="https://github.com/niawa/aoa">NIAW AOA Github</a> <br />
+            publisher@publisher.name
+          </p>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/prismjs/prism.min.js'}
+				]
+			});
+		</script>
+	</body>
+</html>
