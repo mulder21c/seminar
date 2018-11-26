@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./lib/font/source-sans-pro/source-sans-pro.css" />
+    <link rel="stylesheet" href="./lib/css/spoqa-han-sans-kr.css" />
+    <link rel="stylesheet" href="./lib/css/fontawesome.css" />
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/serif.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="./plugin/prismjs/prism.min.css">
+
+    <title>HTML 5.2 Changes 톺아보기</title>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? './css/print/pdf.css' : './css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Section: Cover -->
+        <section data-background-image="./images/html52.jpg"
+          data-background-position="left top"
+          data-background-repeat="no-repeat"
+          data-background-opacity="0.5">
+          <h1 class="slide-title">
+            <span class="non-break">HTML 5.2 Changes</span>
+            <span class="non-break">톺아보기</span>
+          </h1>
+        </section>
+
+        <!-- Section: History of HTML 5 Specification -->
+        <section>
+          <section>
+            <h2>
+              History of HTML 5 Specification
+            </h2>
+          </section>
+          <section>
+            <ol class="history-html5-spec">
+              <li>
+                <dfn class="doc">HTML 5 Rec.</dfn>
+                <time class="date">2014-10-28</time>
+              </li>
+              <li>
+                <dfn class="doc">HTML 5.1 Rec.</dfn>
+                <time class="date">2016-11-01</time>
+              </li>
+              <li>
+                <dfn class="doc">HTML 5.1 2nd Rec.</dfn>
+                <time class="date">2017-10-03</time>
+              </li>
+              <li>
+                <dfn class="doc">HTML 5.2 Rec.</dfn>
+                <time class="date">2017-12-14</time>
+              </li>
+              <li class="fragment highlight-blue">
+                <dfn class="doc">HTML 5.3 6th WD</dfn>
+                <time class="date">2018-10-18</time>
+              </li>
+            </ol>
+          </section>
+        </section>
+
+        <!-- Section: Brainfficial -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/index.html?tocChanges=true&active=change-link" class="stretch"></iframe>
+          </section>
+          <section data-background-image="./images/screenshot_20180529-200032.jpg"
+            data-background-position="left bottom"
+            data-background-repeat="no-repeat">
+          </section>
+          <section>
+            <img src="./images/block-in-a.jpg" alt="" class="stretch">
+          </section>
+          <section data-background-image="./images/SR53380842_w1280_h720.png"
+            data-background-position="center bottom"
+            data-background-repeat="no-repeat">
+          </section>
+          <section data-background-image="./images/gongsin.jpg"
+            data-background-size="cover"
+            data-background-position="center top"
+            data-background-repeat="no-repeat">
+            <div class="caption-no-read">
+              <p>
+                명세를 안읽어요
+              </p>
+              <p>
+                안 읽는다구요
+              </p>
+            </div>
+          </section>
+          <section data-background-image="./images/nwefficial.jpg"
+            data-background-size="100% auto"
+            data-background-position="center top"
+            data-background-repeat="no-repeat">
+          </section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html#changes" class="stretch"></iframe>
+          </section>
+        </section>
+
+        <!-- Section: Vaild Rule  -->
+        <section>
+          <iframe data-src="./specs/html52-rec/changes.html#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+        </section>
+
+        <!-- Section: style within the body. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=valid-01#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+          </section>
+          <section>
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/document-metadata.html?active=style-in-head-restrict#style-contexts-in-which" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/document-metadata.html#style-contexts-in-which" class="column-2"></iframe>
+            </div>
+          </section>
+          <section>
+            Quiz 1.
+            <pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html lang="ko">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;p>
+    &lt;style>
+      a {color: #fff;}
+    &lt;/style>
+  &lt;/p>
+&lt;/body>
+&lt;/html></code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz1.png" alt="" class="stretch">
+          </section>
+          <section>
+            Quiz 2.
+            <pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html lang="ko">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;style>
+    header {
+      height: 500px;
+      background: #ff0;
+    }
+  &lt;/style>
+  &lt;header>
+    헤더
+  &lt;/header>
+&lt;/body>
+&lt;/html></code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz2.png" alt="" class="stretch">
+          </section>
+          <section>
+            Quiz 3.
+            <pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html lang="ko">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;a href="#">
+    링크
+    &lt;style>
+      a {color: #fff;}
+    &lt;/style>
+  &lt;/a>
+&lt;/body>
+&lt;/html></code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz3.png" alt="" class="stretch">
+          </section>
+          <section id="rel-ref-1">
+            <iframe data-src="https://html.spec.whatwg.org/multipage/semantics.html#the-style-element" class="stretch"></iframe>
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/544" target="_blank">1. make &lt;style> in &lt;body> conforming - W3C</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/issues/1605" target="_blank">2. style tag should be allowed in body - WHATWG</a>
+              </dd>
+            </dl>
+          </section>
+          <section>
+            <img src="./images/quiz3-whatwg.png" alt="" class="stretch">
+          </section>
+          <section>
+            <iframe data-src="./specs/html52-rec/document-metadata.html#style-note" class="stretch"></iframe>
+          </section>
+        </section>
+
+        <!-- Section: Multiple main elements in the DOM, so long as only one is visible to the user. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=valid-02#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+          </section>
+          <section>
+            Quiz 4.
+            <pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html lang="ko">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;main>메인1&lt;/main>
+  &lt;main style="display:none">메인2&lt;/main>
+&lt;/body>
+&lt;/html></code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz4.png" alt="" class="stretch">
+          </section>
+          <section>
+            <iframe data-src="./specs/html52-rec/grouping-content.html#just-one-visible-main" class="stretch"></iframe>
+          </section>
+        </section>
+
+        <!-- Section: The presentation for the img element. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=valid-03#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+          </section>
+          <section>
+            <iframe data-src="./specs/html52-pr/changes.html?active=presentaion-role-img#changes-wd5" class="stretch"></iframe>
+          </section>
+          <section id="rel-ref-2">
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/semantics-embedded-content.html#img-allowed-role" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/semantics-embedded-content.html#img-allowed-role" class="column-2"></iframe>
+            </div>
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/812" taget="_blank">3. Allow role="none" on img with alt=""</a>
+              </dd>
+            </dl>
+          </section>
+        </section>
+
+        <!-- Section: div as a child of a dl element. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=valid-04#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+          </section>
+          <section>
+            Quiz 5.
+            <pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html lang="ko">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;dl>
+    &lt;div>
+      &lt;dt>term&lt;/dt>
+      &lt;dd>description&lt;/dd>
+    &lt;/div>
+  &lt;/dl>
+&lt;/body>
+&lt;/html></code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz5.png" alt="" class="stretch">
+          </section>
+          <section>
+            Quiz 6.
+            <pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html lang="ko">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;dl>
+    &lt;div>
+      &lt;dt>term 1&lt;/dt>
+      &lt;dd>descript 1&lt;/dd>
+    &lt;/div>
+    &lt;dt>term 2&lt;/dt>
+    &lt;dd>descript 2&lt;/dd>
+  &lt;/dl>
+&lt;/body>
+&lt;/html></code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz6.png" alt="" class="stretch">
+          </section>
+          <section id="rel-ref-3">
+            <iframe data-src="./specs/html52-rec/grouping-content.html#dl-content-model" class="stretch"></iframe>
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/issues/2069" target="_blank">4. Proposal: Introduce &lt;g> element</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/issues/1937" target="_blank">5. Reconsider FAQ: &lt;di>, &lt;div> or &lt;li> wrapping &lt;dt> and &lt;dd></a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/pull/1945" target="_blank">6. Allow &lt;div> around each &lt;dt>&lt;dd> group in &lt;dl></a>
+              </dd>
+            </dl>
+          </section>
+          <section>
+            Quiz 7.
+            <pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html lang="ko">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;dl>
+    &lt;div>
+      &lt;dt>term 1&lt;/dt>
+    &lt;/div>
+    &lt;div>
+      &lt;dd>descript 1&lt;/dd>
+    &lt;/div>
+  &lt;/dl>
+&lt;/body>
+&lt;/html></code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz7.png" alt="" class="stretch">
+          </section>
+          <section>
+            <iframe data-src="./specs/html52-rec/grouping-content.html?active=div-element-context#the-div-element" class="stretch"></iframe>
+          </section>
+        </section>
+
+        <!-- Section: dfn as a descendent of an li element that contains a definition of the term defined. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=valid-05#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+          </section>
+          <section id="rel-ref-4">
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/textlevel-semantics.html#dfn-element-describe" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/textlevel-semantics.html#dfn-element-describe" class="column-2"></iframe>
+            </div>
+            <!-- <img src="./images/dfn-describe.png" alt="" class="stretch"> -->
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/539" target="_blank">7. allow &lt;dfn> ancestor to include &lt;li></a>
+              </dd>
+            </dl>
+          </section>
+          <section>
+            Quiz 8.
+            <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;dfn&gt;banana&lt;/dfn&gt; is a long, curved fruit with a yellow skin.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz8.png" alt="" class="stretch">
+          </section>
+          <section>
+            Quiz 9.
+            <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;dfn&gt;banana&lt;/dfn&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </section>
+          <section>
+            <img src="./images/quiz9.png" alt="" class="stretch">
+          </section>
+          <section>
+            <iframe data-src="./specs/html52-rec/textlevel-semantics.html#dfn-element-describe" class="stretch"></iframe>
+          </section>
+          <section>
+            <iframe data-src="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-dfn-element" class="stretch"></iframe>
+          </section>
+        </section>
+
+        <!-- Section: Headings within legend in a fieldset. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=valid-06#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+          </section>
+          <section id="rel-ref-5">
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/sec-forms.html#legend-content-model" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/sec-forms.html#legend-content-model" class="column-2"></iframe>
+            </div>
+            <!-- <img src="./images/legend-element.png" alt="" class="stretch"> -->
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/724" target="_blank">8. Consider adding headings to allowed content in `&lt;legend>` element</a>
+              </dd>
+            </dl>
+          </section>
+          <section>
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html52-rec/sec-forms.html#legend-describe" class="column-2"></iframe>
+              <iframe data-src="./specs/html53/sec-forms.html#legend-describe" class="column-2"></iframe>
+            </div>
+            <!-- <img src="./images/legend-element-53.png" alt="" class="stretch"> -->
+          </section>
+        </section>
+
+        <!-- Section: Empty option element as a child of datalist. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=valid-07#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+          </section>
+          <section>
+            <iframe data-src="./specs/html52-pr/changes.html?active=label-less-option#changes-wd1" class="stretch"></iframe>
+          </section>
+          <section id="rel-ref-6">
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/sec-forms.html?active=option-content-model#the-option-element" class="column-2"></iframe>
+              <iframe data-src="./specs/html512-rec/sec-forms.html?#example-4607c128" class="column-2"></iframe>
+            </div>
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/pull/812" target="_blank">9. Fix label-less empty-option examples</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/pull/815" taget="_blank">10. Make label-less empty option OK if datalist child</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/pull/567" taget="_blank">11. Integrate to get in sync with whatwg</a>
+              </dd>
+            </dl>
+          </section>
+          <section>
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/sec-forms.html?active=option-content-model#the-option-element" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/sec-forms.html#option-content-model" class="column-2"></iframe>
+            </div>
+          </section>
+        </section>
+
+        <!-- Section: Comments containing two consecutive hyphens, or ending with a hyphen, in the HTML syntax. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=valid-08#the-following-constructions-are-now-valid-html" class="stretch"></iframe>
+          </section>
+          <section>
+            Quiz 10.
+            <pre><code class="language-markup">  &lt;!-- start .foo -->
+  &lt;div class="foo">
+    ....
+  &lt;/div>
+
+  &lt;!-- start .foo__bar--baz -->
+  &lt;div class="foo__bar--baz">
+    ...
+  &lt;/div>
+
+  &lt;!----------------------->
+  &lt;div class="bar">
+    ...
+  &lt;/div></code></pre>
+          </section>
+          <section id="rel-ref-7">
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/syntax.html?active=comment-restrict-change#sec-comments" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/syntax.html#comments" class="column-2"></iframe>
+            </div>
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/pull/1356" target="_blank">12. Allow dashes in comments</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/issues/1351" target="_blank">13. Remove parse error for dashes in comments &lt;!-- -- --></a>
+              </dd>
+            </dl>
+          </section>
+          <section>
+            <pre><code class="language-markup">&lt;!---------------------------&gt;
+&lt;div class="foo"&gt;
+  ....
+&lt;/div&gt;
+&lt;!---------------------------&gt;
+
+&lt;!-- start .foo__bar--baz --&gt;
+&lt;div class="foo__bar--baz"&gt;
+  ...
+&lt;/div&gt;
+&lt;!-- end .foo__bar--baz --&gt;</code></pre>
+          </section>
+          <section>
+            <img src="./images/allow-dashes-in-comments-validate.png" alt="" class="stretch">
+          </section>
+        </section>
+
+        <!-- Section: No Longer Valid. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html#the-following-constructions-are-no-longer-valid-html" class="stretch"></iframe>
+          </section>
+        </section>
+
+        <!-- Section: role values for a caption element. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=non-valid-01#the-following-constructions-are-no-longer-valid-html" class="stretch"></iframe>
+          </section>
+          <section id="rel-ref-8">
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/tabular-data.html?active=caption-element-role#the-caption-element" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/tabular-data.html?active=caption-element-role#the-caption-element" class="column-2"></iframe>
+            </div>
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/272" target="_blank">&lt;caption> can take any role; make this more specific</a>
+              </dd>
+            </dl>
+          </section>
+        </section>
+
+        <!-- Section: Inline blocks, inline tables, or floated and positioned block-level elements as children of a p element. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=non-valid-02#the-following-constructions-are-no-longer-valid-html" class="stretch"></iframe>
+          </section>
+          <section id="rel-ref-9">
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/grouping-content.html?#example-a71f5c4c" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/grouping-content.html?active=p-element-restrict#example-a71f5c4c" class="column-2"></iframe>
+            </div>
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/763" target="_blank">&lt;p> vs. inline tables/blocks and floats</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/838" target="_blank">Added wording to clarify retrictions on children of p elements.</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/1112" target="_blank">Confusing statement regarding the content model of &lt;p> in the "Changes" section in HTML5.2</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/pull/1113" target="_blank">Update paragraph description</a>
+              </dd>
+            </dl>
+          </section>
+        </section>
+
+        <!-- Section: Content with the HTML4 or XHTML1 strict doctype. -->
+        <section>
+          <section>
+            <iframe data-src="./specs/html52-rec/changes.html?active=non-valid-03#the-following-constructions-are-no-longer-valid-html" class="stretch"></iframe>
+          </section>
+          <section id="rel-ref-10">
+            <div class="stretch flexbox">
+              <iframe data-src="./specs/html512-rec/syntax.html#doctype-strict" class="column-2"></iframe>
+              <iframe data-src="./specs/html52-rec/syntax.html#doctype-strict" class="column-2"></iframe>
+            </div>
+            <dl class="ref-links">
+              <dt><button type="button" aria-expanded="false" aria-haspopup="true">Reference</button></dt>
+              <dd class="ref-link">
+                <a href="https://github.com/whatwg/html/pull/2048" target="_blank">Make HTML4/XHTML1 Strict doctypes non-conforming - WHATWG</a>
+              </dd>
+              <dd class="ref-link">
+                <a href="https://github.com/w3c/html/issues/729" target="_blank">Make HTML4/XHTML1 Strict doctypes non-conforming - W3C</a>
+              </dd>
+            </dl>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-image="./images/3869606_700bwp.webp"
+            data-background-size="cover"
+            data-background-position="left top"
+            data-background-repeat="no-repeat">
+          </section>
+        </section>
+
+        <section data-background-image="./images/modo-dol-i.jpg"
+          data-background-size="cover"
+          data-background-position="center bottom"
+          data-background-repeat="no-repeat">
+          <audio data-autoplay data-src="./lib/audio/not-end.mp3"></audio>
+        </section>
+
+        <section>
+          <section data-background-image="./images/healingcamp.jpg"
+          data-background-size="cover"
+          data-background-position="center bottom"
+          data-background-repeat="no-repeat">
+          </section>
+          <section>
+            <iframe data-src="./github/errata-example.html" class="stretch"></iframe>
+          </section>
+          <section>
+            <iframe data-src="./github/issue-w3c.html" class="stretch"></iframe>
+          </section>
+          <section>
+            <iframe data-src="./specs/html52-rec/acknowledgements.html#acknowledgements5.2" class="stretch"></iframe>
+          </section>
+        </section>
+
+        <section class="hash-tags">
+          <span>#렬루_진짜_최종.slide</span>
+          <span>#질문은_손_머리_위로_푸쳐핸썹</span>
+          <span>#질문_부끄부끄하면_뒤풀이가서_물어보세요</span>
+          <span>#해치지않아요</span>
+        </section>
+
+        <!-- appendix -->
+        <section class="refereces">
+          <section>
+            <h2>
+              References
+            </h2>
+          </section>
+          <section id="ref-1">
+            <h3 class="heading5"><a href="#/rel-ref-1">&lt;style> within the &lt;body>.</a></h3>
+            <ol>
+              <li>
+                <a href="https://github.com/w3c/html/issues/544" target="_blank">make &lt;style> in &lt;body> conforming - W3C</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/issues/1605" target="_blank">style tag should be allowed in body - WHATWG</a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-2">
+            <h3 class="heading5"><a href="#/rel-ref-2">The presentation for the &lt;img> element.</a></h3>
+            <ol start="3">
+              <li>
+                <a href="https://github.com/w3c/html/issues/812" target="_blank">Allow role="none" on img with alt=""</a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-3">
+            <h3 class="heading5"><a href="#/rel-ref-3">&lt;div> as a child of a &lt;dl> element.</a></h3>
+            <ol start="4">
+              <li>
+                <a href="https://github.com/whatwg/html/issues/2069" target="_blank">Proposal: Introduce &lt;g> element</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/issues/1937" target="_blank"> Reconsider FAQ: &lt;di>, &lt;div> or &lt;li> wrapping &lt;dt> and &lt;dd></a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/pull/1945" target="_blank"> Allow &lt;div> around each &lt;dt>&lt;dd> group in &lt;dl></a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-4">
+            <h3 class="heading5"><a href="#/rel-ref-4">&lt;dfn> as a descendent of an &lt;li> element that contains a definition of the term defined.</a></h3>
+            <ol start="7">
+              <li>
+                <a href="https://github.com/w3c/html/issues/539" target="_blank">allow &lt;dfn> ancestor to include &lt;li></a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-5">
+            <h3 class="heading5"><a href="#/rel-ref-5">Headings within &lt;legend> in a &lt;fieldset>.</a></h3>
+            <ol start="8">
+              <li>
+                <a href="https://github.com/w3c/html/issues/724" target="_blank">Consider adding headings to allowed content in `&lt;legend>` element</a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-6">
+            <h3 class="heading5"><a href="#/rel-ref-6">Empty &lt;option> element as a child of &lt;atalist></a></h3>
+            <ol start="9">
+              <li>
+                <a href="https://github.com/whatwg/html/pull/812" target="_blank">Fix label-less empty-option examples</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/pull/815" target="_blank">Make label-less empty option OK if datalist child</a>
+              </li>
+              <li>
+                <a href="https://github.com/w3c/html/pull/567" target="_blank">Integrate to get in sync with whatwg</a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-7">
+            <h3 class="heading5">
+              <a href="#/rel-ref-7">Comments containing two consecutive hyphens, or ending with a hyphen, in the HTML syntax.</a>
+            </h3>
+            <ol start="12">
+              <li>
+                <a href="https://github.com/whatwg/html/pull/1356" target="_blank">Allow dashes in comments</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/issues/1351" target="_blank">Remove parse error for dashes in comments &lt;!-- -- --></a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-8">
+            <h3 class="heading5">
+              <a href="#/rel-ref-8">role values for a &lt;caption> element.</a>
+            </h3>
+            <ol start="14">
+              <li>
+                <a href="https://github.com/w3c/html/issues/272" target="_blank">&lt;caption> can take any role; make this more specific</a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-9">
+            <h3 class="heading5">
+              <a href="#/rel-ref-9">Inline blocks, inline tables, or floated and positioned block-level elements as children of a p element.</a>
+            </h3>
+            <ol start="15">
+              <li>
+                <a href="https://github.com/w3c/html/issues/763" target="_blank">&lt;p> vs. inline tables/blocks and floats</a>
+              </li>
+              <li>
+                <a href="https://github.com/w3c/html/issues/838" target="_blank">Alied wording to clarify retrictions on children of p elements.</a>
+              </li>
+              <li>
+                <a href="https://github.com/w3c/html/issues/1112" target="_blank">Confusing statement regarding the content model of &lt;p> in the "Changes" section in HTML5.2</a>
+              </li>
+              <li>
+                <a href="https://github.com/w3c/html/pull/1113" target="_blank">Update paragraph description</a>
+              </li>
+            </ol>
+          </section>
+          <section id="ref-10">
+            <h3 class="heading5">
+              <a href="#/rel-ref-10">Content with the HTML4 or XHTML1 strict doctype.</a>
+            </h3>
+            <ol start="19">
+              <li>
+                <a href="https://github.com/whatwg/html/pull/2048" target="_blank">Make HTML4/XHTML1 Strict doctypes non-conforming - WHATWG</a>
+              </li>
+              <li>
+                <a href="https://github.com/w3c/html/issues/729" target="_blank">Make HTML4/XHTML1 Strict doctypes non-conforming - W3C</a>
+              </li>
+            </ol>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <script>
+      Reveal.initialize({
+        width: window.innerWidth * 0.96,
+	      height: window.innerHeight * 0.96,
+        keyboard: {
+          40 : function(){
+            Reveal.next();
+          },
+          38 : function(){
+            Reveal.prev();
+          }
+        },
+        dependencies: [
+          { src: './plugin/markdown/marked.js' },
+          { src: './plugin/markdown/markdown.js' },
+          { src: './plugin/notes/notes.js', async: true },
+          { src: './plugin/prismjs/prism.min.js'},
+          { src: '/socket.io/socket.io.js', async: true},
+          { src: './plugin/notes-server/client.js', async: true}
+        ],
+      });
+
+      Reveal.addEventListener('ready', event => {
+        const refs = Array.from(document.querySelectorAll('.ref-links'));
+        refs.forEach(node => {
+          const btn = node.querySelector('button');
+          if(!btn) return;
+
+          btn.addEventListener('click', event => {
+            event = event || window.event;
+            const {target, srcElement} = event;
+            const el = target || srcElement;
+            const container = el.parentElement.parentElement;
+            if(container.classList.contains('open')) {
+              container.classList.remove('open');
+            } else {
+              container.classList.add('open');
+            }
+          }, false);
+        });
+
+      }, false);
+    </script>
+  </body>
+</html>
