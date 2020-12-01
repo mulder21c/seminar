@@ -38,6 +38,10 @@
 
 - [HTML 5.2 Changes 톺아보기](https://mulder21c.github.io/seminar/20181124) - 하드코딩하는사람들 2018 하반기 세미나
 
+## 2020년 발표 자료
+
+- [WAI-ARIA 102 — ARIA 사용 이유와 주의해야 할 점](https://mulder21c.github.io/seminar/20201120) - 2020 정보접근성기술 컨퍼런스
+
 ## Q&A
 
   발표 내용 및 발표 자료에 관한 질문 사항들은 [issues](https://github.com/mulder21c/seminar/issues)에 남겨주세요.
